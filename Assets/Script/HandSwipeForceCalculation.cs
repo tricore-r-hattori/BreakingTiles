@@ -95,7 +95,7 @@ public class HandSwipeForceCalculation : MonoBehaviour
             // 速度を計算
             speed = distance / (seconds * seconds);
 
-            Debug.Log(speed);
+            //Debug.Log(speed);
         }
     }
 
