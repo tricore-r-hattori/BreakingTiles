@@ -21,6 +21,14 @@ public class HandSwipeForceCalculation : MonoBehaviour
     [SerializeField]
     int getPositionTime = 60;
 
+    // 手の座標の補正値
+    [SerializeField]
+    float correctionHandPositionsY = 1.3f;
+
+    // 瓦の座標の補正値
+    [SerializeField]
+    float correctionTilePositionsY = 0.7f;
+
     // 手の座標
     Vector3 handPos = Vector3.zero;
     // 瓦の座標
@@ -38,21 +46,18 @@ public class HandSwipeForceCalculation : MonoBehaviour
     // フレームのカウント
     int frameCount = 0;
 
-    // 手の座標の補正値
-    const float correctionHandPositionsY = 1.3f;
-    // 瓦の座標の補正値
-    const float correctionTilePositionsY = 0.7f;
     // フレームから秒に変える値
-    const float frameToSeconds = 60.0f;
+    const float FrameToSeconds = 60.0f;
 
     /// <summary>
     /// 初期化処理
     /// </summary>
     void Start()
     {
-        // 瓦の座標を仮に設定
+        // 瓦の座標を設定
         tilePos = tileTransform.position;
-        // 瓦のY軸補正
+        // 瓦のY軸を仮の値で補正
+        // TODO: 瓦の当たり判定を追加し、後に補正値を調整します。
         tilePos.y += correctionTilePositionsY;
     }
 
@@ -68,7 +73,8 @@ public class HandSwipeForceCalculation : MonoBehaviour
         {
             // 手の座標を取得
             handPos = handTransform.position;
-            // 手のY軸補正
+            // 手のY軸を仮の値で補正
+            // TODO: 瓦の当たり判定を追加し、後に補正値を調整します。
             handPos.y -= correctionHandPositionsY;
 
             // フレームのカウントを初期化
@@ -84,10 +90,12 @@ public class HandSwipeForceCalculation : MonoBehaviour
             distance = Mathf.Abs(Vector3.SqrMagnitude(handPos - tilePos));
 
             // フレームから秒の値に変換
-            seconds = (getPositionTime / frameToSeconds);
+            seconds = (getPositionTime / FrameToSeconds);
 
             // 速度を計算
             speed = distance / (seconds * seconds);
+
+            Debug.Log(speed);
         }
     }
 

@@ -6,15 +6,16 @@ using System.Collections;
 /// </summary>
 public class PositionSynchronizeObject : MonoBehaviour
 {
+    // マウスの座標の補正値
+    [SerializeField]
+    float correctionHandPositionsZ = 10.0f;
+
     // マウスのスクリーン座標
     Vector3 mouseScreenPosition = Vector3.zero;
     // スクリーン座標をワールド座標に変換したマウスの座標
     Vector3 screenToWorldMousePosition = Vector3.zero;
     // マウスを左クリックした際にプレイヤーと当たったかどうかのフラグ
     bool playerToHit = false;
-    
-    // マウスの座標の補正値
-    const float correctionHandPositionsY = 10.0f;
     
     /// <summary>
     /// 更新処理
@@ -37,7 +38,7 @@ public class PositionSynchronizeObject : MonoBehaviour
                 // マウスの座標を取得する
                 mouseScreenPosition = Input.mousePosition;
                 // マウスのZ軸補正
-                mouseScreenPosition.z = correctionHandPositionsY;
+                mouseScreenPosition.z = correctionHandPositionsZ;
                 // マウスの座標をスクリーン座標からワールド座標に変換する
                 screenToWorldMousePosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
                 // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
