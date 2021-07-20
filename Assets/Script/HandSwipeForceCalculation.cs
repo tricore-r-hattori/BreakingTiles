@@ -87,7 +87,7 @@ public class HandSwipeForceCalculation : MonoBehaviour
             seconds = (getPositionTime / frameToSeconds);
 
             // 速度を計算
-            speed = distance / seconds * seconds;
+            speed = distance / (seconds * seconds);
         }
     }
 
