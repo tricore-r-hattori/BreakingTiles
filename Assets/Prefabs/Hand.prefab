@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handTransform: {fileID: 0}
   tileTransform: {fileID: 0}
+  getPositionTime: 30
