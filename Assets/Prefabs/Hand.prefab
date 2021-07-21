@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 7965921613729211562}
   - component: {fileID: 901148322206837192}
   - component: {fileID: 6824472366733402128}
-  - component: {fileID: 2451091478952012287}
   - component: {fileID: 6746449704690437229}
   m_Layer: 5
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,23 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bbc9fa506ff3349989de9a58df7e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handTransform: {fileID: 0}
+  handTransform: {fileID: 2259788089529431923}
   tileTransform: {fileID: 0}
+  correctionHandPositionsY: 0.7
+  correctionTilePositionsY: 6.6
   getPositionTime: 30
-  correctionHandPositionsY: 1.3
-  correctionTilePositionsY: 0.7
---- !u!114 &2451091478952012287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202226084652151089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70e507ebffb63e4dbd4c6e6ff8c818f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6746449704690437229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8cd2a6f5e356a4db43438c94283344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
   hand: {fileID: 2259788089529431923}
+  handSwipeForce: {fileID: 6824472366733402128}
+  scrollSpeedY: 100
+  speedDeceleration: 0.99
+  scrollStop: 0.5

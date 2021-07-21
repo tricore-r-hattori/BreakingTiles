@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e6d9986b5ab0847aa3fcba248258f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 4205874150040563183}
-  imageTransform: {fileID: 0}
-  sprite: {fileID: 21300000, guid: cb7f9d57a92ddd240a900613887b822e, type: 3}
+  tileImage: {fileID: 4205874150040563183}
+  imageTransform: {fileID: 4205874150040563180}
+  tileSprite: {fileID: 21300000, guid: cb7f9d57a92ddd240a900613887b822e, type: 3}
+  breakTileSprite: {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}

@@ -17,17 +17,17 @@ public class HandSwipeForceCalculation : MonoBehaviour
     [SerializeField]
     RectTransform tileTransform = default;
 
-    // 座標を取得するタイミング(フレーム)
-    [SerializeField]
-    int getPositionTime = 60;
-
     // 手の座標の補正値
     [SerializeField]
-    float correctionHandPositionsY = 1.3f;
+    float correctionHandPositionsY = 0.7f;
 
     // 瓦の座標の補正値
     [SerializeField]
-    float correctionTilePositionsY = 0.7f;
+    float correctionTilePositionsY = 6.6f;
+
+    // 座標を取得するタイミング(フレーム)
+    [SerializeField]
+    int getPositionTime = 60;
 
     // 手の座標
     Vector3 handPos = Vector3.zero;
@@ -50,15 +50,29 @@ public class HandSwipeForceCalculation : MonoBehaviour
     const float FrameToSeconds = 60.0f;
 
     /// <summary>
-    /// 初期化処理
+    /// 速度を取得するゲッター
     /// </summary>
-    void Start()
+    public float GetSpeed { get { return speed; } }
+
+    /// <summary>
+    /// 2Dオブジェクト同士が重なった瞬間に呼び出される
+    /// </summary>
+    /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
+    void OnTriggerEnter2D(Collider2D other)
     {
         // 瓦の座標を設定
         tilePos = tileTransform.position;
-        // 瓦のY軸を仮の値で補正
-        // TODO: 瓦の当たり判定を追加し、後に補正値を調整します。
+        // 瓦のY軸を補正
         tilePos.y += correctionTilePositionsY;
+
+        // スワイプした距離を計算
+        distance = Mathf.Abs(Vector3.SqrMagnitude(handPos - tilePos));
+
+        // フレームから秒の値に変換
+        seconds = (getPositionTime / FrameToSeconds);
+
+        // 速度を計算
+        speed = distance / (seconds * seconds);
     }
 
     /// <summary>
@@ -73,34 +87,16 @@ public class HandSwipeForceCalculation : MonoBehaviour
         {
             // 手の座標を取得
             handPos = handTransform.position;
-            // 手のY軸を仮の値で補正
-            // TODO: 瓦の当たり判定を追加し、後に補正値を調整します。
+            // 手のY軸を補正
             handPos.y -= correctionHandPositionsY;
 
             // フレームのカウントを初期化
             frameCount = 0;
         }
-
-        // マウスの左ボタンを離した時
-        // NOTE: 瓦との当たり判定を取っていないので、ここの条件式は一旦仮でマウスの左ボタンを離した時に処理を行うようにしています。
-        //       本来は瓦と当たった時のフラグを条件式にします。
-        if (Input.GetMouseButtonUp(0))
-        {
-            // スワイプした距離を計算
-            distance = Mathf.Abs(Vector3.SqrMagnitude(handPos - tilePos));
-
-            // フレームから秒の値に変換
-            seconds = (getPositionTime / FrameToSeconds);
-
-            // 速度を計算
-            speed = distance / (seconds * seconds);
-
-            //Debug.Log(speed);
-        }
     }
 
     // 瓦の当たる位置によって割る力を変化させる処理
-    // TODO: 瓦との当たり判定をとっていないので瓦を割るタスクを行う際にここの処理を書きます。
+    // TODO: 瓦の特定部分との当たり判定をとっていないので、後にここの処理を書きます。
     // public void TileIsHitPower()
     // {
 
