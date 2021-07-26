@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7965921613729211562}
   - component: {fileID: 901148322206837192}
   - component: {fileID: 6824472366733402128}
-  - component: {fileID: 6746449704690437229}
+  - component: {fileID: 1732018447469410038}
+  - component: {fileID: 6542366933776877410}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Player
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d2f22705dfc8e469c5fe8ecb936177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCheck: {fileID: 0}
   correctionHandPositionsZ: 10
 --- !u!114 &6824472366733402128
 MonoBehaviour:
@@ -134,7 +136,7 @@ MonoBehaviour:
   correctionHandPositionsY: 0.7
   correctionTilePositionsY: 6.6
   getPositionTime: 30
---- !u!114 &6746449704690437229
+--- !u!114 &1732018447469410038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +145,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3202226084652151089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8cd2a6f5e356a4db43438c94283344, type: 3}
+  m_Script: {fileID: 11500000, guid: d376e81c4ad13cc4aa71c1e2ceb8de08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 2259788089529431923}
   handSwipeForce: {fileID: 6824472366733402128}
+  scrollSpeedY: 10
+  speedDeceleration: 0.99
+  scrollStop: 0.01
+  hand: {fileID: 2259788089529431923}
+  handScrollEndPoint: {fileID: 0}
+  hitCheck: {fileID: 0}
+--- !u!114 &6542366933776877410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202226084652151089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c5dd257b10a3a4fb4e575f09d51849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSwipeForce: {fileID: 0}
   scrollSpeedY: 100
   speedDeceleration: 0.99
-  scrollStop: 0.5
+  scrollStop: 0.01

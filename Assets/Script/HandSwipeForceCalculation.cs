@@ -36,8 +36,6 @@ public class HandSwipeForceCalculation : MonoBehaviour
 
     // スワイプした距離
     float distance = 0.0f;
-    // 速度
-    float speed = 0.0f;
     // 秒
     float seconds = 0.0f;
     // スワイプ時の力
@@ -50,9 +48,9 @@ public class HandSwipeForceCalculation : MonoBehaviour
     const float FrameToSeconds = 60.0f;
 
     /// <summary>
-    /// 速度を取得するゲッター
+    /// 速度
     /// </summary>
-    public float GetSpeed { get { return speed; } }
+    public float Speed { get; private set; } = 0.0f;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -71,8 +69,8 @@ public class HandSwipeForceCalculation : MonoBehaviour
         // フレームから秒の値に変換
         seconds = (getPositionTime / FrameToSeconds);
 
-        // 速度を計算
-        speed = distance / (seconds * seconds);
+        // 加速度を計算
+        Speed = distance / (seconds * seconds);
     }
 
     /// <summary>

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 瓦の画像を変換する処理
 /// </summary>
-public class TileChangeImage : MonoBehaviour
+public class TileImageChanger : MonoBehaviour
 {
     // 瓦の画像
     [SerializeField]
@@ -24,10 +24,9 @@ public class TileChangeImage : MonoBehaviour
     [SerializeField]
     Sprite breakTileSprite = default;
 
-    // 割れていない状態に戻す地点のY軸
-    const float TileSpriteChangePointY = 1.0f;
-    // 割れている状態に戻す地点Y軸
-    const float BreakTileSpriteChangePointY = -1.0f;
+    // 瓦の画像を変える地点
+    [SerializeField]
+    RectTransform tileSpriteChangePoint = default;
 
     /// <summary>
     /// 更新処理
@@ -35,14 +34,14 @@ public class TileChangeImage : MonoBehaviour
     void Update()
     {
         // 割れていない状態に戻す地点に到達したら画像を変換
-        if (imageTransform.position.y <= TileSpriteChangePointY)
+        if (imageTransform.position.y < tileSpriteChangePoint.position.y)
         {
             // 割れていない瓦に変換
             tileImage.sprite = tileSprite;
         }
 
         // 割れている状態に戻す地点に到達したら画像を変換
-        if (imageTransform.position.y >= BreakTileSpriteChangePointY)
+        if (imageTransform.position.y > tileSpriteChangePoint.position.y)
         {
             // 割れている瓦に変換
             tileImage.sprite = breakTileSprite;
