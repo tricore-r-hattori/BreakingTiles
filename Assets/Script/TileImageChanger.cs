@@ -15,7 +15,14 @@ public class TileImageChanger : MonoBehaviour
     // 瓦
     [SerializeField]
     RectTransform imageTransform = default;
-    
+
+    // 瓦の画像を変える地点
+    [SerializeField]
+    RectTransform tileSpriteChangePoint = default;
+
+    [SerializeField]
+    Probability probability;
+
     // 割れていない瓦の画像
     [SerializeField]
     Sprite tileSprite = default;
@@ -24,9 +31,13 @@ public class TileImageChanger : MonoBehaviour
     [SerializeField]
     Sprite breakTileSprite = default;
 
-    // 瓦の画像を変える地点
+    // 割れていないレア瓦の画像
     [SerializeField]
-    RectTransform tileSpriteChangePoint = default;
+    Sprite rareTileSprite = default;
+
+    // 割れているレア瓦の画像
+    [SerializeField]
+    Sprite breakRareTileSprite = default;
 
     /// <summary>
     /// 更新処理
@@ -34,17 +45,27 @@ public class TileImageChanger : MonoBehaviour
     void Update()
     {
         // 割れていない状態に戻す地点に到達したら画像を変換
-        if (imageTransform.position.y < tileSpriteChangePoint.position.y)
+        if (imageTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == breakTileSprite)
         {
             // 割れていない瓦に変換
             tileImage.sprite = tileSprite;
         }
 
         // 割れている状態に戻す地点に到達したら画像を変換
-        if (imageTransform.position.y > tileSpriteChangePoint.position.y)
+        if (imageTransform.position.y > tileSpriteChangePoint.position.y && tileImage.sprite == tileSprite)
         {
             // 割れている瓦に変換
             tileImage.sprite = breakTileSprite;
+        }
+
+        if (probability.IsRareTile && imageTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == breakRareTileSprite)
+        {
+            tileImage.sprite = rareTileSprite;
+        }
+
+        if (probability.IsRareTile && imageTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == rareTileSprite)
+        {
+            tileImage.sprite = breakRareTileSprite;
         }
     }
 }
