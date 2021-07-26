@@ -64,13 +64,13 @@ public class HandSwipeForceCalculation : MonoBehaviour
         tilePos.y += correctionTilePositionsY;
 
         // スワイプした距離を計算
-        distance = Mathf.Abs(Vector3.SqrMagnitude(handPos - tilePos));
+        distance = Mathf.Abs(Vector3.Distance(handPos,tilePos));
 
         // フレームから秒の値に変換
         seconds = (getPositionTime / FrameToSeconds);
 
-        // 加速度を計算
-        Speed = distance / (seconds * seconds);
+        // 速度を計算
+        Speed = distance / seconds;
     }
 
     /// <summary>
