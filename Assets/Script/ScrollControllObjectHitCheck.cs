@@ -23,7 +23,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     TileScroller tileScroller = default;
 
     /// <summary>
-    /// 
+    /// スクロールの状態
     /// </summary>
     public ScrollState State { get; private set; } = ScrollState.CannotScrolling;
 
