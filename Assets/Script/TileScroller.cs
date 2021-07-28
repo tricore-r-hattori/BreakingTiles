@@ -19,20 +19,15 @@ public class TileScroller : BaseScroller
     [SerializeField]
     RectTransform tileScrollEndPoint = default;
 
-    // 当たり判定用のオブジェクトと当たったか確認する
+    // スクロールを開始せるためのオブジェクトと当たったか確認する
     [SerializeField]
-    HitCheck hitCheck = default;
+    ScrollStartObjectHitCheck scrollStartObjecHitCheck = default;
 
     // スクロール開始座標
     Vector3 movePoint = Vector3.zero;
 
     // スクロール時のズレを補正するための変数
     float correctionPosition = 0.0f;
-
-    /// <summary>
-    /// スクロールがストップしたかのフラグ
-    /// </summary>
-    public bool isScrollStop { get; private set; } = false;
 
     /// <summary>
     /// 初期化処理
@@ -43,7 +38,7 @@ public class TileScroller : BaseScroller
         base.Init();
 
         // スクロール開始座標設定
-        movePoint = new Vector3(0.0f, tileScrollStartPoint.position.y, 0.0f);
+        movePoint = tileScrollStartPoint.position;
     }
 
     /// <summary>
@@ -51,8 +46,8 @@ public class TileScroller : BaseScroller
     /// </summary>
     void Update()
     {
-        // 当たり判定用のオブジェクトと当たったらスクロール処理を行う
-        if (hitCheck.isHit)
+        // スクロールを開始せるためのオブジェクトと当たったらスクロール処理を行う
+        if (scrollStartObjecHitCheck.isScrollStartObjectHit)
         {
             // スクロール更新処理
             base.UpdateBase();

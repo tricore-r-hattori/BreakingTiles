@@ -6,9 +6,9 @@ using System.Collections;
 /// </summary>
 public class PositionSynchronize : MonoBehaviour
 {
-    // 当たり判定用のオブジェクトと当たったか確認する
+    // スクロールを開始せるためのオブジェクトと当たったか確認する
     [SerializeField]
-    HitCheck hitCheck = default;
+    ScrollStartObjectHitCheck scrollStartObjectHitCheck = default;
 
     // マウスの座標の補正値
     [SerializeField]
@@ -26,10 +26,11 @@ public class PositionSynchronize : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 当たり判定用のオブジェクトと当たっていなかったら、マウスとの当たり判定処理を行わないようにする
-        if (!hitCheck.isHit)
+        // スクロールを開始せるためのオブジェクトと当たっていなかったら、マウスとの当たり判定処理を行わないようにする
+        if (!scrollStartObjectHitCheck.isScrollStartObjectHit)
         {
             // マウスの左ボタンを押したら
+            // TODO: 後に、タッチした時の条件に変更
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,18 +38,21 @@ public class PositionSynchronize : MonoBehaviour
             }
 
             // 対象のオブジェクトと当たったらかつマウスの左ボタンが押されている時にマウスの座標と同期する
+            // TODO: 後に、タッチしている時の条件に変更
             if (isHitPlayer && Input.GetMouseButton(0))
             {
                 // アタッチされているオブジェクトの座標をマウスの座標に設定
-                SetObjectPos();
+                // TODO: 後に、アタッチされているオブジェクトの座標をタッチした座標に設定する処理に変更
+                SetAttachObjectPositionToMousePosition();
             }
         }
     }
 
     /// <summary>
     /// アタッチされているオブジェクトの座標をマウスの座標に設定する処理
+    /// TODO: 後に、アタッチされているオブジェクトの座標をタッチした座標に設定する処理に変更
     /// </summary>
-    void SetObjectPos()
+    void SetAttachObjectPositionToMousePosition()
     {
         // マウスの座標を取得する
         mouseScreenPosition = Input.mousePosition;

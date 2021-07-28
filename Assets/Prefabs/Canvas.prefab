@@ -83,8 +83,8 @@ GameObject:
   - component: {fileID: 4298440302764987453}
   - component: {fileID: 8479940786091141883}
   m_Layer: 0
-  m_Name: HitTilePoint
-  m_TagString: Untagged
+  m_Name: ScrollStartPoint
+  m_TagString: ScrollStartPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,6 +947,11 @@ PrefabInstance:
       propertyPath: tileScrollStartPoint
       value: 
       objectReference: {fileID: 7232916987360367995}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollStartObjecHitCheck
+      value: 
+      objectReference: {fileID: 8479940786091141883}
     - target: {fileID: 7495330725295300863, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1197,6 +1202,11 @@ PrefabInstance:
       propertyPath: hitCheck
       value: 
       objectReference: {fileID: 8479940786091141883}
+    - target: {fileID: 901148322206837192, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollStartObjectHitCheck
+      value: 
+      objectReference: {fileID: 8479940786091141883}
     - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
       propertyPath: hitCheck
@@ -1207,6 +1217,11 @@ PrefabInstance:
       propertyPath: handScrollEndPoint
       value: 
       objectReference: {fileID: 6356172848272284732}
+    - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollStartObjectHitCheck
+      value: 
+      objectReference: {fileID: 8479940786091141883}
     - target: {fileID: 2259788089529431923, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1904,6 +1919,11 @@ PrefabInstance:
       propertyPath: tileScrollStartPoint
       value: 
       objectReference: {fileID: 7232916987360367995}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollStartObjecHitCheck
+      value: 
+      objectReference: {fileID: 8479940786091141883}
     - target: {fileID: 7495330725295300863, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_AnchorMax.y

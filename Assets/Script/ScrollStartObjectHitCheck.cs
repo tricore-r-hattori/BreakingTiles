@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// オブジェクトと当たったか確認する処理
+/// スクロールを開始せるためのオブジェクトと当たったか確認する処理
 /// </summary>
-public class HitCheck : MonoBehaviour
+public class ScrollStartObjectHitCheck : MonoBehaviour
 {
     // 瓦のスクロール
     [SerializeField]
     TileScroller tileScroller = default;
     
     /// <summary>
-    /// オブジェクトと当たったかのフラグ
+    /// スクロールを開始せるためのオブジェクトと当たったかのフラグ
     /// </summary>
-    public bool isHit { get; private set; } = false;
+    public bool isScrollStartObjectHit { get; private set; } = false;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -22,8 +22,12 @@ public class HitCheck : MonoBehaviour
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // オブジェクトと当たった
-        isHit = true;
+        // 手と当たったら
+        if (collision.tag == "Hand")
+        {
+            // スクロールを開始せるためのオブジェクトと当たった
+            isScrollStartObjectHit = true;
+        }
     }
 
     /// <summary>
@@ -34,7 +38,7 @@ public class HitCheck : MonoBehaviour
         // 瓦のスクロールが止まったら、それぞれの処理を止めるためにフラグを切り替える
         if (tileScroller.isScrollStop)
         {
-            isHit = false;
+            isScrollStartObjectHit = false;
         }
     }
 }
