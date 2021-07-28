@@ -27,7 +27,7 @@ public class PositionSynchronize : MonoBehaviour
     void Update()
     {
         // スクロールできない状態だったら、マウスとの当たり判定処理を行わないようにする
-        if (scrollControllObjectHitCheck.State == ScrollState.CannotScrolling)
+        if (scrollControllObjectHitCheck.State == ScrollState.UnScrolling)
         {
             // マウスの左ボタンを押したら
             // TODO: 後に、タッチした時の条件に変更

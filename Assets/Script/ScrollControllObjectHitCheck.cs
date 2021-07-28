@@ -10,7 +10,7 @@ public enum ScrollState
     // スクロールできる状態
     Scrollable,
     // スクロールできない状態
-    CannotScrolling,
+    UnScrolling,
 }
 
 /// <summary>
@@ -25,7 +25,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// <summary>
     /// スクロールの状態
     /// </summary>
-    public ScrollState State { get; private set; } = ScrollState.CannotScrolling;
+    public ScrollState State { get; private set; } = ScrollState.UnScrolling;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -50,7 +50,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
         if (tileScroller.IsScrollStop)
         {
             // スクロールできない状態にして、スクロール処理を終了する
-            State = ScrollState.CannotScrolling;
+            State = ScrollState.UnScrolling;
         }
     }
 }
