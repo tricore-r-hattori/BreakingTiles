@@ -6,9 +6,9 @@ using System.Collections;
 /// </summary>
 public class PositionSynchronize : MonoBehaviour
 {
-    // スクロールを開始せるためのオブジェクトと当たったか確認する
+    // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
-    ScrollStartObjectHitCheck scrollStartObjectHitCheck = default;
+    ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
     // マウスの座標の補正値
     [SerializeField]
@@ -26,8 +26,8 @@ public class PositionSynchronize : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // スクロールを開始せるためのオブジェクトと当たっていなかったら、マウスとの当たり判定処理を行わないようにする
-        if (!scrollStartObjectHitCheck.isScrollStartObjectHit)
+        // スクロールを操作するためのオブジェクトと当たっていなかったら、マウスとの当たり判定処理を行わないようにする
+        if (!scrollControllObjectHitCheck.IsScrollControllObjectHit)
         {
             // マウスの左ボタンを押したら
             // TODO: 後に、タッチした時の条件に変更

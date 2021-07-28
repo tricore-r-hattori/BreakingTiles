@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// スクロールを開始せるためのオブジェクトと当たったか確認する処理
+/// スクロール処理を操作するためのオブジェクトと当たったか確認する処理
 /// </summary>
-public class ScrollStartObjectHitCheck : MonoBehaviour
+public class ScrollControllObjectHitCheck : MonoBehaviour
 {
     // 瓦のスクロール
     [SerializeField]
     TileScroller tileScroller = default;
-    
+
     /// <summary>
-    /// スクロールを開始せるためのオブジェクトと当たったかのフラグ
+    /// スクロール処理を操作するためのオブジェクトと当たったかのフラグ
     /// </summary>
-    public bool isScrollStartObjectHit { get; private set; } = false;
+    public bool IsScrollControllObjectHit { get; private set; } = false;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -25,8 +25,8 @@ public class ScrollStartObjectHitCheck : MonoBehaviour
         // 手と当たったら
         if (collision.tag == "Hand")
         {
-            // スクロールを開始せるためのオブジェクトと当たった
-            isScrollStartObjectHit = true;
+            // スクロール処理を操作するためのフラグをtrueにしスクロールを開始する
+            IsScrollControllObjectHit = true;
         }
     }
 
@@ -36,9 +36,10 @@ public class ScrollStartObjectHitCheck : MonoBehaviour
     void Update()
     {
         // 瓦のスクロールが止まったら、それぞれの処理を止めるためにフラグを切り替える
-        if (tileScroller.isScrollStop)
+        if (tileScroller.IsScrollStop)
         {
-            isScrollStartObjectHit = false;
+            // スクロール処理を操作するためのフラグをfalseにしスクロールを終了する
+            IsScrollControllObjectHit = false;
         }
     }
 }

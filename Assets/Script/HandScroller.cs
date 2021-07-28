@@ -15,9 +15,9 @@ public class HandScroller : BaseScroller
     [SerializeField]
     RectTransform handScrollEndPoint = default;
 
-    // スクロールを開始せるためのオブジェクトと当たったか確認する
+    // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
-    ScrollStartObjectHitCheck scrollStartObjectHitCheck = default;
+    ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
     /// <summary>
     /// 初期化処理
@@ -32,8 +32,8 @@ public class HandScroller : BaseScroller
     /// </summary>
     void Update()
     {
-        // スクロールを開始せるためのオブジェクトと当たったらスクロール処理を行う
-        if (scrollStartObjectHitCheck.isScrollStartObjectHit)
+        // スクロールを操作するためのオブジェクトと当たったらスクロール処理を行う
+        if (scrollControllObjectHitCheck.IsScrollControllObjectHit)
         {
             base.UpdateBase();
 

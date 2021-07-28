@@ -32,7 +32,7 @@ public class BaseScroller : MonoBehaviour
     /// <summary>
     /// スクロールがストップしたかのフラグ
     /// </summary>
-    public bool isScrollStop { get; private set; } = false;
+    public bool IsScrollStop { get; private set; } = false;
 
     /// <summary>
     /// スクロール初期化処理
@@ -41,7 +41,7 @@ public class BaseScroller : MonoBehaviour
     {
         isProcessOnce = true;
 
-        isScrollStop = false;
+        IsScrollStop = false;
 
         velocity = Vector3.zero;
     }
@@ -68,7 +68,7 @@ public class BaseScroller : MonoBehaviour
         // スクロールを止める
         if (velocity.y <= scrollStop)
         {
-            isScrollStop = true;
+            IsScrollStop = true;
             velocity.y = 0.0f;
         }
     }

@@ -19,9 +19,9 @@ public class TileScroller : BaseScroller
     [SerializeField]
     RectTransform tileScrollEndPoint = default;
 
-    // スクロールを開始せるためのオブジェクトと当たったか確認する
+    // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
-    ScrollStartObjectHitCheck scrollStartObjecHitCheck = default;
+    ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
     // スクロール開始座標
     Vector3 movePoint = Vector3.zero;
@@ -46,8 +46,8 @@ public class TileScroller : BaseScroller
     /// </summary>
     void Update()
     {
-        // スクロールを開始せるためのオブジェクトと当たったらスクロール処理を行う
-        if (scrollStartObjecHitCheck.isScrollStartObjectHit)
+        // スクロールを操作するためのオブジェクトと当たったらスクロール処理を行う
+        if (scrollControllObjectHitCheck.IsScrollControllObjectHit)
         {
             // スクロール更新処理
             base.UpdateBase();

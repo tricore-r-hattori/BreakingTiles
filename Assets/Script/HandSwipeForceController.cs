@@ -59,7 +59,7 @@ public class HandSwipeForceController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // スクロールを開始せるためのオブジェクトと当たったら
-        if (collision.tag == "ScrollStartPoint")
+        if (collision.tag == "ScrollControllPoint")
         {
             // 瓦の座標を設定
             tilePos = tileTransform.position;
