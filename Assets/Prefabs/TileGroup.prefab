@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1799174227321023583}
   - component: {fileID: 7297416090233512174}
   - component: {fileID: 3971545907739737143}
-  - component: {fileID: 9028067708145906069}
   m_Layer: 5
   m_Name: TileGroup
   m_TagString: Tile
@@ -109,7 +108,7 @@ MonoBehaviour:
   tile: {fileID: 5887377531506944334}
   tileScrollStartPoint: {fileID: 0}
   tileScrollEndPoint: {fileID: 0}
-  hitCheck: {fileID: 0}
+  scrollControllObjectHitCheck: {fileID: 0}
 --- !u!114 &3971545907739737143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,18 +125,6 @@ MonoBehaviour:
   scrollSpeedY: 100
   speedDeceleration: 0.99
   scrollStop: 0.01
---- !u!114 &9028067708145906069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117730148814669370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e830dacdeef96b34eaf37961b817f6d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &146708279637068902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,12 +246,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4059839098079814026 stripped
@@ -394,12 +386,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4086582466130620579 stripped
@@ -529,12 +526,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4510473779717093934 stripped
@@ -664,12 +666,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &3549857334537735254 stripped
@@ -799,12 +806,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &3800344358751764127 stripped
@@ -934,12 +946,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &2548000883976869244 stripped
@@ -1069,12 +1086,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &1965133173315907385 stripped
@@ -1204,12 +1226,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &2011335294241438706 stripped
@@ -1339,12 +1366,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &1862258605071899220 stripped
@@ -1474,12 +1506,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &1859791856328985197 stripped
@@ -1609,12 +1646,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &833649281909743757 stripped
@@ -1744,12 +1786,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &1051020579654332249 stripped
@@ -1879,12 +1926,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &8868777197227140804 stripped
@@ -2014,12 +2066,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &9085879790163847219 stripped
@@ -2149,12 +2206,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &7800507177953592790 stripped
@@ -2284,12 +2346,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &7148390251224597281 stripped
@@ -2419,12 +2486,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &7037095984771629114 stripped
@@ -2554,12 +2626,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &7262263889172237895 stripped
@@ -2689,12 +2766,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &6753157323493848080 stripped
@@ -2824,12 +2906,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &6751727606504866473 stripped
@@ -2959,12 +3046,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &5766761067129730214 stripped
@@ -3094,12 +3186,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &6243245750326554583 stripped
@@ -3229,12 +3326,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &6083657957500234496 stripped
@@ -3364,12 +3466,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4812118088370331904 stripped
@@ -3499,12 +3606,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4657308969118799710 stripped
@@ -3634,12 +3746,17 @@ PrefabInstance:
         type: 3}
       propertyPath: probability
       value: 
-      objectReference: {fileID: 9028067708145906069}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
+        type: 3}
+      propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
         type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
-      objectReference: {fileID: 5887377531506944334}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &4735721317311207155 stripped
