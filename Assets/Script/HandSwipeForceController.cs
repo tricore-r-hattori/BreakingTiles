@@ -5,9 +5,9 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 /// <summary>
-/// スワイプ時の力の計算
+/// スワイプ時の力を操るためのクラス
 /// </summary>
-public class HandSwipeForceCalculation : MonoBehaviour
+public class HandSwipeForceController : MonoBehaviour
 {
     // 手
     [SerializeField]
@@ -56,21 +56,25 @@ public class HandSwipeForceCalculation : MonoBehaviour
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        // 瓦の座標を設定
-        tilePos = tileTransform.position;
-        // 瓦のY軸を補正
-        tilePos.y += correctionTilePositionsY;
+        // スクロールを開始せるためのオブジェクトと当たったら
+        if (collision.tag == "ScrollControllPoint")
+        {
+            // 瓦の座標を設定
+            tilePos = tileTransform.position;
+            // 瓦のY軸を補正
+            tilePos.y += correctionTilePositionsY;
 
-        // スワイプした距離を計算
-        distance = Mathf.Abs(Vector3.SqrMagnitude(handPos - tilePos));
+            // スワイプした距離を計算
+            distance = Mathf.Abs(Vector3.Distance(handPos, tilePos));
 
-        // フレームから秒の値に変換
-        seconds = (getPositionTime / FrameToSeconds);
+            // フレームから秒の値に変換
+            seconds = (getPositionTime / FrameToSeconds);
 
-        // 加速度を計算
-        Speed = distance / (seconds * seconds);
+            // 速度を計算
+            Speed = distance / seconds;
+        }
     }
 
     /// <summary>

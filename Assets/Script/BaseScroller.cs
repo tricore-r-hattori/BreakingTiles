@@ -9,7 +9,7 @@ public class BaseScroller : MonoBehaviour
 {
     // 手をスワイプした時の力
     [SerializeField]
-    HandSwipeForceCalculation handSwipeForce = default;
+    HandSwipeForceController handSwipeForce = default;
 
     // スクロール速度Y軸
     [SerializeField]
@@ -30,11 +30,20 @@ public class BaseScroller : MonoBehaviour
     protected bool isProcessOnce = true;
 
     /// <summary>
+    /// スクロールがストップしたかのフラグ
+    /// </summary>
+    public bool IsScrollStop { get; private set; } = false;
+
+    /// <summary>
     /// スクロール初期化処理
     /// </summary>
     protected void Init()
     {
         isProcessOnce = true;
+
+        IsScrollStop = false;
+
+        velocity = Vector3.zero;
     }
 
     /// <summary>
@@ -59,6 +68,7 @@ public class BaseScroller : MonoBehaviour
         // スクロールを止める
         if (velocity.y <= scrollStop)
         {
+            IsScrollStop = true;
             velocity.y = 0.0f;
         }
     }

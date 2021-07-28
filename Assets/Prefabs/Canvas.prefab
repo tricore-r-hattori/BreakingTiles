@@ -81,10 +81,10 @@ GameObject:
   - component: {fileID: 7994459711200855593}
   - component: {fileID: 685469862408874699}
   - component: {fileID: 4298440302764987453}
-  - component: {fileID: 8479940786091141883}
+  - component: {fileID: 4052857595978648475}
   m_Layer: 0
-  m_Name: HitTilePoint
-  m_TagString: Untagged
+  m_Name: ScrollControllPoint
+  m_TagString: ScrollControllPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8479940786091141883
+--- !u!114 &4052857595978648475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3365272545436888608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e774ffa0629224782a2e282fc62072, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e9a8085f4817f445993aab49a6c081a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileScroller: {fileID: 280406459862634111}
@@ -931,7 +931,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hitCheck
       value: 
-      objectReference: {fileID: 8479940786091141883}
+      objectReference: {fileID: 0}
     - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: handSwipeForce
@@ -947,6 +947,16 @@ PrefabInstance:
       propertyPath: tileScrollStartPoint
       value: 
       objectReference: {fileID: 7232916987360367995}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollStartObjecHitCheck
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollControllObjectHitCheck
+      value: 
+      objectReference: {fileID: 4052857595978648475}
     - target: {fileID: 7495330725295300863, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1196,17 +1206,37 @@ PrefabInstance:
         type: 3}
       propertyPath: hitCheck
       value: 
-      objectReference: {fileID: 8479940786091141883}
+      objectReference: {fileID: 0}
+    - target: {fileID: 901148322206837192, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollStartObjectHitCheck
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 901148322206837192, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollControllObjectHitCheck
+      value: 
+      objectReference: {fileID: 4052857595978648475}
     - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
       propertyPath: hitCheck
       value: 
-      objectReference: {fileID: 8479940786091141883}
+      objectReference: {fileID: 0}
     - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
       propertyPath: handScrollEndPoint
       value: 
       objectReference: {fileID: 6356172848272284732}
+    - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollStartObjectHitCheck
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732018447469410038, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: scrollControllObjectHitCheck
+      value: 
+      objectReference: {fileID: 4052857595978648475}
     - target: {fileID: 2259788089529431923, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1888,7 +1918,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hitCheck
       value: 
-      objectReference: {fileID: 8479940786091141883}
+      objectReference: {fileID: 0}
     - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: handSwipeForce
@@ -1904,6 +1934,16 @@ PrefabInstance:
       propertyPath: tileScrollStartPoint
       value: 
       objectReference: {fileID: 7232916987360367995}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollStartObjecHitCheck
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: scrollControllObjectHitCheck
+      value: 
+      objectReference: {fileID: 4052857595978648475}
     - target: {fileID: 7495330725295300863, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_AnchorMax.y
