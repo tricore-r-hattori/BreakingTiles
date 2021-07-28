@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4205874150040563180}
   - component: {fileID: 4205874150040563182}
   - component: {fileID: 4205874150040563183}
+  - component: {fileID: 7419297652431748518}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Untagged
@@ -34,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4205874150040563182
@@ -74,3 +75,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7419297652431748518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205874150040563181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e6d9986b5ab0847aa3fcba248258f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileImage: {fileID: 4205874150040563183}
+  imageTransform: {fileID: 4205874150040563180}
+  tileSprite: {fileID: 21300000, guid: cb7f9d57a92ddd240a900613887b822e, type: 3}
+  breakTileSprite: {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}
