@@ -46,8 +46,8 @@ public class TileScroller : BaseScroller
     /// </summary>
     void Update()
     {
-        // スクロールを操作するためのオブジェクトと当たったらスクロール処理を行う
-        if (scrollControllObjectHitCheck.IsScrollControllObjectHit)
+        // スクロールできる状態だったらスクロール処理を行う
+        if (scrollControllObjectHitCheck.State == ScrollState.Scrollable)
         {
             // スクロール更新処理
             base.UpdateBase();

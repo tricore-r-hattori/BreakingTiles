@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// スクロールの状態
+/// </summary>
+public enum ScrollState
+{
+    // スクロールできる状態
+    Scrollable,
+    // スクロールできない状態
+    CannotScrolling,
+}
+
+/// <summary>
 /// スクロール処理を操作するためのオブジェクトと当たったか確認する処理
 /// </summary>
 public class ScrollControllObjectHitCheck : MonoBehaviour
@@ -12,9 +23,9 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     TileScroller tileScroller = default;
 
     /// <summary>
-    /// スクロール処理を操作するためのオブジェクトと当たったかのフラグ
+    /// 
     /// </summary>
-    public bool IsScrollControllObjectHit { get; private set; } = false;
+    public ScrollState State { get; private set; } = ScrollState.CannotScrolling;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -25,8 +36,8 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
         // 手と当たったら
         if (collision.tag == "Hand")
         {
-            // スクロール処理を操作するためのフラグをtrueにしスクロールを開始する
-            IsScrollControllObjectHit = true;
+            // スクロールできる状態にして、スクロール処理を開始する
+            State = ScrollState.Scrollable;
         }
     }
 
@@ -38,8 +49,8 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
         // 瓦のスクロールが止まったら、それぞれの処理を止めるためにフラグを切り替える
         if (tileScroller.IsScrollStop)
         {
-            // スクロール処理を操作するためのフラグをfalseにしスクロールを終了する
-            IsScrollControllObjectHit = false;
+            // スクロールできない状態にして、スクロール処理を終了する
+            State = ScrollState.CannotScrolling;
         }
     }
 }

@@ -32,8 +32,8 @@ public class HandScroller : BaseScroller
     /// </summary>
     void Update()
     {
-        // スクロールを操作するためのオブジェクトと当たったらスクロール処理を行う
-        if (scrollControllObjectHitCheck.IsScrollControllObjectHit)
+        // スクロールできる状態だったらスクロール処理を行う
+        if (scrollControllObjectHitCheck.State == ScrollState.Scrollable)
         {
             base.UpdateBase();
 
