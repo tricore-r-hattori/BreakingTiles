@@ -58,12 +58,12 @@ public class TileImageChanger : MonoBehaviour
             tileImage.sprite = breakTileSprite;
         }
 
-        if (probability.IsRareTile && imageTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == breakRareTileSprite)
+        if (probability.IsRareTile && imageTransform.position.y < tileSpriteChangePoint.position.y /*&& tileImage.sprite == breakRareTileSprite*/)
         {
             tileImage.sprite = rareTileSprite;
         }
 
-        if (probability.IsRareTile && imageTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == rareTileSprite)
+        if (probability.IsRareTile && imageTransform.position.y > tileSpriteChangePoint.position.y /*&& tileImage.sprite == rareTileSprite*/)
         {
             tileImage.sprite = breakRareTileSprite;
         }

@@ -9,7 +9,7 @@ public class Probability : MonoBehaviour
     
     void Start()
     {
-        IsRareTile = Probability_(30);
+        IsRareTile = Probability_(100);
     }
 
     /// <summary>
