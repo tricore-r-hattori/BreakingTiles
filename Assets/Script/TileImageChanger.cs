@@ -55,13 +55,13 @@ public class TileImageChanger : MonoBehaviour
         if (rareTileChangeChecker.IsRareTileChange)
         {
             // レア瓦の画像に設定
-            tileImage.sprite = tileSprite[(int)TileType.RareTile];
+            tileImage.sprite = tileSpriteList[(int)TileType.RareTile];
         }
         // レア瓦の画像を変更できない状態なら通常の瓦の画像に設定
         else
         {
             // 通常の瓦の画像に設定
-            tileImage.sprite = tileSprite[(int)TileType.Tile];
+            tileImage.sprite = tileSpriteList[(int)TileType.Tile];
         }
     }
 
@@ -77,7 +77,7 @@ public class TileImageChanger : MonoBehaviour
             if (tileTransform.position.y < tileSpriteChangePoint.position.y && isBreakTile)
             {
                 // 割れていないレア瓦に変換
-                tileImage.sprite = tileSprite[(int)TileType.RareTile];
+                tileImage.sprite = tileSpriteList[(int)TileType.RareTile];
                 isBreakTile = false;
             }
 
@@ -85,7 +85,7 @@ public class TileImageChanger : MonoBehaviour
             if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
             {
                 // 割れているレア瓦に変換
-                tileImage.sprite = breakTileSprite[(int)TileType.RareTile];
+                tileImage.sprite = breakTileSpriteList[(int)TileType.RareTile];
                 isBreakTile = true;
             }
         }
@@ -96,7 +96,7 @@ public class TileImageChanger : MonoBehaviour
             if (tileTransform.position.y < tileSpriteChangePoint.position.y && isBreakTile)
             {
                 // 割れていない瓦に変換
-                tileImage.sprite = tileSprite[(int)TileType.Tile];
+                tileImage.sprite = tileSpriteList[(int)TileType.Tile];
                 isBreakTile = false;
             }
 
@@ -104,7 +104,7 @@ public class TileImageChanger : MonoBehaviour
             if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
             {
                 // 割れている瓦に変換
-                tileImage.sprite = breakTileSprite[(int)TileType.Tile];
+                tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];
                 isBreakTile = true;
             }
         }
