@@ -88,6 +88,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileImage: {fileID: 4205874150040563183}
-  imageTransform: {fileID: 4205874150040563180}
-  tileSprite: {fileID: 21300000, guid: cb7f9d57a92ddd240a900613887b822e, type: 3}
-  breakTileSprite: {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}
+  tileTransform: {fileID: 4205874150040563180}
+  tileSpriteChangePoint: {fileID: 0}
+  tileSpriteList:
+  - {fileID: 21300000, guid: cb7f9d57a92ddd240a900613887b822e, type: 3}
+  - {fileID: 21300000, guid: 09dda41ed5d82b7479c3d9d2b53a9fe1, type: 3}
+  breakTileSpriteList:
+  - {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}
+  - {fileID: 21300000, guid: 71f0ecdf0bbf9a64397049eccf3dfd75, type: 3}
+  rareTileChangeChecker: {fileID: 0}
