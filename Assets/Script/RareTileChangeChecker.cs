@@ -8,16 +8,12 @@ using UnityEngine.UI;
 /// </summary>
 public class RareTileChangeChecker : MonoBehaviour
 {
-    /// <summary>
-    /// 確率
-    /// </summary>
+    // 確率
     [SerializeField]
     [Range(0.0f,100.0f)]
     float percent = 100.0f;
 
-    /// <summary>
-    /// 100パーセント
-    /// </summary>
+    // 100パーセント
     const float OneHundredPercent = 100.0f;
 
     /// <summary>

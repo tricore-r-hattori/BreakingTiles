@@ -17,45 +17,31 @@ public enum TileType
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
-    /// <summary>
-    /// 瓦の画像
-    /// </summary>
+    // 瓦の画像
     [SerializeField]
     Image tileImage = default;
 
-    /// <summary>
-    /// 瓦
-    /// </summary>
+    // 瓦
     [SerializeField]
     RectTransform tileTransform = default;
 
-    /// <summary>
-    /// 瓦の画像を変える地点
-    /// </summary>
+    // 瓦の画像を変える地点
     [SerializeField]
     RectTransform tileSpriteChangePoint = default;
 
-    /// <summary>
-    /// 割れていない瓦の画像のリスト
-    /// </summary>
+    // 割れていない瓦の画像のリスト
     [SerializeField]
     List<Sprite> tileSprite = default;
 
-    /// <summary>
-    /// 割れている瓦の画像のリスト
-    /// </summary>
+    // 割れている瓦の画像のリスト
     [SerializeField]
     List<Sprite> breakTileSprite = default;
 
-    /// <summary>
-    /// 確率判定でレア瓦の画像を変更するか確認
-    /// </summary>
+    // 確率判定でレア瓦の画像を変更するか確認
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    /// <summary>
-    /// 瓦が割れたか確認するフラグ
-    /// </summary>
+    // 瓦が割れたか確認するフラグ
     bool isBreakTile = false;
 
     /// <summary>
