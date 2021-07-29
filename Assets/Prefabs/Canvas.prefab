@@ -464,6 +464,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 76824426977600602, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 76824426977600602, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -474,12 +479,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 79397774731563747, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 79397774731563747, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
@@ -490,6 +505,11 @@ PrefabInstance:
     - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
@@ -529,6 +549,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 914020741625603308, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 914020741625603308, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -679,12 +704,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2020693955924854548, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2020693955924854548, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
@@ -724,6 +759,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2189017980014473546, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2189017980014473546, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -740,6 +780,11 @@ PrefabInstance:
     - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
@@ -825,6 +870,11 @@ PrefabInstance:
     - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
@@ -930,6 +980,11 @@ PrefabInstance:
     - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
@@ -1099,6 +1154,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4062344862836268557, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4062344862836268557, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1129,6 +1189,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4395563972990537840, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4395563972990537840, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1155,6 +1220,11 @@ PrefabInstance:
     - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
@@ -1259,6 +1329,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5001152211390585383, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5001152211390585383, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1269,12 +1344,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5003769610840214046, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5003769610840214046, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
@@ -1285,6 +1370,11 @@ PrefabInstance:
     - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
@@ -1429,6 +1519,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5925925672568815379, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5925925672568815379, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1495,6 +1590,11 @@ PrefabInstance:
     - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
@@ -1599,6 +1699,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7075308567397345892, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7075308567397345892, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1634,6 +1739,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7214365004079898857, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7214365004079898857, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -1660,6 +1770,11 @@ PrefabInstance:
     - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
@@ -1720,6 +1835,11 @@ PrefabInstance:
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
@@ -1800,6 +1920,11 @@ PrefabInstance:
     - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
@@ -2010,6 +2135,11 @@ PrefabInstance:
     - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
@@ -2241,6 +2371,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 76824426977600602, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 76824426977600602, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2251,12 +2386,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 79397774731563747, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 79397774731563747, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 632079584920648522, guid: 4c26b3badb389874f985009e6280f618,
@@ -2267,6 +2412,11 @@ PrefabInstance:
     - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 724113378835005341, guid: 4c26b3badb389874f985009e6280f618,
@@ -2286,6 +2436,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 914020741625603308, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 914020741625603308, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2336,12 +2491,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2020693955924854548, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2020693955924854548, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2094260502970189497, guid: 4c26b3badb389874f985009e6280f618,
@@ -2381,6 +2546,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2189017980014473546, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2189017980014473546, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2397,6 +2567,11 @@ PrefabInstance:
     - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2503825613490681977, guid: 4c26b3badb389874f985009e6280f618,
@@ -2462,6 +2637,11 @@ PrefabInstance:
     - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 2863408078063269518, guid: 4c26b3badb389874f985009e6280f618,
@@ -2557,6 +2737,11 @@ PrefabInstance:
     - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 3524084668006667676, guid: 4c26b3badb389874f985009e6280f618,
@@ -2666,6 +2851,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4062344862836268557, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4062344862836268557, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2676,12 +2866,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4395563972990537840, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4395563972990537840, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 4583759152473740139, guid: 4c26b3badb389874f985009e6280f618,
@@ -2726,6 +2926,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5001152211390585383, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5001152211390585383, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2736,12 +2941,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5003769610840214046, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5003769610840214046, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5134478979809962936, guid: 4c26b3badb389874f985009e6280f618,
@@ -2752,6 +2967,11 @@ PrefabInstance:
     - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5182914826269867891, guid: 4c26b3badb389874f985009e6280f618,
@@ -2876,6 +3096,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 5925925672568815379, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 5925925672568815379, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2902,6 +3127,11 @@ PrefabInstance:
     - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 6285142975618117831, guid: 4c26b3badb389874f985009e6280f618,
@@ -2946,6 +3176,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7075308567397345892, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7075308567397345892, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -2961,12 +3196,22 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7214365004079898857, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7214365004079898857, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
     - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7277699903289373120, guid: 4c26b3badb389874f985009e6280f618,
@@ -3031,6 +3276,11 @@ PrefabInstance:
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
+      propertyPath: rareTileChangeChecker
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
       propertyPath: tileSpriteChangePoint
       value: 
       objectReference: {fileID: 7144048908718441549}
@@ -3087,6 +3337,11 @@ PrefabInstance:
     - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 7920503356514163740, guid: 4c26b3badb389874f985009e6280f618,
@@ -3257,6 +3512,11 @@ PrefabInstance:
     - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: rareTileChangeCheck
+      value: 
+      objectReference: {fileID: 7399925319175960895}
+    - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: rareTileChangeChecker
       value: 
       objectReference: {fileID: 7399925319175960895}
     - target: {fileID: 9220195458707457334, guid: 4c26b3badb389874f985009e6280f618,
