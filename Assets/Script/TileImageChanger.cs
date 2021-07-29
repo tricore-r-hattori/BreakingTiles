@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// タイルの種類
+/// </summary>
 public enum TileType
 {
     Tile,
@@ -14,35 +17,49 @@ public enum TileType
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
-    // 瓦の画像
+    /// <summary>
+    /// 瓦の画像
+    /// </summary>
     [SerializeField]
     Image tileImage = default;
 
-    // 瓦
+    /// <summary>
+    /// 瓦
+    /// </summary>
     [SerializeField]
     RectTransform tileTransform = default;
 
-    // 瓦の画像を変える地点
+    /// <summary>
+    /// 瓦の画像を変える地点
+    /// </summary>
     [SerializeField]
     RectTransform tileSpriteChangePoint = default;
 
-    // 割れていない瓦の画像のリスト
+    /// <summary>
+    /// 割れていない瓦の画像のリスト
+    /// </summary>
     [SerializeField]
     List<Sprite> tileSprite = default;
 
-    // 割れている瓦の画像のリスト
+    /// <summary>
+    /// 割れている瓦の画像のリスト
+    /// </summary>
     [SerializeField]
     List<Sprite> breakTileSprite = default;
 
-    // 確率判定でレア瓦の画像を変更するか確認
+    /// <summary>
+    /// 確率判定でレア瓦の画像を変更するか確認
+    /// </summary>
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // 瓦が割れたか確認するフラグ
+    /// <summary>
+    /// 瓦が割れたか確認するフラグ
+    /// </summary>
     bool isBreakTile = false;
 
     /// <summary>
-    /// 初期化
+    /// 開始処理
     /// </summary>
     void Start()
     {
