@@ -31,11 +31,11 @@ public class TileImageChanger : MonoBehaviour
 
     // 割れていない瓦の画像のリスト
     [SerializeField]
-    List<Sprite> tileSprite = default;
+    List<Sprite> tileSpriteList = default;
 
     // 割れている瓦の画像のリスト
     [SerializeField]
-    List<Sprite> breakTileSprite = default;
+    List<Sprite> breakTileSpriteList = default;
 
     // 確率判定でレア瓦の画像を変更するか確認
     [SerializeField]
