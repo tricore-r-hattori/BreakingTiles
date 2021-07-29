@@ -9,12 +9,6 @@ public enum TileType
     RareTile,
 }
 
-public enum BreakTileType
-{
-    BreakTile,
-    BreakRareTile,
-}
-
 /// <summary>
 /// 瓦の画像を変換する処理
 /// </summary>
@@ -44,11 +38,16 @@ public class TileImageChanger : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
+    // 瓦が割れたか確認するフラグ
+    bool isBreakTile = false;
+
     /// <summary>
     /// 初期化
     /// </summary>
     void Start()
     {
+        isBreakTile = false;
+
         // レア瓦の画像を変更できる状態ならレア瓦の画像に設定
         if (rareTileChangeChecker.IsRareTileChange)
         {
@@ -72,34 +71,38 @@ public class TileImageChanger : MonoBehaviour
         if (rareTileChangeChecker.IsRareTileChange)
         {
             // 画像を変える地点より低い位置にいた時かつ割れているレア瓦の状態の時に画像を変換
-            if (tileTransform.position.y < tileSpriteChangePoint.position.y && tileImage.sprite == breakTileSprite[(int)BreakTileType.BreakRareTile])
+            if (tileTransform.position.y < tileSpriteChangePoint.position.y && isBreakTile)
             {
                 // 割れていないレア瓦に変換
                 tileImage.sprite = tileSprite[(int)TileType.RareTile];
+                isBreakTile = false;
             }
 
             // 画像を変える地点より高い位置にいた時かつ割れていないレア瓦の状態の時に画像を変換
-            if (tileTransform.position.y > tileSpriteChangePoint.position.y && tileImage.sprite == tileSprite[(int)TileType.RareTile])
+            if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
             {
                 // 割れているレア瓦に変換
-                tileImage.sprite = breakTileSprite[(int)BreakTileType.BreakRareTile];
+                tileImage.sprite = breakTileSprite[(int)TileType.RareTile];
+                isBreakTile = true;
             }
         }
         // レア瓦に変更できない状態
         else
         {
             // 画像を変える地点より低い位置にいた時かつ割れている瓦の状態の時に画像を変換
-            if (tileTransform.position.y < tileSpriteChangePoint.position.y && breakTileSprite[(int)BreakTileType.BreakTile])
+            if (tileTransform.position.y < tileSpriteChangePoint.position.y && isBreakTile)
             {
                 // 割れていない瓦に変換
                 tileImage.sprite = tileSprite[(int)TileType.Tile];
+                isBreakTile = false;
             }
 
             // 画像を変える地点より高い位置にいた時かつ割れていない瓦の状態の時に画像を変換
-            if (tileTransform.position.y > tileSpriteChangePoint.position.y && tileSprite[(int)TileType.Tile])
+            if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
             {
                 // 割れている瓦に変換
-                tileImage.sprite = breakTileSprite[(int)BreakTileType.BreakTile];
+                tileImage.sprite = breakTileSprite[(int)TileType.Tile];
+                isBreakTile = true;
             }
         }
     }
