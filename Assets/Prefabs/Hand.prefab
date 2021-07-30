@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollControllObjectHitCheck: {fileID: 0}
-  correctionHandPositionsZ: 10
+  correctionHandPositionsZ: 100
 --- !u!114 &6824472366733402128
 MonoBehaviour:
   m_ObjectHideFlags: 0
