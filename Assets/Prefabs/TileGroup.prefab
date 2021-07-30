@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSwipeForce: {fileID: 0}
-  scrollSpeedY: 100
+  scrollSpeedY: 10
   speedDeceleration: 0.99
   scrollStop: 0.01
 --- !u!1001 &146708279637068902

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollControllObjectHitCheck: {fileID: 0}
-  correctionHandPositionsZ: 100
+  correctionHandPositionsZ: 90
 --- !u!114 &6824472366733402128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handTransform: {fileID: 2259788089529431923}
   tileTransform: {fileID: 0}
-  correctionHandPositionsY: 0.7
-  correctionTilePositionsY: 6.6
+  correctionHandPositionsY: 12
+  correctionTilePositionsY: 132
   getPositionTime: 30
 --- !u!114 &1732018447469410038
 MonoBehaviour:
@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSwipeForce: {fileID: 0}
-  scrollSpeedY: 100
+  scrollSpeedY: 10
   speedDeceleration: 0.99
   scrollStop: 0.01

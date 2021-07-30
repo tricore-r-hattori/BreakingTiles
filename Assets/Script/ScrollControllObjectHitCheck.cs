@@ -28,6 +28,15 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     public ScrollState State { get; private set; } = ScrollState.UnScrolling;
 
     /// <summary>
+    /// 非アクティブ化して1回だけ処理を行う
+    /// </summary>
+    void OnDisable()
+    {
+        // スクロールできない状態にして、スクロール処理を終了する
+        State = ScrollState.UnScrolling;
+    }
+
+    /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
