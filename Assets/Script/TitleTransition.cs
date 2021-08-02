@@ -14,11 +14,16 @@ public class TitleTransition : MonoBehaviour
     // 一回クリックできる状態か
     bool isStateClickableOnce = false;
 
+    // タイトルへ遷移するためのトリガー指定文字列
+    string titleTriggerString = default;
+
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
     void OnEnable()
     {
+        // 初期化
+        titleTriggerString = "isTitleScene";
         isStateClickableOnce = true;
     }
 
@@ -30,7 +35,7 @@ public class TitleTransition : MonoBehaviour
         // マウスクリックを離した、かつ一回クリックできる状態ならタイトルへ遷移する
         if (Input.GetMouseButtonUp(0) && isStateClickableOnce)
         {
-            sequenceAnimator.SetTrigger("isTitleScene");
+            sequenceAnimator.SetTrigger(titleTriggerString);
             isStateClickableOnce = false;
         }
     }

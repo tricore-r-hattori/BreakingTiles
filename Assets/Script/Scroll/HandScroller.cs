@@ -71,8 +71,6 @@ public class HandScroller : BaseScroller
             // 手がスクロール終了地点に到達したら、手を非アクティブにする
             if (hand.position.y >= handScrollEndPoint.position.y)
             {
-                //// 手を非アクティブ化
-                //gameObject.SetActive(false);
                 velocity = Vector3.zero;
 
                 isProcessOnce = false;

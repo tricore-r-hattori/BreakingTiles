@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// リザルトへのシーン遷移
+/// シーン遷移
 /// </summary>
 public class ResultTransition : MonoBehaviour
 {
-    // 瓦のスクロール
-    [SerializeField]
-    TileScroller tileScroller = default;
-
-    // シーケンスのアニメーター
-    [SerializeField]
-    Animator sequenceAnimator = default;
-
     // スクロール処理を操作するためのオブジェクトと当たったか確認する処理
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
@@ -24,13 +15,26 @@ public class ResultTransition : MonoBehaviour
     [SerializeField]
     GameObject scrollControllObject = default;
 
+    // シーケンスのアニメーター
+    [SerializeField]
+    Animator sequenceAnimator = default;
+
+    // コルーチン指定文字列
+    string coroutineString = default;
+
+    // リザルトへ遷移するためのトリガー指定文字列
+    string resultTriggerString = default;
+
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
     void OnEnable()
     {
-        scrollControllObject.SetActive(true);
+        // 初期化
+        coroutineString = "WaitResultSequenceCoroutine";
+        resultTriggerString = "isResultScene";
         scrollControllObjectHitCheck.Init(WaitResultSequence);
+        scrollControllObject.SetActive(true);
     }
 
     /// <summary>
@@ -38,16 +42,16 @@ public class ResultTransition : MonoBehaviour
     /// </summary>
     void WaitResultSequence()
     {
-        StartCoroutine("WaitResultSequenceCoroutine");
+        StartCoroutine(coroutineString);
     }
 
     /// <summary>
     /// リザルトへ遷移するために数秒待つコルーチン
     /// </summary>
-    /// <returns></returns>
+    /// <returns>数秒待つ</returns>
     IEnumerator WaitResultSequenceCoroutine()
     {
-        yield return new WaitForSeconds(1);
-        sequenceAnimator.SetTrigger("isResultScene");
+        yield return new WaitForSeconds(1.0f);
+        sequenceAnimator.SetTrigger(resultTriggerString);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// ギブアップボタンを描画するためのクラス
 /// </summary>
-public class GiveUpButtonDraw : MonoBehaviour
+public class GiveUpButtonRenderer : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]

@@ -24,7 +24,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     TileScroller tileScroller = default;
 
     /// <summary>
-    /// リザルトへ遷移する
+    /// スクロールが止まったときに呼ばれるAction
     /// </summary>
     Action onScrollStopSequence = default;
 
@@ -76,7 +76,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // リザルトへ遷移する
+        // スクロールが止まったときに呼ばれるAction
         onScrollStopSequence();
     }
 }
