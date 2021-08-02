@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,9 +24,23 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     TileScroller tileScroller = default;
 
     /// <summary>
+    /// リザルトへ遷移する
+    /// </summary>
+    Action onScrollStopSequence = default;
+
+    /// <summary>
     /// スクロールの状態
     /// </summary>
     public ScrollState State { get; private set; } = ScrollState.UnScrolling;
+
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    /// <param name="onScrollStopSequence">スクロールが止まったときに呼ばれるAction</param>
+    public void Init(Action onScrollStopSequence)
+    {
+        this.onScrollStopSequence = onScrollStopSequence;
+    }
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
@@ -46,11 +61,13 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 瓦のスクロールが止まったら、それぞれの処理を止めるためにフラグを切り替える
+        // 瓦のスクロールが止まったら、それぞれの処理を止めるためにステートを切り替える
         if (tileScroller.IsScrollStop)
         {
             // スクロールできない状態にして、スクロール処理を終了する
             State = ScrollState.UnScrolling;
+
+            gameObject.SetActive(false);
         }
     }
 
@@ -59,7 +76,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // スクロールできない状態にして、スクロール処理を終了する
-        State = ScrollState.UnScrolling;
+        // リザルトへ遷移する
+        onScrollStopSequence();
     }
 }

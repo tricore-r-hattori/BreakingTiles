@@ -2283,7 +2283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileScroller: {fileID: 280406459862634111}
   sequenceAnimator: {fileID: 3596497821401363483}
-  waitFrame: 120
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
 --- !u!1 &7084819471039300084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,7 +3208,7 @@ GameObject:
   - component: {fileID: 8866707671104408572}
   - component: {fileID: 8866707671104408575}
   m_Layer: 5
-  m_Name: SequenceCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,29 +16,38 @@ public class ResultTransition : MonoBehaviour
     [SerializeField]
     Animator sequenceAnimator = default;
 
-    // 待つ時間
+    // スクロール処理を操作するためのオブジェクトと当たったか確認する処理
     [SerializeField]
-    int waitSequenceFrame = 120;
+    ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
-    // 待っている時間をカウント
-    int waitSequenceFrameCount = 0;
+    // スクロール処理を操作するためのオブジェクト
+    [SerializeField]
+    GameObject scrollControllObject = default;
 
     /// <summary>
-    /// 更新処理
+    /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
-    void Update()
+    void OnEnable()
     {
-        // スクロールがストップしたらリザルトへ遷移する
-        if (tileScroller.IsScrollStop)
-        {
-            waitSequenceFrameCount++;
+        scrollControllObject.SetActive(true);
+        scrollControllObjectHitCheck.Init(WaitResultSequence);
+    }
 
-            // シーン遷移する時に何秒か待つ
-            if (waitSequenceFrameCount > waitSequenceFrame)
-            {
-                waitSequenceFrameCount = 0;
-                sequenceAnimator.SetTrigger("isResultScene");
-            }
-        }
+    /// <summary>
+    /// 数秒待ってリザルトへ遷移する
+    /// </summary>
+    void WaitResultSequence()
+    {
+        StartCoroutine("WaitResultSequenceCoroutine");
+    }
+
+    /// <summary>
+    /// リザルトへ遷移するために数秒待つコルーチン
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator WaitResultSequenceCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        sequenceAnimator.SetTrigger("isResultScene");
     }
 }
