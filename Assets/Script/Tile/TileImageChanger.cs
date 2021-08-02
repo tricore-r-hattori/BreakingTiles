@@ -48,7 +48,15 @@ public class TileImageChanger : MonoBehaviour
     /// <summary>
     /// 割った瓦をカウントした値をテキストで描画
     /// </summary>
-    public event Action BrokenTileCountTextDraw = default;
+    event Action brokenTileCountTextDraw = default;
+
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    public void Init(Action brokenTileCountTextDraw)
+    {
+        this.brokenTileCountTextDraw = brokenTileCountTextDraw;
+    }
 
     /// <summary>
     /// 開始処理
@@ -95,7 +103,7 @@ public class TileImageChanger : MonoBehaviour
                 isBreakTile = true;
 
                 // 割った瓦をカウントした値をテキストで描画
-                BrokenTileCountTextDraw();
+                brokenTileCountTextDraw();
             }
         }
         // レア瓦に変更できない状態
@@ -110,14 +118,14 @@ public class TileImageChanger : MonoBehaviour
             }
 
             // 画像を変える地点より高い位置にいた時かつ割れていない瓦の状態の時に画像を変換
-            if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
+  .position.y && !isBreakTile)
             {
                 // 割れている瓦に変換
                 tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];
                 isBreakTile = true;
 
                 // 割った瓦をカウントした値をテキストで描画
-                BrokenTileCountTextDraw();
+                brokenTileCountTextDraw();
             }
         }
     }

@@ -31,7 +31,7 @@ public class CountingBrokenTilesText : MonoBehaviour
         // 全ての瓦に関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
         {
-            tileImageChanger[i].BrokenTileCountTextDraw += BrokenTileCountTextDraw;
+            tileImageChanger[i].Init(BrokenTileCountTextDraw);
         }
     }
 
@@ -43,17 +43,5 @@ public class CountingBrokenTilesText : MonoBehaviour
         brokenTilesCount++;
 
         CountText.text = brokenTilesCount.ToString() + "枚";
-    }
-
-    /// <summary>
-    /// 非アクティブ化した時に1回だけ処理を行う
-    /// </summary>
-    void OnDisable()
-    {
-        // 全ての瓦に登録した関数を解除
-        for (int i = 0; i < tileImageChanger.Count; i++)
-        {
-            tileImageChanger[i].BrokenTileCountTextDraw -= BrokenTileCountTextDraw;
-        }
     }
 }
