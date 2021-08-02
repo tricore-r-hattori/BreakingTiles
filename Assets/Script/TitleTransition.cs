@@ -15,7 +15,7 @@ public class TitleTransition : MonoBehaviour
     bool isStateClickableOnce = false;
 
     // タイトルへ遷移するためのトリガー指定文字列
-    string titleTriggerString = default;
+    const string titleTriggerString = "isTitleScene";
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -23,7 +23,6 @@ public class TitleTransition : MonoBehaviour
     void OnEnable()
     {
         // 初期化
-        titleTriggerString = "isTitleScene";
         isStateClickableOnce = true;
     }
 

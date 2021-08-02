@@ -19,11 +19,15 @@ public class ResultTransition : MonoBehaviour
     [SerializeField]
     Animator sequenceAnimator = default;
 
+    // 待つ時間
+    [SerializeField]
+    float WaitTime = 1.0f;
+
     // コルーチン指定文字列
-    string coroutineString = default;
+    string coroutineString = "WaitResultSequenceCoroutine";
 
     // リザルトへ遷移するためのトリガー指定文字列
-    string resultTriggerString = default;
+    string resultTriggerString = "isResultScene";
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -31,8 +35,6 @@ public class ResultTransition : MonoBehaviour
     void OnEnable()
     {
         // 初期化
-        coroutineString = "WaitResultSequenceCoroutine";
-        resultTriggerString = "isResultScene";
         scrollControllObjectHitCheck.Init(WaitResultSequence);
         scrollControllObject.SetActive(true);
     }
@@ -51,7 +53,7 @@ public class ResultTransition : MonoBehaviour
     /// <returns>数秒待つ</returns>
     IEnumerator WaitResultSequenceCoroutine()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(WaitTime);
         sequenceAnimator.SetTrigger(resultTriggerString);
     }
 }
