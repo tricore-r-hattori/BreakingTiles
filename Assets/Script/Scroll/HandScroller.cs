@@ -23,7 +23,16 @@ public class HandScroller : BaseScroller
     Vector3 InitPosition = Vector3.zero;
 
     /// <summary>
-    /// 初期化処理
+    /// 起動処理
+    /// </summary>
+    void Awake()
+    {
+        // 起動時に1回だけ処理を行うためのフラグをONにする
+        isProcessOnce = true;
+    }
+
+    /// <summary>
+    /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
     void OnEnable()
     {
@@ -35,6 +44,15 @@ public class HandScroller : BaseScroller
         base.Init();
 
         transform.position = InitPosition;
+    }
+
+    /// <summary>
+    /// 非アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnDisable()
+    {
+        // 起動時に1回だけ処理を行うためのフラグをOFFにする
+        isProcessOnce = false;
     }
 
     /// <summary>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ギブアップボタンを非表示にするためのクラス
+/// ギブアップボタンを描画するためのクラス
 /// </summary>
-public class HideGiveUpButton : MonoBehaviour
+public class GiveUpButtonDraw : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
@@ -14,6 +14,18 @@ public class HideGiveUpButton : MonoBehaviour
     // ギブアップボタン
     [SerializeField]
     GameObject giveUpButton = default;
+
+    /// <summary>
+    /// アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnEnable()
+    {
+        // アタッチされたオブジェクトがアクティブならギブアップボタンを表示する
+        if (gameObject.activeInHierarchy)
+        {
+            giveUpButton.SetActive(true);
+        }
+    }
 
     /// <summary>
     /// 更新処理

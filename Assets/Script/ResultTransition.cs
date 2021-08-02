@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ゲーム中からリザルトへのシーン遷移
+/// リザルトへのシーン遷移
 /// </summary>
-public class ResultFromGamePlay : MonoBehaviour
+public class ResultTransition : MonoBehaviour
 {
     // 瓦のスクロール
     [SerializeField]
@@ -17,25 +17,25 @@ public class ResultFromGamePlay : MonoBehaviour
 
     // 待つ時間
     [SerializeField]
-    int waitFrame = 120;
+    int waitSequenceFrame = 120;
 
     // 待っている時間をカウント
-    int waitFrameCount = 0;
+    int waitSequenceFrameCount = 0;
 
     /// <summary>
     /// 更新処理
     /// </summary>
     void Update()
     {
-        // スクロールがストップしたらリザルトへシーン遷移する
+        // スクロールがストップしたらリザルトへ遷移する
         if (tileScroller.IsScrollStop)
         {
-            waitFrameCount++;
+            waitSequenceFrameCount++;
 
             // シーン遷移する時に何秒か待つ
-            if (waitFrameCount > waitFrame)
+            if (waitSequenceFrameCount > waitSequenceFrame)
             {
-                waitFrameCount = 0;
+                waitSequenceFrameCount = 0;
                 sequenceAnimator.SetTrigger("isResultScene");
             }
         }

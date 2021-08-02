@@ -42,7 +42,7 @@ public class TileScroller : BaseScroller
     }
 
     /// <summary>
-    /// アクティブ化して1回だけ処理を行う
+    /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
     void OnEnable()
     {
@@ -61,15 +61,6 @@ public class TileScroller : BaseScroller
 
         // 座標初期化
         tile.position = InitPosition;
-    }
-
-    /// <summary>
-    /// 非アクティブ化して1回だけ処理を行う
-    /// </summary>
-    void OnDisable()
-    {
-        // 起動時に1回だけ処理を行うためのフラグをOFFにする
-        isProcessOnce = false;
     }
 
     /// <summary>
@@ -99,5 +90,14 @@ public class TileScroller : BaseScroller
                 movePoint.y = tileScrollStartPoint.position.y;
             }
         }
+    }
+
+    /// <summary>
+    /// 非アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnDisable()
+    {
+        // 起動時に1回だけ処理を行うためのフラグをOFFにする
+        isProcessOnce = false;
     }
 }
