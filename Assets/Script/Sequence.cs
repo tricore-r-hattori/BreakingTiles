@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// シーン遷移
 /// </summary>
-public class ResultTransition : MonoBehaviour
+public class Sequence : MonoBehaviour
 {
     // スクロール処理を操作するためのオブジェクトと当たったか確認する処理
     [SerializeField]
@@ -15,6 +15,12 @@ public class ResultTransition : MonoBehaviour
     [SerializeField]
     GameObject scrollControllObject = default;
 
+    [SerializeField]
+    GameObject resultObject = default;
+
+    [SerializeField]
+    GameObject gamePlayObject = default;
+
     // シーケンスのアニメーター
     [SerializeField]
     Animator sequenceAnimator = default;
@@ -23,11 +29,17 @@ public class ResultTransition : MonoBehaviour
     [SerializeField]
     float WaitTime = 1.0f;
 
+    // 一回クリックできる状態か
+    bool isStateClickableOnce = false;
+
     // コルーチン指定文字列
-    string coroutineString = "WaitResultSequenceCoroutine";
+    const string coroutineString = "WaitResultSequenceCoroutine";
 
     // リザルトへ遷移するためのトリガー指定文字列
-    string resultTriggerString = "isResultScene";
+    const string resultTriggerString = "isResultScene";
+
+    // タイトルへ遷移するためのトリガー指定文字列
+    const string titleTriggerString = "isTitleScene";
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -37,6 +49,23 @@ public class ResultTransition : MonoBehaviour
         // 初期化
         scrollControllObjectHitCheck.Init(WaitResultSequence);
         scrollControllObject.SetActive(true);
+        isStateClickableOnce = true;
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        if (resultObject.activeSelf)
+        {
+            // マウスクリックを離した、かつ一回クリックできる状態ならタイトルへ遷移する
+            if (Input.GetMouseButtonUp(0) && isStateClickableOnce)
+            {
+                sequenceAnimator.SetTrigger(titleTriggerString);
+                isStateClickableOnce = false;
+            }
+        }
     }
 
     /// <summary>
@@ -44,7 +73,10 @@ public class ResultTransition : MonoBehaviour
     /// </summary>
     void WaitResultSequence()
     {
-        StartCoroutine(coroutineString);
+        if (gamePlayObject.activeSelf)
+        {
+            StartCoroutine(coroutineString);
+        }
     }
 
     /// <summary>

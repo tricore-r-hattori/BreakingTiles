@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 4266832175316535576}
   - component: {fileID: 3741025989982410751}
   m_Layer: 5
-  m_Name: GiveUpButtonManager
+  m_Name: GiveUpButtonActivator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,7 +1097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005260348208363923}
-  - component: {fileID: 5955497581829029021}
+  - component: {fileID: 2136825805175356754}
   m_Layer: 0
   m_Name: TutorialObject
   m_TagString: Untagged
@@ -1128,7 +1128,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5955497581829029021
+--- !u!114 &2136825805175356754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1137,10 +1137,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3031754784018939761}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49fb7c25a664b044a6892ba8d2f0d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: ff5799cfc0edae64f80b93710f855eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
   sequenceAnimator: {fileID: 3596497821401363483}
+  WaitTime: 1
 --- !u!1 &3103699115115650140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,10 +2286,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5799cfc0edae64f80b93710f855eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileScroller: {fileID: 280406459862634111}
   scrollControllObjectHitCheck: {fileID: 4052857595978648475}
   scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
   sequenceAnimator: {fileID: 3596497821401363483}
+  WaitTime: 1
 --- !u!1 &7084819471039300084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,7 +2765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2805995368253265642}
-  - component: {fileID: 6395482268824972662}
+  - component: {fileID: 6019728139903952388}
   m_Layer: 0
   m_Name: ResultObject
   m_TagString: Untagged
@@ -2791,7 +2798,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6395482268824972662
+--- !u!114 &6019728139903952388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2800,10 +2807,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7797704898904764105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49fb7c25a664b044a6892ba8d2f0d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: ff5799cfc0edae64f80b93710f855eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
   sequenceAnimator: {fileID: 3596497821401363483}
+  WaitTime: 1
 --- !u!1 &8029515048252619515
 GameObject:
   m_ObjectHideFlags: 0
