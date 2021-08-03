@@ -45,16 +45,16 @@ public class TileImageChanger : MonoBehaviour
     // 瓦が割れたか確認するフラグ
     bool isBreakTile = false;
 
-    // 割った瓦をカウント
-    Action onCountingBreakTile = default;
+    // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+    Action onCountBreakTile = default;
 
     /// <summary>
-    /// 
+    /// 瓦のカウント処理Action
     /// </summary>
-    /// <param name="_onCountingBreakTile"></param>
-    public void InitCountBreakTileAction(Action _onCountingBreakTile)
+    /// <param name="_onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action _onCountBreakTile)
     {
-        this.onCountingBreakTile = _onCountingBreakTile;
+        this.onCountBreakTile = _onCountBreakTile;
     }
 
     /// <summary>
@@ -101,8 +101,8 @@ public class TileImageChanger : MonoBehaviour
                 tileImage.sprite = breakTileSpriteList[(int)TileType.RareTile];
                 isBreakTile = true;
 
-                // 画像が割れている瓦に変更されたら割った瓦をカウント
-                onCountingBreakTile();
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
         // レア瓦に変更できない状態
@@ -123,8 +123,8 @@ public class TileImageChanger : MonoBehaviour
                 tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];
                 isBreakTile = true;
 
-                // 画像が割れている瓦に変更されたら割った瓦をカウント
-                onCountingBreakTile();
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
     }
