@@ -27,8 +27,7 @@ public class HandScroller : BaseScroller
     /// </summary>
     void Awake()
     {
-        // 起動時に1回だけ処理を行うためのフラグをONにする
-        isProcessOnce = true;
+        InitPosition = hand.position;
     }
 
     /// <summary>
@@ -36,23 +35,11 @@ public class HandScroller : BaseScroller
     /// </summary>
     void OnEnable()
     {
-        if (isProcessOnce)
-        {
-            InitPosition = hand.position;
-        }
-
+        // スクロール初期化処理
         base.Init();
 
-        transform.position = InitPosition;
-    }
-
-    /// <summary>
-    /// 非アクティブ化した時に1回だけ処理を行う
-    /// </summary>
-    void OnDisable()
-    {
-        // 起動時に1回だけ処理を行うためのフラグをOFFにする
-        isProcessOnce = false;
+        // 座標初期化
+        hand.position = InitPosition;
     }
 
     /// <summary>
@@ -71,8 +58,6 @@ public class HandScroller : BaseScroller
             // 手がスクロール終了地点に到達したら、手を非アクティブにする
             if (hand.position.y >= handScrollEndPoint.position.y)
             {
-                //// 手を非アクティブ化
-                //gameObject.SetActive(false);
                 velocity = Vector3.zero;
 
                 isProcessOnce = false;

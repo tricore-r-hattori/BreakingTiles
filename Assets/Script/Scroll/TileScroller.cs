@@ -37,8 +37,11 @@ public class TileScroller : BaseScroller
     /// </summary>
     void Awake()
     {
-        // 起動時に1回だけ処理を行うためのフラグをONにする
-        isProcessOnce = true;
+        // スクロール開始座標設定
+        movePoint = tileScrollStartPoint.position;
+
+        // 初期座標設定
+        InitPosition = tile.position;
     }
 
     /// <summary>
@@ -46,16 +49,6 @@ public class TileScroller : BaseScroller
     /// </summary>
     void OnEnable()
     {
-        // 1回だけ初期化する
-        if (isProcessOnce)
-        {
-            // スクロール開始座標設定
-            movePoint = tileScrollStartPoint.position;
-
-            // 初期座標設定
-            InitPosition = tile.position;
-        }
-
         // スクロール初期化処理
         base.Init();
 

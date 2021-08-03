@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// ギブアップボタンを描画するためのクラス
 /// </summary>
-public class GiveUpButtonDraw : MonoBehaviour
+public class GiveUpButtonActivator : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
@@ -21,10 +21,7 @@ public class GiveUpButtonDraw : MonoBehaviour
     void OnEnable()
     {
         // アタッチされたオブジェクトがアクティブならギブアップボタンを表示する
-        if (gameObject.activeInHierarchy)
-        {
-            giveUpButton.SetActive(true);
-        }
+        giveUpButton.SetActive(true);
     }
 
     /// <summary>
