@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// シーン遷移
 /// </summary>
-public class Sequence : MonoBehaviour
+public class SequenceController : MonoBehaviour
 {
     // スクロール処理を操作するためのオブジェクトと当たったか確認する処理
     [SerializeField]
@@ -35,15 +35,6 @@ public class Sequence : MonoBehaviour
     [SerializeField]
     float WaitTime = 1.0f;
 
-    // 一回クリックできる状態か
-    bool isStateClickableOnce = false;
-
-    // タイトルへ遷移する時のコルーチン指定文字列
-    const string titleCoroutineString = "WaitTitleSequence";
-
-    // リザルトへ遷移する時のコルーチン指定文字列
-    const string resultCoroutineString = "WaitResultSequence";
-
     // リザルトへ遷移するためのトリガー指定文字列
     const string resultTriggerString = "isResultScene";
 
@@ -58,12 +49,11 @@ public class Sequence : MonoBehaviour
         // 初期化
         scrollControllObjectHitCheck.Init(ResultSequenceCallCoroutine);
         scrollControllObject.SetActive(true);
-        isStateClickableOnce = true;
 
         // リザルトオブジェクトまたは、チュートリアルオブジェクトがアクティブだったら入力待ち処理を行う
         if (resultObject.activeSelf || tutorialObject.activeSelf)
         {
-            StartCoroutine(titleCoroutineString);
+            StartCoroutine(WaitTitleSequence());
         }
     }
 
@@ -85,7 +75,7 @@ public class Sequence : MonoBehaviour
     {
         if (gamePlayObject.activeSelf)
         {
-            StartCoroutine(resultCoroutineString);
+            StartCoroutine(WaitResultSequence());
         }
     }
 
