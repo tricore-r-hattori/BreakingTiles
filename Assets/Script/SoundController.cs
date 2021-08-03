@@ -24,19 +24,22 @@ public class SoundController : MonoBehaviour
     /// </summary>
     void Start()
     {
+
+        // 全ての瓦に割った音を流す関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
         {
-            tileImageChanger[i].InitPlayBreakTileSound(PlaySound);
+            tileImageChanger[i].InitPlayBreakTileSound(OnePlaySound);
         }
 
-        onResultObjectActiveCheck.InitPlayResultSound(PlaySound);
+        // リザルトオブジェクトにリザルトに遷移した時の音を流す関数を登録
+        onResultObjectActiveCheck.InitPlayResultSound(OnePlaySound);
     }
 
     /// <summary>
-    /// 音を流す
+    /// 音を一回流す
     /// </summary>
     /// <param name="_audioClip">音の素材</param>
-    void PlaySound(AudioClip _audioClip)
+    void OnePlaySound(AudioClip _audioClip)
     {
         audioSource.PlayOneShot(_audioClip);
     }

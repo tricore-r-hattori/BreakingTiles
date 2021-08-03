@@ -10,7 +10,7 @@ public class CountBrokenTile : MonoBehaviour
 {
     // 割った瓦をカウントするオブジェクトのTextMeshPro
     [SerializeField]
-    TextMeshProUGUI CountText = default;
+    TextMeshProUGUI countText = default;
 
     // 瓦の画像を変換するスクリプトのリスト
     [SerializeField]
@@ -18,9 +18,15 @@ public class CountBrokenTile : MonoBehaviour
 
     // 割った瓦をカウント
     int brokenTilesCount = 0;
+    // 割ったレア瓦をカウント
+    int breakRareTilesCount = 0;
 
     // カウントする瓦のテキストの文字列
-    string countBrokenTileString = default;
+    public string CountBrokenTileString { get; private set; } = default;
+
+    // 確率判定でレア瓦の画像を変更するか確認
+    [SerializeField]
+    RareTileChangeChecker rareTileChangeChecker = default;
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -42,8 +48,17 @@ public class CountBrokenTile : MonoBehaviour
     /// </summary>
     void CountBrokenTileText()
     {
-        brokenTilesCount++;
-        countBrokenTileString = brokenTilesCount.ToString() + "枚";
-        CountText.text = countBrokenTileString;
+        if (rareTileChangeChecker.IsRareTileChange)
+        {
+            breakRareTilesCount++;
+            CountBrokenTileString = breakRareTilesCount + "枚";
+        }
+        else
+        {
+            brokenTilesCount++;
+            CountBrokenTileString = brokenTilesCount + "枚";
+        }
+
+        countText.text = CountBrokenTileString;
     }
 }
