@@ -53,9 +53,10 @@ public class TileImageChanger : MonoBehaviour
     /// <summary>
     /// 初期化処理
     /// </summary>
-    public void Init(Action brokenTileCountTextDraw)
+    /// <param name=" _brokenTileCountTextDraw">瓦が割れた時に呼ばれるAction</param>
+    public void Init(Action _brokenTileCountTextDraw)
     {
-        this.brokenTileCountTextDraw = brokenTileCountTextDraw;
+        this.brokenTileCountTextDraw = _brokenTileCountTextDraw;
     }
 
     /// <summary>
@@ -118,7 +119,7 @@ public class TileImageChanger : MonoBehaviour
             }
 
             // 画像を変える地点より高い位置にいた時かつ割れていない瓦の状態の時に画像を変換
-  .position.y && !isBreakTile)
+            if (tileTransform.position.y > tileSpriteChangePoint.position.y && !isBreakTile)
             {
                 // 割れている瓦に変換
                 tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];

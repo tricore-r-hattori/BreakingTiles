@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 割った瓦を数えるテキストを描画するためのクラス
+/// 割った瓦を数えるテキストをアクティブ、非アクティブにするためのクラス
 /// </summary>
-public class CountingBrokenTileDraw : MonoBehaviour
+public class CountBrokenTileActivator : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
@@ -13,7 +13,7 @@ public class CountingBrokenTileDraw : MonoBehaviour
 
     // 割った瓦を数えるテキスト
      [SerializeField]
-    GameObject countingBrokenTile = default;
+    GameObject BrokenTileScoreText = default;
 
     /// <summary>
     /// 更新処理
@@ -23,16 +23,15 @@ public class CountingBrokenTileDraw : MonoBehaviour
         // スクロールできる状態だったら割った瓦を数えるテキストを表示する
         if (scrollControllObjectHitCheck.State == ScrollState.Scrollable)
         {
-            countingBrokenTile.SetActive(true);
+            BrokenTileScoreText.SetActive(true);
         }
     }
 
     /// <summary>
     /// 非アクティブ化した時に1回だけ処理を行う
     /// </summary>
-
     void OnDisable()
     {
-        countingBrokenTile.SetActive(false);
+        BrokenTileScoreText.SetActive(false);
     }
 }
