@@ -19,12 +19,27 @@ public class HandScroller : BaseScroller
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
+    // 初期座標
+    Vector3 InitPosition = Vector3.zero;
+
     /// <summary>
-    /// 初期化処理
+    /// 起動処理
     /// </summary>
-    void Start()
+    void Awake()
     {
+        InitPosition = hand.position;
+    }
+
+    /// <summary>
+    /// アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnEnable()
+    {
+        // スクロール初期化処理
         base.Init();
+
+        // 座標初期化
+        hand.position = InitPosition;
     }
 
     /// <summary>
@@ -43,8 +58,9 @@ public class HandScroller : BaseScroller
             // 手がスクロール終了地点に到達したら、手を非アクティブにする
             if (hand.position.y >= handScrollEndPoint.position.y)
             {
-                // 手を非アクティブ化
-                gameObject.SetActive(false);
+                velocity = Vector3.zero;
+
+                isProcessOnce = false;
             }
         }
     }

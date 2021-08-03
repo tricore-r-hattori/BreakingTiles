@@ -26,19 +26,34 @@ public class TileScroller : BaseScroller
     // スクロール開始座標
     Vector3 movePoint = Vector3.zero;
 
+    // 初期座標
+    Vector3 InitPosition = Vector3.zero;
+
     // スクロール時のズレを補正するための変数
     float correctionPosition = 0.0f;
 
     /// <summary>
-    /// 初期化処理
+    /// 起動処理
     /// </summary>
-    void Start()
+    void Awake()
+    {
+        // スクロール開始座標設定
+        movePoint = tileScrollStartPoint.position;
+
+        // 初期座標設定
+        InitPosition = tile.position;
+    }
+
+    /// <summary>
+    /// アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnEnable()
     {
         // スクロール初期化処理
         base.Init();
 
-        // スクロール開始座標設定
-        movePoint = tileScrollStartPoint.position;
+        // 座標初期化
+        tile.position = InitPosition;
     }
 
     /// <summary>
@@ -68,5 +83,14 @@ public class TileScroller : BaseScroller
                 movePoint.y = tileScrollStartPoint.position.y;
             }
         }
+    }
+
+    /// <summary>
+    /// 非アクティブ化した時に1回だけ処理を行う
+    /// </summary>
+    void OnDisable()
+    {
+        // 起動時に1回だけ処理を行うためのフラグをOFFにする
+        isProcessOnce = false;
     }
 }

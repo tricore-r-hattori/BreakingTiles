@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +28,7 @@ public class BaseScroller : MonoBehaviour
     protected Vector3 velocity = Vector3.zero;
 
     // 処理を一回だけ行うためのフラグ
-    protected bool isProcessOnce = true;
+    protected bool isProcessOnce = false;
 
     /// <summary>
     /// スクロールがストップしたかのフラグ
