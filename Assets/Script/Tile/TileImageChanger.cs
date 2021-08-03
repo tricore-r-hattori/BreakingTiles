@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// タイルの種類
@@ -47,7 +48,14 @@ public class TileImageChanger : MonoBehaviour
     /// <summary>
     /// 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
     /// </summary>
-    event Action onCountBrokenTileText = default;
+    Action onCountBrokenTileText = default;
+
+    // 瓦の画像が切り替わった時に割った音を流すためのAction
+    Action<AudioClip> onPlayBreakTileSound = default;
+
+    // 瓦を割った音
+    [SerializeField]
+    AudioClip breakTileaAudioClip = default;
 
     /// <summary>
     /// 初期化処理
@@ -56,6 +64,15 @@ public class TileImageChanger : MonoBehaviour
     public void Init(Action _onCountBrokenTileText)
     {
         this.onCountBrokenTileText = _onCountBrokenTileText;
+    }
+
+    /// <summary>
+    /// 割った音を流すためのAction初期化
+    /// </summary>
+    /// <param name="_onPlayBreakTileSound">瓦の画像が切り替わった時に割った音を流すためのAction</param>
+    public void InitPlayBreakTileSound(Action<AudioClip> _onPlayBreakTileSound)
+    {
+        this.onPlayBreakTileSound = _onPlayBreakTileSound;
     }
 
     /// <summary>
@@ -104,6 +121,8 @@ public class TileImageChanger : MonoBehaviour
 
                 // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
                 onCountBrokenTileText();
+
+                onPlayBreakTileSound(breakTileaAudioClip);
             }
         }
         // レア瓦に変更できない状態
@@ -126,6 +145,8 @@ public class TileImageChanger : MonoBehaviour
 
                 // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
                 onCountBrokenTileText();
+
+                onPlayBreakTileSound(breakTileaAudioClip);
             }
         }
     }

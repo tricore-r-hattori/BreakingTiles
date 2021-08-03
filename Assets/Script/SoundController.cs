@@ -29,7 +29,7 @@ public class SoundController : MonoBehaviour
             tileImageChanger[i].InitPlayBreakTileSound(PlaySound);
         }
 
-        onResultObjectActiveCheck.Init(PlaySound);
+        onResultObjectActiveCheck.InitPlayResultSound(PlaySound);
     }
 
     /// <summary>

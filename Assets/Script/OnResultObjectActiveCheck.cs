@@ -19,7 +19,7 @@ public class OnResultObjectActiveCheck : MonoBehaviour
     /// 初期化処理
     /// </summary>
     /// <param name="_onPlayResultSound">// リザルトオブジェクトがアクティブになった時に効果音を流すためのAction</param>
-    public void Init(Action<AudioClip> _onPlayResultSound)
+    public void InitPlayResultSound(Action<AudioClip> _onPlayResultSound)
     {
         this.onPlayResultSound = _onPlayResultSound;
     }
