@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,19 +23,36 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     [SerializeField]
     TileScroller tileScroller = default;
 
+    // 手のタグ
+    string handTag = "Hand";
+
+    /// <summary>
+    /// スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action
+    /// </summary>
+    Action onScrollStopResultSequence = default;
+
     /// <summary>
     /// スクロールの状態
     /// </summary>
     public ScrollState State { get; private set; } = ScrollState.UnScrolling;
 
     /// <summary>
+    /// 初期化処理
+    /// </summary>
+    /// <param name="_onScrollStopResultSequence">スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action</param>
+    public void Init(Action _onScrollStopResultSequence)
+    {
+        this.onScrollStopResultSequence = _onScrollStopResultSequence;
+    }
+
+    /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D _collision)
     {
         // 手と当たったら
-        if (collision.tag == "Hand")
+        if (_collision.tag == handTag)
         {
             // スクロールできる状態にして、スクロール処理を開始する
             State = ScrollState.Scrollable;
@@ -46,11 +64,13 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 瓦のスクロールが止まったら、それぞれの処理を止めるためにフラグを切り替える
+        // 瓦のスクロールが止まったら、それぞれの処理を止めるためにステートを切り替える
         if (tileScroller.IsScrollStop)
         {
             // スクロールできない状態にして、スクロール処理を終了する
             State = ScrollState.UnScrolling;
+
+            gameObject.SetActive(false);
         }
     }
 
@@ -59,7 +79,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // スクロールできない状態にして、スクロール処理を終了する
-        State = ScrollState.UnScrolling;
+        // スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action
+        onScrollStopResultSequence();
     }
 }
