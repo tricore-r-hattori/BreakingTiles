@@ -23,6 +23,9 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     [SerializeField]
     TileScroller tileScroller = default;
 
+    // 手のタグ
+    string handTag = "Hand";
+
     /// <summary>
     /// スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action
     /// </summary>
@@ -49,7 +52,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     void OnTriggerEnter2D(Collider2D _collision)
     {
         // 手と当たったら
-        if (_collision.tag == "Hand")
+        if (_collision.tag == handTag)
         {
             // スクロールできる状態にして、スクロール処理を開始する
             State = ScrollState.Scrollable;

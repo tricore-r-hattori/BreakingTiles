@@ -21,10 +21,7 @@ public class GiveUpButtonActivator : MonoBehaviour
     void OnEnable()
     {
         // アタッチされたオブジェクトがアクティブならギブアップボタンを表示する
-        if (gameObject.activeInHierarchy)
-        {
-            giveUpButton.SetActive(true);
-        }
+        giveUpButton.SetActive(true);
     }
 
     /// <summary>
