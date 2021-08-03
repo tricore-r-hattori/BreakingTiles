@@ -15,11 +15,17 @@ public class Sequence : MonoBehaviour
     [SerializeField]
     GameObject scrollControllObject = default;
 
+    // リザルトの全オブジェクトをまとめたオブジェクト
     [SerializeField]
     GameObject resultObject = default;
 
+    // ゲーム中の全オブジェクトをまとめたオブジェクト
     [SerializeField]
     GameObject gamePlayObject = default;
+
+    // チュートリアルの全オブジェクトをまとめたオブジェクト
+    [SerializeField]
+    GameObject tutorialObject = default;
 
     // シーケンスのアニメーター
     [SerializeField]
@@ -32,8 +38,11 @@ public class Sequence : MonoBehaviour
     // 一回クリックできる状態か
     bool isStateClickableOnce = false;
 
-    // コルーチン指定文字列
-    const string coroutineString = "WaitResultSequenceCoroutine";
+    // タイトルへ遷移する時のコルーチン指定文字列
+    const string titleCoroutineString = "WaitTitleSequence";
+
+    // リザルトへ遷移する時のコルーチン指定文字列
+    const string resultCoroutineString = "WaitResultSequence";
 
     // リザルトへ遷移するためのトリガー指定文字列
     const string resultTriggerString = "isResultScene";
@@ -47,43 +56,44 @@ public class Sequence : MonoBehaviour
     void OnEnable()
     {
         // 初期化
-        scrollControllObjectHitCheck.Init(WaitResultSequence);
+        scrollControllObjectHitCheck.Init(ResultSequenceCallCoroutine);
         scrollControllObject.SetActive(true);
         isStateClickableOnce = true;
-    }
 
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        if (resultObject.activeSelf)
+        // リザルトオブジェクトまたは、チュートリアルオブジェクトがアクティブだったら入力待ち処理を行う
+        if (resultObject.activeSelf || tutorialObject.activeSelf)
         {
-            // マウスクリックを離した、かつ一回クリックできる状態ならタイトルへ遷移する
-            if (Input.GetMouseButtonUp(0) && isStateClickableOnce)
-            {
-                sequenceAnimator.SetTrigger(titleTriggerString);
-                isStateClickableOnce = false;
-            }
+            StartCoroutine(titleCoroutineString);
         }
     }
 
     /// <summary>
-    /// 数秒待ってリザルトへ遷移する
+    /// マウスクリックを離すまで待ち、マウスクリックを離したらタイトルへ遷移する
     /// </summary>
-    void WaitResultSequence()
+    /// <returns>入力されるまで待った</returns>
+    IEnumerator WaitTitleSequence()
+    {
+        // マウスクリックを離した時、タイトルへ遷移する
+        yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
+        sequenceAnimator.SetTrigger(titleTriggerString);
+    }
+
+    /// <summary>
+    /// リザルトへ遷移する時のコルーチンを呼ぶ関数
+    /// </summary>
+    void ResultSequenceCallCoroutine()
     {
         if (gamePlayObject.activeSelf)
         {
-            StartCoroutine(coroutineString);
+            StartCoroutine(resultCoroutineString);
         }
     }
 
     /// <summary>
-    /// リザルトへ遷移するために数秒待つコルーチン
+    /// リザルトへ遷移するために数秒待つ
     /// </summary>
-    /// <returns>数秒待つ</returns>
-    IEnumerator WaitResultSequenceCoroutine()
+    /// <returns>数秒待った</returns>
+    IEnumerator WaitResultSequence()
     {
         yield return new WaitForSeconds(WaitTime);
         sequenceAnimator.SetTrigger(resultTriggerString);

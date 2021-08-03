@@ -24,7 +24,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     TileScroller tileScroller = default;
 
     /// <summary>
-    /// スクロールが止まったときに呼ばれるAction
+    /// スクロールが止まって非アクティブになった時に呼ばれるAction
     /// </summary>
     Action onScrollStopSequence = default;
 
@@ -36,20 +36,20 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// <summary>
     /// 初期化処理
     /// </summary>
-    /// <param name="onScrollStopSequence">スクロールが止まったときに呼ばれるAction</param>
-    public void Init(Action onScrollStopSequence)
+    /// <param name="_onScrollStopSequence">スクロールが止まって非アクティブになった時に呼ばれるAction</param>
+    public void Init(Action _onScrollStopSequence)
     {
-        this.onScrollStopSequence = onScrollStopSequence;
+        this.onScrollStopSequence = _onScrollStopSequence;
     }
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D _collision)
     {
         // 手と当たったら
-        if (collision.tag == "Hand")
+        if (_collision.tag == "Hand")
         {
             // スクロールできる状態にして、スクロール処理を開始する
             State = ScrollState.Scrollable;
@@ -76,7 +76,7 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        // スクロールが止まったときに呼ばれるAction
+        // スクロールが止まって非アクティブになった時に呼ばれるAction
         onScrollStopSequence();
     }
 }

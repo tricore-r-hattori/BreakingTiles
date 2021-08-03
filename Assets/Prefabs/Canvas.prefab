@@ -1144,6 +1144,7 @@ MonoBehaviour:
   scrollControllObject: {fileID: 3365272545436888608}
   resultObject: {fileID: 7797704898904764105}
   gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
   WaitTime: 1
 --- !u!1 &3103699115115650140
@@ -2290,6 +2291,7 @@ MonoBehaviour:
   scrollControllObject: {fileID: 3365272545436888608}
   resultObject: {fileID: 7797704898904764105}
   gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
   WaitTime: 1
 --- !u!1 &7084819471039300084
@@ -2814,6 +2816,7 @@ MonoBehaviour:
   scrollControllObject: {fileID: 3365272545436888608}
   resultObject: {fileID: 7797704898904764105}
   gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
   WaitTime: 1
 --- !u!1 &8029515048252619515
@@ -4271,6 +4274,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: tileScrollStartPoint
+      value: 
+      objectReference: {fileID: 7232916987360367995}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_Enabled
@@ -5057,6 +5065,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: tileScrollStartPoint
+      value: 
+      objectReference: {fileID: 7232916987360367995}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_Enabled
