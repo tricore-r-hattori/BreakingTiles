@@ -6,7 +6,7 @@ using TMPro;
 /// <summary>
 /// 割った瓦をカウント
 /// </summary>
-public class CountBreakTile : MonoBehaviour
+public class BreakTileCounter : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
