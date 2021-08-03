@@ -27,7 +27,7 @@ public class CountBrokenTile : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        // 初期化
+        // カウント初期化
         brokenTilesCount = 0;
 
         // 全ての瓦に関数を登録
@@ -38,9 +38,9 @@ public class CountBrokenTile : MonoBehaviour
     }
 
     /// <summary>
-    /// 割った瓦をカウントした値をテキストで表示
+    /// 割った瓦のカウントした値をテキストで表示
     /// </summary>
-    public void CountBrokenTileText()
+    void CountBrokenTileText()
     {
         brokenTilesCount++;
         countBrokenTileString = brokenTilesCount.ToString() + "枚";

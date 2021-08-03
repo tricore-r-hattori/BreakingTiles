@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 割った瓦を数えるテキストをアクティブ、非アクティブにするためのクラス
 /// </summary>
-public class CountBrokenTileActivator : MonoBehaviour
+public class BrokenTileScoreActivator : MonoBehaviour
 {
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
@@ -32,6 +32,7 @@ public class CountBrokenTileActivator : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
+        // テキストを非表示
         BrokenTileScoreText.SetActive(false);
     }
 }
