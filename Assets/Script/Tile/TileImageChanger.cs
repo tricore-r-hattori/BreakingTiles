@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// タイルの種類
@@ -47,15 +48,15 @@ public class TileImageChanger : MonoBehaviour
     /// <summary>
     /// 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
     /// </summary>
-    event Action onCountBrokenTileText = default;
+    event Action onCountBrokenTile = default;
 
     /// <summary>
-    /// 初期化処理
+    /// カウント値のテキスト表示Actionの初期化
     /// </summary>
-    /// <param name=" _onCountBrokenTileText">瓦が割れた時に呼ばれるカウント値のテキスト表示Action</param>
-    public void Init(Action _onCountBrokenTileText)
+    /// <param name="_onCountBrokenTile">瓦が割れた時に呼ばれるカウント値のテキスト表示Action</param>
+    public void InitCountBrokenTileAction(Action _onCountBrokenTile)
     {
-        this.onCountBrokenTileText = _onCountBrokenTileText;
+        this.onCountBrokenTile = _onCountBrokenTile;
     }
 
     /// <summary>
@@ -103,7 +104,7 @@ public class TileImageChanger : MonoBehaviour
                 isBreakTile = true;
 
                 // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
-                onCountBrokenTileText();
+                onCountBrokenTile();
             }
         }
         // レア瓦に変更できない状態
@@ -125,7 +126,7 @@ public class TileImageChanger : MonoBehaviour
                 isBreakTile = true;
 
                 // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
-                onCountBrokenTileText();
+                onCountBrokenTile();
             }
         }
     }

@@ -19,8 +19,8 @@ public class CountBrokenTile : MonoBehaviour
     // 割った瓦をカウント
     int brokenTilesCount = 0;
 
-    // カウントする瓦のテキストの文字列
-    string countBrokenTileString = default;
+    // カウントする瓦の単位の文字列
+    const string brokenTileCountUnitString = "枚";
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -33,7 +33,7 @@ public class CountBrokenTile : MonoBehaviour
         // 全ての瓦に関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
         {
-            tileImageChanger[i].Init(CountBrokenTileText);
+            tileImageChanger[i].InitCountBrokenTileAction(CountBrokenTileText);
         }
     }
 
@@ -43,7 +43,6 @@ public class CountBrokenTile : MonoBehaviour
     void CountBrokenTileText()
     {
         brokenTilesCount++;
-        countBrokenTileString = brokenTilesCount.ToString() + "枚";
-        CountText.text = countBrokenTileString;
+        CountText.text = brokenTilesCount + brokenTileCountUnitString;
     }
 }

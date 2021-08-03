@@ -1160,7 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005260348208363923}
-  - component: {fileID: 5331169245262201641}
+  - component: {fileID: 7300936408141502303}
   m_Layer: 0
   m_Name: TutorialObject
   m_TagString: Untagged
@@ -1191,7 +1191,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5331169245262201641
+--- !u!114 &7300936408141502303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1203,7 +1203,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d6f85427cdfd44ea401a99db0c6059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
+  WaitTime: 1
 --- !u!1 &3103699115115650140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,7 +2305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720897343075071758}
-  - component: {fileID: 7090476322957250437}
+  - component: {fileID: 5712959083792018939}
   m_Layer: 5
   m_Name: GamePlayObject
   m_TagString: Untagged
@@ -2333,7 +2339,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7090476322957250437
+--- !u!114 &5712959083792018939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2342,12 +2348,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6868579848340146937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da27d1bdaf5d68947b32b82dc624742b, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d6f85427cdfd44ea401a99db0c6059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileScroller: {fileID: 280406459862634111}
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
-  waitSequenceFrame: 120
+  WaitTime: 1
 --- !u!1 &7084819471039300084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,7 +2900,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d6f85427cdfd44ea401a99db0c6059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollControllObjectHitCheck: {fileID: 4052857595978648475}
+  scrollControllObject: {fileID: 3365272545436888608}
+  resultObject: {fileID: 7797704898904764105}
+  gamePlayObject: {fileID: 6868579848340146937}
+  tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
+  WaitTime: 1
 --- !u!1 &7957724426770665138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3512,7 @@ GameObject:
   - component: {fileID: 8866707671104408572}
   - component: {fileID: 8866707671104408575}
   m_Layer: 5
-  m_Name: CountCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4547,6 +4563,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: tileScrollStartPoint
+      value: 
+      objectReference: {fileID: 7232916987360367995}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_Enabled
@@ -5333,6 +5354,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297416090233512174, guid: 4c26b3badb389874f985009e6280f618,
+        type: 3}
+      propertyPath: tileScrollStartPoint
+      value: 
+      objectReference: {fileID: 7232916987360367995}
     - target: {fileID: 7500022429749735125, guid: 4c26b3badb389874f985009e6280f618,
         type: 3}
       propertyPath: m_Enabled
