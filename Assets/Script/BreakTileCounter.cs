@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
@@ -12,13 +13,9 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
-    // 割った瓦を数えるテキスト
+    // 割った瓦の値を表示するテキスト(TextMeshPro)
     [SerializeField]
-    GameObject breakTileScoreText = default;
-
-    // 割った瓦をカウントするオブジェクトのTextMeshPro
-    [SerializeField]
-    TextMeshProUGUI CountText = default;
+    TextMeshProUGUI breakTileScoreText = default;
 
     // 瓦の画像を変換するスクリプトのリスト
     [SerializeField]
@@ -52,7 +49,7 @@ public class BreakTileCounter : MonoBehaviour
     /// </summary>
     void ShowBreakTileScoreText()
     {
-        breakTileScoreText.SetActive(true);
+        breakTileScoreText.enabled = true;
     }
 
     /// <summary>
@@ -61,7 +58,7 @@ public class BreakTileCounter : MonoBehaviour
     void OnDisable()
     {
         // テキストを非表示
-        breakTileScoreText.SetActive(false);
+        breakTileScoreText.enabled = false;
     }
 
     /// <summary>
@@ -70,6 +67,6 @@ public class BreakTileCounter : MonoBehaviour
     void CountBreakTileText()
     {
         breakTilesCount++;
-        CountText.text = breakTilesCount + breakTileCountUnitString;
+        breakTileScoreText.text = breakTilesCount + breakTileCountUnitString;
     }
 }

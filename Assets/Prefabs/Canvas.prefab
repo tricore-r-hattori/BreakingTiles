@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1506748647310974160}
   - component: {fileID: 8803282307524510914}
   m_Layer: 5
-  m_Name: BrokenTileScoreRoot
+  m_Name: BreakTileScoreRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,8 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollControllObjectHitCheck: {fileID: 4052857595978648475}
-  breakTileScoreText: {fileID: 7957724426770665138}
-  CountText: {fileID: 7746071670156083615}
+  breakTileScoreText: {fileID: 7746071670156083615}
   tileImageChanger:
   - {fileID: 1825404387756698535}
   - {fileID: 8913146622732118056}
@@ -2973,7 +2972,7 @@ GameObject:
   - component: {fileID: 1097369975283651494}
   - component: {fileID: 7746071670156083615}
   m_Layer: 0
-  m_Name: BrokenTileScoreText
+  m_Name: BreakTileScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
