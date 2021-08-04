@@ -14,7 +14,7 @@ public enum TileType
 }
 
 /// <summary>
-/// 瓦の画像を変換する処理
+/// 瓦の画像を変換するためのクラス
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
@@ -45,34 +45,16 @@ public class TileImageChanger : MonoBehaviour
     // 瓦が割れたか確認するフラグ
     bool isBreakTile = false;
 
-    /// <summary>
-    /// 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
-    /// </summary>
-    Action onCountBrokenTileText = default;
-
-    // 瓦の画像が切り替わった時に割った音を流すためのAction
-    Action<AudioClip> onPlayBreakTileSound = default;
-
-    // 瓦を割った音
-    [SerializeField]
-    AudioClip breakTileaAudioClip = default;
+    // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+    Action onCountBreakTile = default;
 
     /// <summary>
-    /// 初期化処理
+    /// 瓦のカウント処理Action
     /// </summary>
-    /// <param name=" _onCountBrokenTileText">瓦が割れた時に呼ばれるカウント値のテキスト表示Action</param>
-    public void Init(Action _onCountBrokenTileText)
+    /// <param name="_onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action _onCountBreakTile)
     {
-        this.onCountBrokenTileText = _onCountBrokenTileText;
-    }
-
-    /// <summary>
-    /// 割った音を流すためのAction初期化
-    /// </summary>
-    /// <param name="_onPlayBreakTileSound">瓦の画像が切り替わった時に割った音を流すためのAction</param>
-    public void InitPlayBreakTileSound(Action<AudioClip> _onPlayBreakTileSound)
-    {
-        this.onPlayBreakTileSound = _onPlayBreakTileSound;
+        this.onCountBreakTile = _onCountBreakTile;
     }
 
     /// <summary>
@@ -119,10 +101,8 @@ public class TileImageChanger : MonoBehaviour
                 tileImage.sprite = breakTileSpriteList[(int)TileType.RareTile];
                 isBreakTile = true;
 
-                // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
-                onCountBrokenTileText();
-
-                onPlayBreakTileSound(breakTileaAudioClip);
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
         // レア瓦に変更できない状態
@@ -143,10 +123,8 @@ public class TileImageChanger : MonoBehaviour
                 tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];
                 isBreakTile = true;
 
-                // 瓦が割れた時に呼ばれるカウント値のテキスト表示Action
-                onCountBrokenTileText();
-
-                onPlayBreakTileSound(breakTileaAudioClip);
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
     }
