@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakTileCounter: {fileID: 8803282307524510914}
-  ScoreText:
+  ScoreTextList:
   - {fileID: 8087585758159681967}
   - {fileID: 7119011116830873923}
   - {fileID: 2451780576684855801}
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakTileCounter: {fileID: 8803282307524510914}
-  ScoreText:
+  ScoreTextList:
   - {fileID: 8087585758159681967}
   - {fileID: 7119011116830873923}
   - {fileID: 2451780576684855801}

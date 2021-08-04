@@ -25,6 +25,9 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
+    // カウントする瓦の単位の文字列
+    const string breakTileCountUnitString = "枚";
+
     /// <summary>
     /// 割った瓦をカウント
     /// </summary>
@@ -34,9 +37,6 @@ public class BreakTileCounter : MonoBehaviour
     /// 割ったレア瓦をカウント
     /// </summary>
     public int BreakRareTilesCount { get; private set; } = 0;
-
-    // カウントする瓦の単位の文字列
-    const string breakTileCountUnitString = "枚";
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -74,15 +74,17 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// 割った瓦のカウントした値をテキストで表示
+    /// 割った瓦をカウント
     /// </summary>
     void CountBreakTileText()
     {
+        // レア瓦の状態だったらレア瓦をカウントする
         if (rareTileChangeChecker.IsRareTileChange)
         {
             BreakRareTilesCount++;
             breakTileScoreText.text = BreakRareTilesCount + breakTileCountUnitString;
         }
+        // 通常の瓦の状態だったら通常の瓦をカウントする
         else
         {
             BreakTilesCount++;

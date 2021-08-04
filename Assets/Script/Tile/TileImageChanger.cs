@@ -5,19 +5,19 @@ using UnityEngine.UI;
 using System;
 
 /// <summary>
-/// タイルの種類
-/// </summary>
-public enum TileType
-{
-    Tile,
-    RareTile,
-}
-
-/// <summary>
 /// 瓦の画像を変換するためのクラス
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
+    /// <summary>
+    /// タイルの種類
+    /// </summary>
+    public enum TileType
+    {
+        Tile,
+        RareTile,
+    }
+
     // 瓦の画像
     [SerializeField]
     Image tileImage = default;

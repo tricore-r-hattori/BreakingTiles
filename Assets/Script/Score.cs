@@ -5,35 +5,35 @@ using TMPro;
 using System;
 
 /// <summary>
-/// スコアの種類
-/// </summary>
-public enum ScoreType
-{
-    PastScore,
-    TileHighScore,
-    RareTileHighScore,
-    NowScore,
-}
-
-/// <summary>
-/// スコア表示
+/// スコア
 /// </summary>
 public class Score : MonoBehaviour
 {
+    /// <summary>
+    /// スコアの種類
+    /// </summary>
+    public enum ScoreType
+    {
+        PastScore,
+        TileHighScore,
+        RareTileHighScore,
+        NowScore,
+    }
+
     // 割った瓦をカウント
     [SerializeField]
     BreakTileCounter breakTileCounter = default;
 
     // スコアを表示するテキスト(TextMeshPro)
     [SerializeField]
-    List<TextMeshProUGUI> ScoreText = default;
+    List<TextMeshProUGUI> ScoreTextList = default;
 
     // 確率判定でレア瓦の画像を変更するか確認
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // 現在のスコアリスト
-    List<int> nowScoreList = new List<int> { 0,0,0 };
+    // 現在のスコアのリスト
+    List<int> nowScoreList = new List<int> {0,0,0};
 
     // スコアデータリスト
     List<string> scoreDateList = new List<string> { "PastScoreData", "TileHighScoreData", "RareTileHighScoreData" };
@@ -69,24 +69,24 @@ public class Score : MonoBehaviour
             nowScoreList[(int)ScoreType.RareTileHighScore] = breakTileCounter.BreakRareTilesCount;
         }
 
-        // 今までプレイしてきたスコアの合計を計算
-        nowScoreList[(int)ScoreType.PastScore] += breakTileCounter.BreakTilesCount + breakTileCounter.BreakRareTilesCount;
-
         // レアの瓦の状態だったら割ったレア瓦カウントをテキストで表示
         if (rareTileChangeChecker.IsRareTileChange)
         {
-            ScoreText[(int)ScoreType.NowScore].text = breakTileCounter.BreakRareTilesCount + breakTileCountUnitString;
+            ScoreTextList[(int)ScoreType.NowScore].text = breakTileCounter.BreakRareTilesCount + breakTileCountUnitString;
         }
         // 通常の瓦の状態だったら割った通常の瓦カウントをテキストで表示
         else
         {
-            ScoreText[(int)ScoreType.NowScore].text = breakTileCounter.BreakTilesCount + breakTileCountUnitString;
+            ScoreTextList[(int)ScoreType.NowScore].text = breakTileCounter.BreakTilesCount + breakTileCountUnitString;
         }
+
+        // 今までプレイしてきたスコアの合計を計算
+        nowScoreList[(int)ScoreType.PastScore] += breakTileCounter.BreakTilesCount + breakTileCounter.BreakRareTilesCount;
 
         // スコアデータを表示して保存する
         for (int i = 0; i < scoreDateList.Count; i++)
         {
-            ScoreText[i].text = nowScoreList[i] + breakTileCountUnitString;
+            ScoreTextList[i].text = nowScoreList[i] + breakTileCountUnitString;
             PlayerPrefs.SetInt(scoreDateList[i], nowScoreList[i]);
         }
 
