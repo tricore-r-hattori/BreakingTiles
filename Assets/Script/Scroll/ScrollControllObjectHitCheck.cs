@@ -32,17 +32,31 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     Action onScrollStopResultSequence = default;
 
     /// <summary>
+    /// スクロールできる状態の時に呼ばれるテキスト表示Action
+    /// </summary>
+    Action onShowBreakTileScoreText = default;
+
+    /// <summary>
     /// スクロールの状態
     /// </summary>
     public ScrollState State { get; private set; } = ScrollState.UnScrolling;
 
     /// <summary>
-    /// 初期化処理
+    /// リザルト遷移Action初期化処理
     /// </summary>
     /// <param name="_onScrollStopResultSequence">スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action</param>
-    public void Init(Action _onScrollStopResultSequence)
+    public void InitResultSequenceAction(Action _onScrollStopResultSequence)
     {
         this.onScrollStopResultSequence = _onScrollStopResultSequence;
+    }
+
+    /// <summary>
+    /// テキスト表示Action初期化処理
+    /// </summary>
+    /// <param name="_onShowBreakTileScoreText">スクロールできる状態の時に呼ばれるテキスト表示Action</param>
+    public void InitShowBreakTileScoreText(Action _onShowBreakTileScoreText)
+    {
+        this.onShowBreakTileScoreText = _onShowBreakTileScoreText;
     }
 
     /// <summary>
@@ -56,6 +70,9 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
         {
             // スクロールできる状態にして、スクロール処理を開始する
             State = ScrollState.Scrollable;
+
+            // スクロールできる状態の時に呼ばれるテキスト表示Action
+            onShowBreakTileScoreText();
         }
     }
 
