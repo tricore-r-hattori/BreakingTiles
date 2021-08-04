@@ -33,20 +33,20 @@ public class RareTileChangeChecker : MonoBehaviour
     /// <summary>
     /// 確率判定
     /// </summary>
-    /// <param name="_percent">確率 (0～100)</param>
+    /// <param name="percent">確率 (0～100)</param>
     /// <returns>当選結果 [true]当選,[false]落選</returns>
-    bool IsCreateRareTileProbability(float _percent)
+    bool IsCreateRareTileProbability(float percent)
     {
         // 乱数を計算
         float probabilityRate = Random.value * OneHundredPercent;
 
         // 確率が100%だったら当選する
-        if (_percent == OneHundredPercent)
+        if (percent == OneHundredPercent)
         {
             return true;
         }
         // 乱数の値が確率の値以下だったら当選する
-        else if (probabilityRate <= _percent)
+        else if (probabilityRate <= percent)
         {
             return true;
         }

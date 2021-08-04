@@ -42,19 +42,19 @@ public class TileImageChanger : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // 瓦が割れたか確認するフラグ
-    bool isBreakTile = false;
-
     // 瓦が割れた時に呼ばれる瓦のカウント処理Action
     Action onCountBreakTile = default;
+
+    // 瓦が割れたか確認するフラグ
+    bool isBreakTile = false;
 
     /// <summary>
     /// 瓦のカウント処理Action
     /// </summary>
-    /// <param name="_onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
-    public void InitCountBreakTileAction(Action _onCountBreakTile)
+    /// <param name=" onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action onCountBreakTile)
     {
-        this.onCountBreakTile = _onCountBreakTile;
+        this.onCountBreakTile = onCountBreakTile;
     }
 
     /// <summary>

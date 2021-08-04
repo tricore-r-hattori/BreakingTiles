@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// シーン遷移
@@ -31,6 +32,10 @@ public class SequenceController : MonoBehaviour
     [SerializeField]
     Animator sequenceAnimator = default;
 
+    // 音を操作
+    [SerializeField]
+    SoundController soundController = default;
+
     // 待つ時間
     [SerializeField]
     float WaitTime = 1.0f;
@@ -54,6 +59,12 @@ public class SequenceController : MonoBehaviour
         if (resultObject.activeSelf || tutorialObject.activeSelf)
         {
             StartCoroutine(WaitTitleSequence());
+        }
+
+        // リザルトオブジェクトがアクティブだったらリザルト遷移音を再生する処理を行う
+        if (resultObject.activeSelf)
+        {
+            soundController.PlaySound(SoundController.AudioClipType.ResultSequenceSE);
         }
     }
 
