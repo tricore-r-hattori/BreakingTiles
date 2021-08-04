@@ -11,9 +11,8 @@ public class SoundController : MonoBehaviour
     [SerializeField]
     List<TileImageChanger> tileImageChanger = default;
 
-    // リザルトオブジェクトがアクティブになったか確認
     [SerializeField]
-    OnResultObjectActiveCheck onResultObjectActiveCheck = default;
+    SequenceController sequenceController = default;
 
     // オーディオソース
     [SerializeField]
@@ -24,12 +23,13 @@ public class SoundController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // 全ての瓦に音を流す関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
         {
             tileImageChanger[i].InitPlayBreakTileSound(PlaySound);
         }
 
-        onResultObjectActiveCheck.InitPlayResultSound(PlaySound);
+        sequenceController.InitPlayResultSound(PlaySound);
     }
 
     /// <summary>

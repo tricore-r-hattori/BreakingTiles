@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// シーン遷移
@@ -31,6 +32,13 @@ public class SequenceController : MonoBehaviour
     [SerializeField]
     Animator sequenceAnimator = default;
 
+    // リザルト遷移時の音
+    [SerializeField]
+    AudioClip resultAudioClip = default;
+
+    // リザルトオブジェクトがアクティブになった時にリザルト遷移時の音を流すためのAction
+    Action<AudioClip> onPlayResultSound = default;
+
     // 待つ時間
     [SerializeField]
     float WaitTime = 1.0f;
@@ -40,6 +48,15 @@ public class SequenceController : MonoBehaviour
 
     // タイトルへ遷移するためのトリガー指定文字列
     const string titleTriggerString = "isTitleScene";
+
+    /// <summary>
+    /// リザルト遷移音を流すためのAction初期化
+    /// </summary>
+    /// <param name="_onPlayResultSound">リザルトオブジェクトがアクティブになった時にリザルト遷移時の音を流すためのAction</param>
+    public void InitPlayResultSound(Action<AudioClip> _onPlayResultSound)
+    {
+        this.onPlayResultSound = _onPlayResultSound;
+    }
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -54,6 +71,12 @@ public class SequenceController : MonoBehaviour
         if (resultObject.activeSelf || tutorialObject.activeSelf)
         {
             StartCoroutine(WaitTitleSequence());
+        }
+
+        // リザルトオブジェクトがアクティブだったらリザルト遷移音を流す処理を行う
+        if (resultObject.activeSelf)
+        {
+            onPlayResultSound(resultAudioClip);
         }
     }
 

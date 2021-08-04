@@ -97,3 +97,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}
   - {fileID: 21300000, guid: 71f0ecdf0bbf9a64397049eccf3dfd75, type: 3}
   rareTileChangeChecker: {fileID: 0}
+  breakTileaAudioClip: {fileID: 8300000, guid: b6c95f8aa2ab3ef41a3cbdbaf118ebd3, type: 3}
