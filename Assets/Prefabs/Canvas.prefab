@@ -433,10 +433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakTileCounter: {fileID: 8803282307524510914}
   ScoreText:
-  - {fileID: 5120352563136162202}
   - {fileID: 8087585758159681967}
   - {fileID: 7119011116830873923}
   - {fileID: 2451780576684855801}
+  - {fileID: 5120352563136162202}
   rareTileChangeChecker: {fileID: 7399925319175960895}
 --- !u!1 &1319511694006625614
 GameObject:
@@ -1352,10 +1352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakTileCounter: {fileID: 8803282307524510914}
   ScoreText:
-  - {fileID: 5120352563136162202}
   - {fileID: 8087585758159681967}
   - {fileID: 7119011116830873923}
   - {fileID: 2451780576684855801}
+  - {fileID: 5120352563136162202}
   rareTileChangeChecker: {fileID: 7399925319175960895}
 --- !u!1 &2547967794130769975
 GameObject:
