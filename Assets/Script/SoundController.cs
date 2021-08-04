@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// 音の素材の種類
+/// </summary>
+public enum AudioClipType
+{
+    BreakTileSE,
+    ResultSequenceSE,
+}
+
+/// <summary>
 /// 音を操作する
 /// </summary>
 public class SoundController : MonoBehaviour
@@ -11,33 +20,24 @@ public class SoundController : MonoBehaviour
     [SerializeField]
     List<TileImageChanger> tileImageChanger = default;
 
+    // シーン遷移を操作
     [SerializeField]
     SequenceController sequenceController = default;
 
-    // オーディオソース
+    // 音を再生する場所
     [SerializeField]
     AudioSource audioSource = default;
 
-    /// <summary>
-    /// 開始処理
-    /// </summary>
-    void Start()
-    {
-        // 全ての瓦に音を流す関数を登録
-        for (int i = 0; i < tileImageChanger.Count; i++)
-        {
-            tileImageChanger[i].InitPlayBreakTileSound(PlaySound);
-        }
+    // 音の素材
+    [SerializeField]
+    List<AudioClip> audioCrip = default;
 
-        sequenceController.InitPlayResultSound(PlaySound);
-    }
-
-    /// <summary>
-    /// 音を流す
-    /// </summary>
-    /// <param name="_audioClip">音の素材</param>
-    void PlaySound(AudioClip _audioClip)
+    ///// <summary>
+    ///// 音を再生
+    ///// </summary>
+    ///// <param name="_audioClip">音の素材</param>
+    public void PlaySound(AudioClipType _audioClipType)
     {
-        audioSource.PlayOneShot(_audioClip);
+        audioSource.PlayOneShot(audioCrip[(int)_audioClipType]);
     }
 }

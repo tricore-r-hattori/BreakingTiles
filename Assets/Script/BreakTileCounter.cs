@@ -21,6 +21,10 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     List<TileImageChanger> tileImageChanger = default;
 
+    // 音を操作
+    [SerializeField]
+    SoundController soundController = default;
+
     // 割った瓦をカウント
     int breakTilesCount = 0;
 
@@ -68,5 +72,8 @@ public class BreakTileCounter : MonoBehaviour
     {
         breakTilesCount++;
         breakTileScoreText.text = breakTilesCount + breakTileCountUnitString;
+
+        // 瓦が割れる音を流す
+        soundController.PlaySound(AudioClipType.BreakTileSE);
     }
 }

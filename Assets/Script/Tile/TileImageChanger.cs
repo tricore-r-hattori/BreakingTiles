@@ -42,15 +42,8 @@ public class TileImageChanger : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // 瓦を割った音
-    [SerializeField]
-    AudioClip breakTileaAudioClip = default;
-
     // 瓦が割れた時に呼ばれる瓦のカウント処理Action
     Action onCountBreakTile = default;
-
-    // 瓦の画像が切り替わった時に割った音を流すためのAction
-    Action<AudioClip> onPlayBreakTileSound = default;
 
     // 瓦が割れたか確認するフラグ
     bool isBreakTile = false;
@@ -62,15 +55,6 @@ public class TileImageChanger : MonoBehaviour
     public void InitCountBreakTileAction(Action _onCountBreakTile)
     {
         this.onCountBreakTile = _onCountBreakTile;
-    }
-
-    /// <summary>
-    /// 割った音を流すためのAction初期化
-    /// </summary>
-    /// <param name="_onPlayBreakTileSound">瓦の画像が切り替わった時に割った音を流すためのAction</param>
-    public void InitPlayBreakTileSound(Action<AudioClip> _onPlayBreakTileSound)
-    {
-        this.onPlayBreakTileSound = _onPlayBreakTileSound;
     }
 
     /// <summary>
@@ -119,9 +103,6 @@ public class TileImageChanger : MonoBehaviour
 
                 // 瓦が割れた時に呼ばれる瓦のカウント処理Action
                 onCountBreakTile();
-
-                // 瓦の画像が切り替わった時に割った音を流すためのAction
-                onPlayBreakTileSound(breakTileaAudioClip);
             }
         }
         // レア瓦に変更できない状態
@@ -144,9 +125,6 @@ public class TileImageChanger : MonoBehaviour
 
                 // 瓦が割れた時に呼ばれる瓦のカウント処理Action
                 onCountBreakTile();
-
-                // 瓦の画像が切り替わった時に割った音を流すためのAction
-                onPlayBreakTileSound(breakTileaAudioClip);
             }
         }
     }
