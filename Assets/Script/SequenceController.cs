@@ -32,10 +32,6 @@ public class SequenceController : MonoBehaviour
     [SerializeField]
     Animator sequenceAnimator = default;
 
-    // リザルト遷移時の音
-    [SerializeField]
-    AudioClip resultAudioClip = default;
-
     // 音を操作
     [SerializeField]
     SoundController soundController = default;
@@ -68,7 +64,7 @@ public class SequenceController : MonoBehaviour
         // リザルトオブジェクトがアクティブだったらリザルト遷移音を再生する処理を行う
         if (resultObject.activeSelf)
         {
-            soundController.PlaySound(AudioClipType.ResultSequenceSE);
+            soundController.PlaySound(SoundController.AudioClipType.ResultSequenceSE);
         }
     }
 

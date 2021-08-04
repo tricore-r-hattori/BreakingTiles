@@ -1263,7 +1263,6 @@ MonoBehaviour:
   gamePlayObject: {fileID: 6868579848340146937}
   tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
-  resultAudioClip: {fileID: 8300000, guid: d9159acb155932d47b6c0e026578518b, type: 3}
   soundController: {fileID: 6789270285609577539}
   WaitTime: 1
 --- !u!1 &3103699115115650140
@@ -2413,7 +2412,6 @@ MonoBehaviour:
   gamePlayObject: {fileID: 6868579848340146937}
   tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
-  resultAudioClip: {fileID: 8300000, guid: d9159acb155932d47b6c0e026578518b, type: 3}
   soundController: {fileID: 6789270285609577539}
   WaitTime: 1
 --- !u!1 &7084819471039300084
@@ -2953,7 +2951,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
@@ -3058,64 +3056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e979a4b44875243b748cb946c3be7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileImageChanger:
-  - {fileID: 1825404387756698535}
-  - {fileID: 8913146622732118056}
-  - {fileID: 813694281474650765}
-  - {fileID: 2580950194200142991}
-  - {fileID: 3791058322351985026}
-  - {fileID: 7471887521963723467}
-  - {fileID: 4691988902233315359}
-  - {fileID: 7954496574409168347}
-  - {fileID: 7642279196566096509}
-  - {fileID: 197885475752627832}
-  - {fileID: 3573823224796061270}
-  - {fileID: 6602764484360273633}
-  - {fileID: 2577813831704687798}
-  - {fileID: 7830919990710735116}
-  - {fileID: 6430399042821586426}
-  - {fileID: 1059748736679346244}
-  - {fileID: 6217647134367349517}
-  - {fileID: 8839271976207837573}
-  - {fileID: 2399570769553871330}
-  - {fileID: 8701342833270087643}
-  - {fileID: 6827963175183184028}
-  - {fileID: 170574888308170577}
-  - {fileID: 4908630388963940072}
-  - {fileID: 329078135330948341}
-  - {fileID: 2441162209326826793}
-  - {fileID: 7474716093711662194}
-  - {fileID: 2909908105471510164}
-  - {fileID: 5370237160025621787}
-  - {fileID: 4214774677003149246}
-  - {fileID: 1361865106623023548}
-  - {fileID: 408625709663239345}
-  - {fileID: 6234753758548977656}
-  - {fileID: 8082407256063522092}
-  - {fileID: 6868901901581023464}
-  - {fileID: 6573537950039779150}
-  - {fileID: 3713277631944483659}
-  - {fileID: 49527321153450853}
-  - {fileID: 7680478837898892242}
-  - {fileID: 1364887117345134981}
-  - {fileID: 6744762363902442559}
-  - {fileID: 7496923567873970377}
-  - {fileID: 4576724039022980471}
-  - {fileID: 7457596769207408190}
-  - {fileID: 5448324860229665974}
-  - {fileID: 1187768848073293009}
-  - {fileID: 5329535905112912616}
-  - {fileID: 8067914831878446511}
-  - {fileID: 3704546502596653666}
-  - {fileID: 8442495353846479835}
-  - {fileID: 3865829340650039750}
-  - {fileID: 1213704190380812314}
-  - {fileID: 6236561003313729857}
-  sequenceController: {fileID: 2777202960364718739}
   audioSource: {fileID: 894281416607539740}
-  audioCrip:
-  - {fileID: 8300000, guid: b6c95f8aa2ab3ef41a3cbdbaf118ebd3, type: 3}
-  - {fileID: 8300000, guid: d9159acb155932d47b6c0e026578518b, type: 3}
+  audioClip: []
 --- !u!1 &7797704898904764105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,7 +3118,6 @@ MonoBehaviour:
   gamePlayObject: {fileID: 6868579848340146937}
   tutorialObject: {fileID: 3031754784018939761}
   sequenceAnimator: {fileID: 3596497821401363483}
-  resultAudioClip: {fileID: 8300000, guid: d9159acb155932d47b6c0e026578518b, type: 3}
   soundController: {fileID: 6789270285609577539}
   WaitTime: 1
 --- !u!1 &7957724426770665138

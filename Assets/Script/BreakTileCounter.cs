@@ -74,6 +74,6 @@ public class BreakTileCounter : MonoBehaviour
         breakTileScoreText.text = breakTilesCount + breakTileCountUnitString;
 
         // 瓦が割れる音を流す
-        soundController.PlaySound(AudioClipType.BreakTileSE);
+        soundController.PlaySound(SoundController.AudioClipType.BreakTileSE);
     }
 }

@@ -51,10 +51,10 @@ public class TileImageChanger : MonoBehaviour
     /// <summary>
     /// 瓦のカウント処理Action
     /// </summary>
-    /// <param name=" _onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
-    public void InitCountBreakTileAction(Action _onCountBreakTile)
+    /// <param name=" onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action onCountBreakTile)
     {
-        this.onCountBreakTile = _onCountBreakTile;
+        this.onCountBreakTile = onCountBreakTile;
     }
 
     /// <summary>
