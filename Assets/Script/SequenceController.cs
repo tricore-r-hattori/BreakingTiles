@@ -47,7 +47,7 @@ public class SequenceController : MonoBehaviour
     void OnEnable()
     {
         // 初期化
-        scrollControllObjectHitCheck.Init(ResultSequenceCallCoroutine);
+        scrollControllObjectHitCheck.InitResultSequenceAction(ResultSequenceCallCoroutine);
         scrollControllObject.SetActive(true);
 
         // リザルトオブジェクトまたは、チュートリアルオブジェクトがアクティブだったら入力待ち処理を行う

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// タイルの種類
@@ -13,7 +14,7 @@ public enum TileType
 }
 
 /// <summary>
-/// 瓦の画像を変換する処理
+/// 瓦の画像を変換するためのクラス
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
@@ -43,6 +44,18 @@ public class TileImageChanger : MonoBehaviour
 
     // 瓦が割れたか確認するフラグ
     bool isBreakTile = false;
+
+    // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+    Action onCountBreakTile = default;
+
+    /// <summary>
+    /// 瓦のカウント処理Action
+    /// </summary>
+    /// <param name="_onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action _onCountBreakTile)
+    {
+        this.onCountBreakTile = _onCountBreakTile;
+    }
 
     /// <summary>
     /// 開始処理
@@ -87,6 +100,9 @@ public class TileImageChanger : MonoBehaviour
                 // 割れているレア瓦に変換
                 tileImage.sprite = breakTileSpriteList[(int)TileType.RareTile];
                 isBreakTile = true;
+
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
         // レア瓦に変更できない状態
@@ -106,6 +122,9 @@ public class TileImageChanger : MonoBehaviour
                 // 割れている瓦に変換
                 tileImage.sprite = breakTileSpriteList[(int)TileType.Tile];
                 isBreakTile = true;
+
+                // 瓦が割れた時に呼ばれる瓦のカウント処理Action
+                onCountBreakTile();
             }
         }
     }
