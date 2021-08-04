@@ -17,35 +17,66 @@ public enum ScoreType
 public class Score : MonoBehaviour
 {
     [SerializeField]
-    CountBrokenTile countBrokenTile = default;
+    BreakTileCounter breakTileCounter = default;
 
     [SerializeField]
     List<TextMeshProUGUI> ScoreText = default;
 
-    // 1プレイ前のスコア
+    // 確率判定でレア瓦の画像を変更するか確認
+    [SerializeField]
+    RareTileChangeChecker rareTileChangeChecker = default;
+
+    // 今までのスコアの合計
     int pastScore = 0;
 
     // 現在のスコア
-    int nowScore = 0;
+    int nowNormalTileHighScore = 0;
 
-    const string scoreData = "ScoreData";
+    int nowRainbowTileHighScore = 0;
+
+    const string PastScoreData = "PastScoreData";
+
+    const string NormalTileHighScoreData = "NormalTileHighScoreData";
+
+    const string RainbowTileHighScore = "RainbowTileHighScore";
+
+    void Awake()
+    {
+        pastScore = PlayerPrefs.GetInt(PastScoreData, 0);
+        nowNormalTileHighScore = PlayerPrefs.GetInt(NormalTileHighScoreData, 0);
+        nowRainbowTileHighScore = PlayerPrefs.GetInt(RainbowTileHighScore, 0);
+    }
+
     void OnEnable()
     {
-        pastScore = PlayerPrefs.GetInt(scoreData, 0);
+        if (breakTileCounter.BreakTilesCount >= nowNormalTileHighScore)
+        {
+            nowNormalTileHighScore = breakTileCounter.BreakTilesCount;
+        }
+        if (breakTileCounter.BreakRareTilesCount >= nowRainbowTileHighScore)
+        {
+            nowRainbowTileHighScore = breakTileCounter.BreakRareTilesCount;
+        }
 
-        nowScore = 
+        pastScore = pastScore + breakTileCounter.BreakTilesCount + breakTileCounter.BreakRareTilesCount;
+
+        if (rareTileChangeChecker.IsRareTileChange)
+        {
+            ScoreText[(int)ScoreType.NormalScore].text = breakTileCounter.BreakRareTilesCount + "枚";
+        }
+        else
+        {
+            ScoreText[(int)ScoreType.NormalScore].text = breakTileCounter.BreakTilesCount + "枚";
+        }
+
+        ScoreText[(int)ScoreType.PastScore].text = pastScore + "枚";
+        ScoreText[(int)ScoreType.NormalTileHighScore].text = nowNormalTileHighScore + "枚";
+        ScoreText[(int)ScoreType.RainbowTileHighScore].text = nowRainbowTileHighScore + "枚";
 
         // スコアを保存
-        PlayerPrefs.SetInt(scoreData, nowScore);
+        PlayerPrefs.SetInt(PastScoreData, pastScore);
+        PlayerPrefs.SetInt(NormalTileHighScoreData, nowNormalTileHighScore);
+        PlayerPrefs.SetInt(RainbowTileHighScore, nowRainbowTileHighScore);
         PlayerPrefs.Save();
-
-        ScoreText[(int)ScoreType.NormalScore].text = countBrokenTile.CountBrokenTileString;
-        ScoreText[(int)ScoreType.PastScore].text = countBrokenTile.CountBrokenTileString;
-        //if ()
-        //{
-
-        //}
-        ScoreText[(int)ScoreType.NormalTileHighScore].text = countBrokenTile.CountBrokenTileString;
-        ScoreText[(int)ScoreType.RainbowTileHighScore].text = countBrokenTile.CountBrokenTileString;
     }
 }

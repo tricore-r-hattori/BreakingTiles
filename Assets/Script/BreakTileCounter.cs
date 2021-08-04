@@ -21,8 +21,19 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     List<TileImageChanger> tileImageChanger = default;
 
-    // 割った瓦をカウント
-    int breakTilesCount = 0;
+    // 確率判定でレア瓦の画像を変更するか確認
+    [SerializeField]
+    RareTileChangeChecker rareTileChangeChecker = default;
+
+    /// <summary>
+    /// 割った瓦をカウント
+    /// </summary>
+    public int BreakTilesCount { get; private set; } = 0;
+
+    /// <summary>
+    /// 割ったレア瓦をカウント
+    /// </summary>
+    public int BreakRareTilesCount { get; private set; } = 0;
 
     // カウントする瓦の単位の文字列
     const string breakTileCountUnitString = "枚";
@@ -33,7 +44,8 @@ public class BreakTileCounter : MonoBehaviour
     void OnEnable()
     {
         // カウント初期化
-        breakTilesCount = 0;
+        BreakTilesCount = 0;
+        BreakRareTilesCount = 0;
 
         // 全ての瓦にカウント表示関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
@@ -66,7 +78,15 @@ public class BreakTileCounter : MonoBehaviour
     /// </summary>
     void CountBreakTileText()
     {
-        breakTilesCount++;
-        breakTileScoreText.text = breakTilesCount + breakTileCountUnitString;
+        if (rareTileChangeChecker.IsRareTileChange)
+        {
+            BreakRareTilesCount++;
+            breakTileScoreText.text = BreakRareTilesCount + breakTileCountUnitString;
+        }
+        else
+        {
+            BreakTilesCount++;
+            breakTileScoreText.text = BreakTilesCount + breakTileCountUnitString;
+        }
     }
 }
