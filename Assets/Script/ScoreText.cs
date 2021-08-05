@@ -23,8 +23,8 @@ public class ScoreText : MonoBehaviour
 
     /// <summary>
     /// 称号の種類
-    /// TODO: 3つだと寂しいので後程増やすかもしれません。 
     /// </summary>
+    /// TODO: 3つだと寂しいので後程増やすかもしれません。 
     public enum TitleType
     {
         Premium,
@@ -52,11 +52,8 @@ public class ScoreText : MonoBehaviour
     [SerializeField]
     List<int> pastScoreThresholdList = default;
 
-    // 現在のスコアのリスト
+    // スコアのリスト
     List<int> scoreList = new List<int> {0,0,0};
-
-    // スコアデータリスト
-    List<string> scoreDateNameList = new List<string> {"PastScoreData", "TileHighScoreData", "RareTileHighScoreData"};
 
     // 現在のスコアによる称号リスト
     // TODO: 3つだと寂しいので後程増やすかもしれません。
@@ -65,6 +62,9 @@ public class ScoreText : MonoBehaviour
     // 過去のスコアによる称号リスト
     // TODO: 3つだと寂しいので後程増やすかもしれません。
     List<string> pastScoreTitleList = new List<string> {"白帯の","黄帯の","黒帯の"};
+
+    // スコアデータリスト
+    string[] scoreDateNameList = { "PastScoreData", "TileHighScoreData", "RareTileHighScoreData" };
 
     // 現在のスコアによる称号
     string nowScoreTitle = default;
@@ -81,7 +81,7 @@ public class ScoreText : MonoBehaviour
     void Awake()
     {
         // スコアデータを読み込み
-        for (int i = 0; i < scoreDateNameList.Count; i++)
+        for (int i = 0; i < scoreDateNameList.Length; i++)
         {
             scoreList[i] = PlayerPrefs.GetInt(scoreDateNameList[i], 0);
         }
@@ -129,7 +129,7 @@ public class ScoreText : MonoBehaviour
         scoreTextList[(int)ScoreType.NowScore].text = breakTileCounter.BreakTilesCount + breakTileCountUnitString;
 
         // スコアデータを設定して保存する
-        for (int i = 0; i < scoreDateNameList.Count; i++)
+        for (int i = 0; i < scoreDateNameList.Length; i++)
         {
             scoreTextList[i].text = scoreList[i] + breakTileCountUnitString;
             PlayerPrefs.SetInt(scoreDateNameList[i], scoreList[i]);
