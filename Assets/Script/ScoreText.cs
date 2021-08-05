@@ -44,11 +44,11 @@ public class ScoreText : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // しきい値のリスト
+    // 現在のスコアによるしきい値のリスト
     [SerializeField]
     List<int> nowScoreThresholdList = default;
 
-    // しきい値のリスト
+    // 過去のスコアによるしきい値のリスト
     [SerializeField]
     List<int> pastScoreThresholdList = default;
 
@@ -92,6 +92,17 @@ public class ScoreText : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
+        // 表示するスコアテキストを決定する処理
+        DecideScoreText();
+        // 称号名を合わせる処理
+        MatchTitle();
+    }
+
+    /// <summary>
+    /// 表示するスコアテキストを決定する処理
+    /// </summary>
+    void DecideScoreText()
+    {
         // レアの瓦の状態でスコア比較処理へ
         if (rareTileChangeChecker.IsRareTileChange)
         {
@@ -114,10 +125,10 @@ public class ScoreText : MonoBehaviour
         // 今までプレイしてきたスコアの合計を計算
         scoreList[(int)ScoreType.PastScore] += breakTileCounter.BreakTilesCount;
 
-        // 今割った瓦のカウントをテキストで表示
+        // 今割った瓦のカウントテキストを設定
         scoreTextList[(int)ScoreType.NowScore].text = breakTileCounter.BreakTilesCount + breakTileCountUnitString;
 
-        // スコアデータを表示して保存する
+        // スコアデータを設定して保存する
         for (int i = 0; i < scoreDateNameList.Count; i++)
         {
             scoreTextList[i].text = scoreList[i] + breakTileCountUnitString;
@@ -125,15 +136,46 @@ public class ScoreText : MonoBehaviour
         }
 
         PlayerPrefs.Save();
-
-        // 称号名決定処理
-        TitleDecision();
     }
 
     /// <summary>
-    /// 称号名決定処理 
+    /// 称号名を合わせる処理
     /// </summary>
-    void TitleDecision()
+    void MatchTitle()
+    {
+        // 現在のスコアの称号を決定する
+        DecideNowScoreTitle();
+        // 過去のスコアの称号を決定する
+        DecidePastScoreTitle();
+
+        // 過去のスコアの称号と現在のスコアの称号を合わせてテキストで表示
+        scoreTextList[(int)ScoreType.TitleName].text = pastScoreTitle + nowScoreTitle;
+    }
+
+    /// <summary>
+    /// 現在のスコアの称号を決定する
+    /// </summary>
+    void DecidePastScoreTitle()
+    {
+        // 過去のスコアがしきい値以上だったら称号名を決定する
+        if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Regular])
+        {
+            pastScoreTitle = pastScoreTitleList[(int)TitleType.Regular];
+        }
+        else if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Special])
+        {
+            pastScoreTitle = pastScoreTitleList[(int)TitleType.Special];
+        }
+        else if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Premium])
+        {
+            pastScoreTitle = pastScoreTitleList[(int)TitleType.Premium];
+        }
+    }
+
+    /// <summary>
+    /// 過去のスコアの称号を決定する
+    /// </summary>
+    void DecideNowScoreTitle()
     {
         // 現在のスコアがしきい値以上だったら称号名を決定する
         if (breakTileCounter.BreakTilesCount >= nowScoreThresholdList[(int)TitleType.Regular])
@@ -148,22 +190,5 @@ public class ScoreText : MonoBehaviour
         {
             nowScoreTitle = nowScoreTitleList[(int)TitleType.Premium];
         }
-
-        // 過去のスコアがしきい値以上だったら称号名を決定する
-        if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Regular])
-        {
-            pastScoreTitle = pastScoreTitleList[(int)TitleType.Regular];
-        }
-        else if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Special])
-        {
-            pastScoreTitle = pastScoreTitleList[(int)TitleType.Special];
-        }
-        else if (scoreList[(int)ScoreType.PastScore] >= pastScoreThresholdList[(int)TitleType.Premium])
-        {
-            pastScoreTitle = pastScoreTitleList[(int)TitleType.Premium];
-        }
-
-        // 過去のスコアの称号と現在のスコアの称号を合わせてテキストで表示
-        scoreTextList[(int)ScoreType.TitleName].text = pastScoreTitle + nowScoreTitle;
     }
 }
