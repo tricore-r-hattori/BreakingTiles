@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 120}
+  m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4205874150040563182
 CanvasRenderer:
@@ -97,4 +97,3 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d3b7abd2ce1e3af428652489c8bbd42b, type: 3}
   - {fileID: 21300000, guid: 71f0ecdf0bbf9a64397049eccf3dfd75, type: 3}
   rareTileChangeChecker: {fileID: 0}
-  breakTileaAudioClip: {fileID: 8300000, guid: b6c95f8aa2ab3ef41a3cbdbaf118ebd3, type: 3}
