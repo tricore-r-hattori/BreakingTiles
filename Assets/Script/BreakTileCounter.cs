@@ -25,11 +25,13 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     SoundController soundController = default;
 
-    // 割った瓦をカウント
-    int breakTilesCount = 0;
-
     // カウントする瓦の単位の文字列
     const string breakTileCountUnitString = "枚";
+
+    /// <summary>
+    /// 割った瓦をカウント
+    /// </summary>
+    public int BreakTilesCount { get; private set; } = 0;
 
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
@@ -37,7 +39,7 @@ public class BreakTileCounter : MonoBehaviour
     void OnEnable()
     {
         // カウント初期化
-        breakTilesCount = 0;
+        BreakTilesCount = 0;
 
         // 全ての瓦にカウント表示関数を登録
         for (int i = 0; i < tileImageChanger.Count; i++)
@@ -66,14 +68,14 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// 割った瓦のカウントした値をテキストで表示
+    /// 割った瓦をカウント
     /// </summary>
     void CountBreakTileText()
     {
-        breakTilesCount++;
-        breakTileScoreText.text = breakTilesCount + breakTileCountUnitString;
+         BreakTilesCount++;
+         breakTileScoreText.text = BreakTilesCount + breakTileCountUnitString;
 
-        // 瓦が割れる音を流す
-        soundController.PlaySound(SoundController.AudioClipType.BreakTileSE);
+          // 瓦が割れる音を流す
+         soundController.PlaySound(SoundController.AudioClipType.BreakTileSE);
     }
 }
