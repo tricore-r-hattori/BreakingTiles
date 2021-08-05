@@ -44,29 +44,29 @@ public class ScrollControllObjectHitCheck : MonoBehaviour
     /// <summary>
     /// リザルト遷移Action初期化処理
     /// </summary>
-    /// <param name="_onScrollStopResultSequence">スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action</param>
-    public void InitResultSequenceAction(Action _onScrollStopResultSequence)
+    /// <param name="onScrollStopResultSequence">スクロールが止まって非アクティブになった時に呼ばれるリザルト遷移Action</param>
+    public void InitResultSequenceAction(Action onScrollStopResultSequence)
     {
-        this.onScrollStopResultSequence = _onScrollStopResultSequence;
+        this.onScrollStopResultSequence = onScrollStopResultSequence;
     }
 
     /// <summary>
     /// テキスト表示Action初期化処理
     /// </summary>
-    /// <param name="_onShowBreakTileScoreText">スクロールできる状態の時に呼ばれるテキスト表示Action</param>
-    public void InitShowBreakTileScoreText(Action _onShowBreakTileScoreText)
+    /// <param name="onShowBreakTileScoreText">スクロールできる状態の時に呼ばれるテキスト表示Action</param>
+    public void InitShowBreakTileScoreText(Action onShowBreakTileScoreText)
     {
-        this.onShowBreakTileScoreText = _onShowBreakTileScoreText;
+        this.onShowBreakTileScoreText = onShowBreakTileScoreText;
     }
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
     /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
-    void OnTriggerEnter2D(Collider2D _collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         // 手と当たったら
-        if (_collision.tag == handTag)
+        if (collision.tag == handTag)
         {
             // スクロールできる状態にして、スクロール処理を開始する
             State = ScrollState.Scrollable;

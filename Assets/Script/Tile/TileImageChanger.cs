@@ -5,19 +5,19 @@ using UnityEngine.UI;
 using System;
 
 /// <summary>
+/// タイルの種類
+/// </summary>
+public enum TileType
+{
+    Tile,
+    RareTile,
+}
+
+/// <summary>
 /// 瓦の画像を変換するためのクラス
 /// </summary>
 public class TileImageChanger : MonoBehaviour
 {
-    /// <summary>
-    /// タイルの種類
-    /// </summary>
-    public enum TileType
-    {
-        Tile,
-        RareTile,
-    }
-
     // 瓦の画像
     [SerializeField]
     Image tileImage = default;
@@ -42,19 +42,19 @@ public class TileImageChanger : MonoBehaviour
     [SerializeField]
     RareTileChangeChecker rareTileChangeChecker = default;
 
-    // 瓦が割れたか確認するフラグ
-    bool isBreakTile = false;
-
     // 瓦が割れた時に呼ばれる瓦のカウント処理Action
     Action onCountBreakTile = default;
+
+    // 瓦が割れたか確認するフラグ
+    bool isBreakTile = false;
 
     /// <summary>
     /// 瓦のカウント処理Action
     /// </summary>
-    /// <param name="_onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
-    public void InitCountBreakTileAction(Action _onCountBreakTile)
+    /// <param name=" onCountBreakTile">瓦が割れた時に呼ばれる瓦のカウント処理Action</param>
+    public void InitCountBreakTileAction(Action onCountBreakTile)
     {
-        this.onCountBreakTile = _onCountBreakTile;
+        this.onCountBreakTile = onCountBreakTile;
     }
 
     /// <summary>

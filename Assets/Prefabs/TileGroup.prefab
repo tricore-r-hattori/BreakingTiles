@@ -952,11 +952,6 @@ PrefabInstance:
       propertyPath: rareTileChangeCheck
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7419297652431748518, guid: 2832b9d205e9b2d4fa08d10d7c7bf988,
-        type: 3}
-      propertyPath: tileSpriteChangePoint
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2832b9d205e9b2d4fa08d10d7c7bf988, type: 3}
 --- !u!224 &2548000883976869244 stripped
