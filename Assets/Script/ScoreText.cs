@@ -95,7 +95,7 @@ public class ScoreText : MonoBehaviour
         // 表示するスコアテキストを決定する処理
         DecideScoreText();
         // 称号名を合わせる処理
-        MatchTitle();
+        DecideTitle();
     }
 
     /// <summary>
@@ -141,7 +141,7 @@ public class ScoreText : MonoBehaviour
     /// <summary>
     /// 称号名を合わせる処理
     /// </summary>
-    void MatchTitle()
+    void DecideTitle()
     {
         // 現在のスコアの称号を決定する
         DecideNowScoreTitle();
