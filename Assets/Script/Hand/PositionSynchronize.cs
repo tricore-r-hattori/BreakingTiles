@@ -10,6 +10,14 @@ public class PositionSynchronize : MonoBehaviour
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
+    // 右下にある手を固定する地点
+    [SerializeField]
+    RectTransform bottomRightFixHandPoint = default;
+
+    // 左上にある手を固定する地点
+    [SerializeField]
+    RectTransform topLeftFixHandPoint = default;
+
     // マウスの座標の補正値
     [SerializeField]
     float correctionHandPositionsZ = 10.0f;
@@ -62,5 +70,10 @@ public class PositionSynchronize : MonoBehaviour
         screenToWorldMousePosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
         // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
+
+        if (gameObject.transform.position.x >= bottomRightFixHandPoint.position.x)
+        {
+            gameObject.transform.position = bottomRightFixHandPoint.position;
+        }
     }
 }
