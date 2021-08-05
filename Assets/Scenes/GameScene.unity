@@ -187,7 +187,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &419192520
+--- !u!1001 &456816306
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 8866707671104408574, guid: d34ee0d60533d864e98fbad17e40bfcf,
         type: 3}
       propertyPath: m_Name
-      value: AdjustmentCanvas
+      value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d34ee0d60533d864e98fbad17e40bfcf, type: 3}
