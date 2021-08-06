@@ -95,91 +95,13 @@ public class PositionSynchronize : MonoBehaviour
         screenToWorldMousePosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
         // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
-        // 手の軸を固定する座標を更新
-        fixHandPosition = gameObject.transform.position;
 
         // 一定の位置で手の軸を固定する
-        FixHand();
-    }
-
-    /// <summary>
-    /// 一定の位置で手の軸を固定する
-    /// </summary>
-    void FixHand()
-    {
-        // ゲーム画面の左側で手を固定する処理
-        LeftFixHand();
-
-        // ゲーム画面の右側で手を固定する処理
-        RightFixHand();
-
-        // ゲーム画面の下側で手を固定する処理
-        DownFixHand();
-
+        fixHandPosition  = new Vector3(
+            Mathf.Clamp(gameObject.transform.position.x, topLeftFixHandPoint.position.x, bottomRightFixHandPoint.position.x),
+            Mathf.Clamp(gameObject.transform.position.y, bottomRightFixHandPoint.position.y, topLeftFixHandPoint.position.y));
+      
         // アタッチされたオブジェクトの座標の軸を固定する
         gameObject.transform.position = fixHandPosition;
-    }
-
-    /// <summary>
-    /// ゲーム画面の左側で手を固定する処理
-    /// </summary>
-    void LeftFixHand()
-    {
-        // 手のX軸を固定する地点から左に行ったら手のX軸を固定する
-        if (gameObject.transform.position.x <= topLeftFixHandPoint.position.x)
-        {
-            fixHandPosition.x = topLeftFixHandPoint.position.x;
-            fixHandPosition.y = gameObject.transform.position.y;
-
-            // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-            if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-            {
-                fixHandPosition.y = topLeftFixHandPoint.position.y;
-            }
-        }
-    }
-
-    /// <summary>
-    /// ゲーム画面の右側で手を固定する処理
-    /// </summary>
-    void RightFixHand()
-    {
-        // 手のX軸を固定する地点から右に行ったら手のX軸を固定する
-        if (gameObject.transform.position.x >= bottomRightFixHandPoint.position.x)
-        {
-            fixHandPosition.x = bottomRightFixHandPoint.position.x;
-            fixHandPosition.y = gameObject.transform.position.y;
-
-            // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-            if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-            {
-                fixHandPosition.y = bottomRightFixHandPoint.position.y;
-            }
-        }
-    }
-
-    /// <summary>
-    /// ゲーム画面の下側で手を固定する処理
-    /// </summary>
-    void DownFixHand()
-    {
-        // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-        if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-        {
-            fixHandPosition.x = gameObject.transform.position.x;
-            fixHandPosition.y = bottomRightFixHandPoint.position.y;
-
-            // 手のY軸を固定する地点から右に行ったら手のX軸を固定する
-            if (gameObject.transform.position.x >= bottomRightFixHandPoint.position.x)
-            {
-                fixHandPosition.x = bottomRightFixHandPoint.position.x;
-            }
-
-            // 手のY軸を固定する地点から左に行ったら手のX軸を固定する
-            if (gameObject.transform.position.x <= topLeftFixHandPoint.position.x)
-            {
-                fixHandPosition.x = topLeftFixHandPoint.position.x;
-            }
-        }
     }
 }
