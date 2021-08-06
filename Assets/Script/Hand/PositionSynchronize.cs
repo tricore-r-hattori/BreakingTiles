@@ -25,9 +25,6 @@ public class PositionSynchronize : MonoBehaviour
     // レイキャストでオブジェクトと当たった情報を格納
     RaycastHit2D hitObject = default;
 
-    // 手の軸を固定する座標
-    Vector3 fixHandPosition = Vector3.zero;
-
     // マウスのスクリーン座標
     Vector3 mouseScreenPosition = Vector3.zero;
     // スクリーン座標をワールド座標に変換したマウスの座標
@@ -97,11 +94,8 @@ public class PositionSynchronize : MonoBehaviour
         gameObject.transform.position = screenToWorldMousePosition;
 
         // 一定の位置で手の軸を固定する
-        fixHandPosition  = new Vector3(
+        gameObject.transform.position = new Vector3(
             Mathf.Clamp(gameObject.transform.position.x, topLeftFixHandPoint.position.x, bottomRightFixHandPoint.position.x),
             Mathf.Clamp(gameObject.transform.position.y, bottomRightFixHandPoint.position.y, topLeftFixHandPoint.position.y));
-      
-        // アタッチされたオブジェクトの座標の軸を固定する
-        gameObject.transform.position = fixHandPosition;
     }
 }
