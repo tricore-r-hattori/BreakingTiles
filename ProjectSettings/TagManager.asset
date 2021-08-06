@@ -7,6 +7,8 @@ TagManager:
   - Tile
   - ScrollStartPoint
   - Hand
+  - ScrollControllPoint
+  - HandToTileHit
   layers:
   - Default
   - TransparentFX
