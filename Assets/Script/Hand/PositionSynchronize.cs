@@ -10,13 +10,9 @@ public class PositionSynchronize : MonoBehaviour
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
-    // 右下にある手の軸を固定する地点
+    // 手の軸を固定する地点
     [SerializeField]
-    RectTransform bottomRightFixHandPoint = default;
-
-    // 左上にある手の軸を固定する地点
-    [SerializeField]
-    RectTransform topLeftFixHandPoint = default;
+    RectTransform fixHandPoint = default;
 
     // マウスの座標の補正値
     [SerializeField]
@@ -29,6 +25,12 @@ public class PositionSynchronize : MonoBehaviour
     Vector3 mouseScreenPosition = Vector3.zero;
     // スクリーン座標をワールド座標に変換したマウスの座標
     Vector3 screenToWorldMousePosition = Vector3.zero;
+    // ワールド座標に変換した手の軸を固定する地点のサイズ
+    Vector3 WorldfixHandSize = Vector3.zero;
+
+    Vector3 prePosition = Vector3.zero;
+
+    Vector3 correctionPosition = Vector3.zero;
 
     // 手のタグ
     const string HandTag = "Hand";
@@ -43,7 +45,14 @@ public class PositionSynchronize : MonoBehaviour
         {
             // マウスと当たったオブジェクトの確認
             CheckMouseHitObject();
+
+            prePosition = gameObject.transform.position;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        gameObject.transform.position = prePosition;
     }
 
     /// <summary>
@@ -93,9 +102,11 @@ public class PositionSynchronize : MonoBehaviour
         // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
 
-        // 一定の位置で手の軸を固定する
-        gameObject.transform.position = new Vector3(
-            Mathf.Clamp(gameObject.transform.position.x, topLeftFixHandPoint.position.x, bottomRightFixHandPoint.position.x),
-            Mathf.Clamp(gameObject.transform.position.y, bottomRightFixHandPoint.position.y, topLeftFixHandPoint.position.y));
+        //WorldfixHandSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size / 2.0f);
+
+        //// 一定の位置で手の軸を固定する
+        //gameObject.transform.position = new Vector3(
+        //    Mathf.Clamp(gameObject.transform.position.x, -WorldfixHandSize.x, WorldfixHandSize.x),
+        //    Mathf.Clamp(gameObject.transform.position.y, -WorldfixHandSize.y / 3.0f, WorldfixHandSize.y));
     }
 }

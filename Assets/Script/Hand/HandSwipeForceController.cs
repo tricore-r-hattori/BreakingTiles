@@ -99,7 +99,7 @@ public class HandSwipeForceController : MonoBehaviour
 
     // 瓦の当たる位置によって割る力を変化させる処理
     // TODO: 瓦の特定部分との当たり判定をとっていないので、後にここの処理を書きます。
-    // public void TileIsHitPower()
+    // public void HitTileIsPower()
     // {
 
     // }
