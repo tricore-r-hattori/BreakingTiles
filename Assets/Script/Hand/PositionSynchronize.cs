@@ -30,8 +30,6 @@ public class PositionSynchronize : MonoBehaviour
     // ワールド座標に変換した手の軸を固定する地点のサイズ
     Vector3 fixHandWorldSize = Vector3.zero;
 
-    // サイズを半分にするための値
-    const float HalfSize = 2.0f;
     // 手のタグ
     const string HandTag = "Hand";
 
@@ -95,7 +93,7 @@ public class PositionSynchronize : MonoBehaviour
         //ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
         // 手の軸を固定する地点の中心から幅と高さの値を出すためにサイズを半分にし、ワールド座標に変換
-        fixHandWorldSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size / HalfSize);
+        fixHandWorldSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size * 0.5f);
         // 手の軸を固定する地点のローカル座標をワールド座標に変換
         fixHandWorldPosition = fixHandPoint.transform.TransformPoint(fixHandPoint.transform.localPosition);
 
