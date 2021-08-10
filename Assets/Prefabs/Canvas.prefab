@@ -603,6 +603,11 @@ PrefabInstance:
       propertyPath: sequenceAnimator
       value: 
       objectReference: {fileID: 3596497821401363483}
+    - target: {fileID: 3674963720685004121, guid: 72d9033063d480d44ab062b9bb489e1c,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8866707671104408562}
     - target: {fileID: 4902061192240014187, guid: 72d9033063d480d44ab062b9bb489e1c,
         type: 3}
       propertyPath: soundController
