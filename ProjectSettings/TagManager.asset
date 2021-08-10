@@ -9,6 +9,11 @@ TagManager:
   - Hand
   - ScrollControllPoint
   - HandToTileHit
+  - LeftmostTile
+  - LeftTile
+  - MiddleTile
+  - RightTile
+  - RightmostTile
   layers:
   - Default
   - TransparentFX
