@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7965921613729211562}
   - component: {fileID: 7703311665351426907}
   - component: {fileID: 901148322206837192}
-  - component: {fileID: 6824472366733402128}
   - component: {fileID: 1732018447469410038}
   - component: {fileID: 6542366933776877410}
   m_Layer: 5
@@ -141,26 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollControllObjectHitCheck: {fileID: 0}
-  bottomRightFixHandPoint: {fileID: 0}
-  topLeftFixHandPoint: {fileID: 0}
+  fixHandPoint: {fileID: 0}
   correctionHandPositionsZ: 90
---- !u!114 &6824472366733402128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202226084652151089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bbc9fa506ff3349989de9a58df7e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handTransform: {fileID: 2259788089529431923}
-  tileTransform: {fileID: 0}
-  correctionHandPositionsY: 12
-  correctionTilePositionsY: 132
-  getPositionTime: 30
 --- !u!114 &1732018447469410038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d376e81c4ad13cc4aa71c1e2ceb8de08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSwipeForce: {fileID: 6824472366733402128}
+  handSwipeForce: {fileID: 8048252599000079209}
   scrollSpeedY: 10
   speedDeceleration: 0.99
   scrollStop: 0.01
@@ -206,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7639905077334697590}
   - component: {fileID: 2683624764440220346}
+  - component: {fileID: 8048252599000079209}
   m_Layer: 5
   m_Name: HandToTileHit
   m_TagString: HandToTileHit
@@ -258,3 +240,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8048252599000079209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276594447716462571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bbc9fa506ff3349989de9a58df7e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handTransform: {fileID: 2259788089529431923}
+  tileTransform: {fileID: 0}
+  correctionHandPositionsY: 12
+  correctionTilePositionsY: 135
+  getPositionTime: 15

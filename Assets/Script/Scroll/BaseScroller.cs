@@ -58,7 +58,7 @@ public class BaseScroller : MonoBehaviour
             // スクロール速度設定
             velocity = new Vector3(0, Time.deltaTime * scrollSpeedY);
             // スクロール速度にスワイプ時の力を掛ける
-            velocity *= handSwipeForce.Speed;
+            velocity *= handSwipeForce.SwipeForce;
 
             isProcessOnce = false;
         }

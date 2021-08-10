@@ -26,7 +26,10 @@ public class BreakTileCounter : MonoBehaviour
     SoundController soundController = default;
 
     // カウントする瓦の単位の文字列
-    const string breakTileCountUnitString = "枚";
+    const string BreakTileCountUnitString = "枚";
+
+    // カウントテキストの初期値文字列
+    const string ZeroSheets = "0枚";
 
     /// <summary>
     /// 割った瓦をカウント
@@ -55,6 +58,7 @@ public class BreakTileCounter : MonoBehaviour
     /// </summary>
     void ShowBreakTileScoreText()
     {
+        breakTileScoreText.text = ZeroSheets;
         breakTileScoreText.enabled = true;
     }
 
@@ -73,7 +77,7 @@ public class BreakTileCounter : MonoBehaviour
     void CountBreakTileText()
     {
          BreakTilesCount++;
-         breakTileScoreText.text = BreakTilesCount + breakTileCountUnitString;
+         breakTileScoreText.text = BreakTilesCount + BreakTileCountUnitString;
 
           // 瓦が割れる音を流す
          soundController.PlaySound(SoundController.AudioClipType.BreakTileSE);

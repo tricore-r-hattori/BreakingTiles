@@ -18,6 +18,16 @@ public enum TileCollisionType
 }
 
 /// <summary>
+/// 瓦に当たった時の力の種類
+/// </summary>
+public enum HitTilePowerType
+{
+    Small,
+    Medium,
+    Large
+}
+
+/// <summary>
 /// スワイプ時の力を操るためのクラス
 /// </summary>
 public class HandSwipeForceController : MonoBehaviour
@@ -38,6 +48,10 @@ public class HandSwipeForceController : MonoBehaviour
     [SerializeField]
     float correctionTilePositionsY = 6.6f;
 
+    // 速度に掛ける値
+    [SerializeField]
+    List<float> multiplySpeedValueList = default;
+
     // 座標を取得するタイミング(フレーム)
     [SerializeField]
     int getPositionTime = 60;
@@ -51,9 +65,10 @@ public class HandSwipeForceController : MonoBehaviour
     float distance = 0.0f;
     // 秒
     float seconds = 0.0f;
-    // スワイプ時の力
-    // TODO: 瓦との当たり判定をとった後に使用します。
-    float swipeForce = 0.0f;
+    // 速度
+    float speed = 0.0f;
+    // 速度に掛ける値を保存する変数
+    float multiplySpeed = 0.0f;
     // フレームのカウント
     int frameCount = 0;
 
@@ -64,14 +79,14 @@ public class HandSwipeForceController : MonoBehaviour
     const float FrameToSeconds = 60.0f;
 
     /// <summary>
-    /// 速度
+    /// スワイプ時の力
     /// </summary>
-    public float Speed { get; private set; } = 0.0f;
+    public float SwipeForce { get; private set; } = 0.0f;
 
     /// <summary>
     /// 2Dオブジェクト同士が重なった瞬間に呼び出される
     /// </summary>
-    /// <param name="other">当たったCollider2Dオブジェクトの情報</param>
+    /// <param name="collision">当たったCollider2Dオブジェクトの情報</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         // スクロールを開始せるためのオブジェクトと当たったら
@@ -81,6 +96,8 @@ public class HandSwipeForceController : MonoBehaviour
             tilePos = tileTransform.position;
             // 瓦のY軸を補正
             tilePos.y += correctionTilePositionsY;
+            // 縦の距離だけを計算するために瓦のX軸を手のX軸と同期させる
+            tilePos.x = handPos.x;
 
             // スワイプした距離を計算
             distance = Mathf.Abs(Vector3.Distance(handPos, tilePos));
@@ -89,8 +106,11 @@ public class HandSwipeForceController : MonoBehaviour
             seconds = (getPositionTime / FrameToSeconds);
 
             // 速度を計算
-            Speed = distance / seconds;
+            speed = distance / seconds;
         }
+
+        // 瓦の当たる位置によって割る力を変化させる処理
+        HitTileIsPower(collision);
     }
 
     /// <summary>
@@ -100,7 +120,7 @@ public class HandSwipeForceController : MonoBehaviour
     {
         frameCount++;
 
-        // 1秒ごとに手の座標を取得する
+        // 数秒ごとに手の座標を取得する
         if (frameCount % getPositionTime == 0)
         {
             // 手の座標を取得
@@ -113,10 +133,31 @@ public class HandSwipeForceController : MonoBehaviour
         }
     }
 
-    // 瓦の当たる位置によって割る力を変化させる処理
-    // TODO: 瓦の特定部分との当たり判定をとっていないので、後にここの処理を書きます。
-    // public void HitTileIsPower()
-    // {
+    /// <summary>
+    /// 瓦の当たる位置によって割る力を変化させる処理 
+    /// </summary>
+    /// <param name="collision">当たったCollider2Dオブジェクトの情報</param>
+    public void HitTileIsPower(Collider2D collision)
+    {
+        // 瓦の一番左と一番右の矩形当たり判定に当たったら、速度に掛ける小さい値を設定
+        if (collision.tag == HitTag[(int)TileCollisionType.Leftmost] || collision.tag == HitTag[(int)TileCollisionType.Rightmost])
+        {
+            multiplySpeed = multiplySpeedValueList[(int)HitTilePowerType.Small];
+        }
 
-    // }
+        // 瓦の左から2番目と右から2番目の矩形当たり判定に当たったら、速度に掛ける中くらいの値を設定
+        if (collision.tag == HitTag[(int)TileCollisionType.Left] || collision.tag == HitTag[(int)TileCollisionType.Right])
+        {
+            multiplySpeed = multiplySpeedValueList[(int)HitTilePowerType.Medium];
+        }
+
+        // 瓦の真ん中の矩形当たり判定に当たったら、速度に掛ける大きい値を設定
+        if (collision.tag == HitTag[(int)TileCollisionType.Middle])
+        {
+            multiplySpeed = multiplySpeedValueList[(int)HitTilePowerType.Large];
+        }
+
+        // スワイプ時の力を計算
+        SwipeForce = speed * multiplySpeed;
+    }
 }
