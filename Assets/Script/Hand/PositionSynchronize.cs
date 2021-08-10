@@ -10,13 +10,9 @@ public class PositionSynchronize : MonoBehaviour
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
 
-    // 右下にある手の軸を固定する地点
+    // 手の軸を固定する地点
     [SerializeField]
-    RectTransform bottomRightFixHandPoint = default;
-
-    // 左上にある手の軸を固定する地点
-    [SerializeField]
-    RectTransform topLeftFixHandPoint = default;
+    RectTransform fixHandPoint = default;
 
     // マウスの座標の補正値
     [SerializeField]
@@ -25,13 +21,14 @@ public class PositionSynchronize : MonoBehaviour
     // レイキャストでオブジェクトと当たった情報を格納
     RaycastHit2D hitObject = default;
 
-    // 手の軸を固定する座標
-    Vector3 fixHandPosition = Vector3.zero;
-
     // マウスのスクリーン座標
     Vector3 mouseScreenPosition = Vector3.zero;
     // スクリーン座標をワールド座標に変換したマウスの座標
     Vector3 screenToWorldMousePosition = Vector3.zero;
+    // ワールド座標に変換した手の軸を固定する地点の座標
+    Vector3 fixHandWorldPosition = Vector3.zero;
+    // ワールド座標に変換した手の軸を固定する地点のサイズ
+    Vector3 fixHandWorldSize = Vector3.zero;
 
     // 手のタグ
     const string HandTag = "Hand";
@@ -93,93 +90,16 @@ public class PositionSynchronize : MonoBehaviour
         mouseScreenPosition.z = correctionHandPositionsZ;
         // マウスの座標をスクリーン座標からワールド座標に変換する
         screenToWorldMousePosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
+        //ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
-        // 手の軸を固定する座標を更新
-        fixHandPosition = gameObject.transform.position;
+        // 手の軸を固定する地点の中心から幅と高さの値を出すためにサイズを半分にし、ワールド座標に変換
+        fixHandWorldSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size * 0.5f);
+        // 手の軸を固定する地点のローカル座標をワールド座標に変換
+        fixHandWorldPosition = fixHandPoint.transform.TransformPoint(fixHandPoint.transform.localPosition);
 
         // 一定の位置で手の軸を固定する
-        FixHand();
-    }
-
-    /// <summary>
-    /// 一定の位置で手の軸を固定する
-    /// </summary>
-    void FixHand()
-    {
-        // ゲーム画面の左側で手を固定する処理
-        LeftFixHand();
-
-        // ゲーム画面の右側で手を固定する処理
-        RightFixHand();
-
-        // ゲーム画面の下側で手を固定する処理
-        DownFixHand();
-
-        // アタッチされたオブジェクトの座標の軸を固定する
-        gameObject.transform.position = fixHandPosition;
-    }
-
-    /// <summary>
-    /// ゲーム画面の左側で手を固定する処理
-    /// </summary>
-    void LeftFixHand()
-    {
-        // 手のX軸を固定する地点から左に行ったら手のX軸を固定する
-        if (gameObject.transform.position.x <= topLeftFixHandPoint.position.x)
-        {
-            fixHandPosition.x = topLeftFixHandPoint.position.x;
-            fixHandPosition.y = gameObject.transform.position.y;
-
-            // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-            if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-            {
-                fixHandPosition.y = topLeftFixHandPoint.position.y;
-            }
-        }
-    }
-
-    /// <summary>
-    /// ゲーム画面の右側で手を固定する処理
-    /// </summary>
-    void RightFixHand()
-    {
-        // 手のX軸を固定する地点から右に行ったら手のX軸を固定する
-        if (gameObject.transform.position.x >= bottomRightFixHandPoint.position.x)
-        {
-            fixHandPosition.x = bottomRightFixHandPoint.position.x;
-            fixHandPosition.y = gameObject.transform.position.y;
-
-            // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-            if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-            {
-                fixHandPosition.y = bottomRightFixHandPoint.position.y;
-            }
-        }
-    }
-
-    /// <summary>
-    /// ゲーム画面の下側で手を固定する処理
-    /// </summary>
-    void DownFixHand()
-    {
-        // 手のY軸を固定する地点から下に行ったら手のY軸を固定する
-        if (gameObject.transform.position.y <= bottomRightFixHandPoint.position.y)
-        {
-            fixHandPosition.x = gameObject.transform.position.x;
-            fixHandPosition.y = bottomRightFixHandPoint.position.y;
-
-            // 手のY軸を固定する地点から右に行ったら手のX軸を固定する
-            if (gameObject.transform.position.x >= bottomRightFixHandPoint.position.x)
-            {
-                fixHandPosition.x = bottomRightFixHandPoint.position.x;
-            }
-
-            // 手のY軸を固定する地点から左に行ったら手のX軸を固定する
-            if (gameObject.transform.position.x <= topLeftFixHandPoint.position.x)
-            {
-                fixHandPosition.x = topLeftFixHandPoint.position.x;
-            }
-        }
+        gameObject.transform.position = new Vector3(
+            Mathf.Clamp(gameObject.transform.position.x, -fixHandWorldSize.x, fixHandWorldSize.x),
+            Mathf.Clamp(gameObject.transform.position.y, -fixHandWorldSize.y + fixHandWorldPosition.y, fixHandWorldSize.y));
     }
 }
