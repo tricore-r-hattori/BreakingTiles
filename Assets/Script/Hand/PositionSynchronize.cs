@@ -25,13 +25,13 @@ public class PositionSynchronize : MonoBehaviour
     Vector3 mouseScreenPosition = Vector3.zero;
     // スクリーン座標をワールド座標に変換したマウスの座標
     Vector3 screenToWorldMousePosition = Vector3.zero;
+    // ワールド座標に変換した手の軸を固定する地点の座標
+    Vector3 fixHandWorldPosition = Vector3.zero;
     // ワールド座標に変換した手の軸を固定する地点のサイズ
-    Vector3 WorldfixHandSize = Vector3.zero;
+    Vector3 fixHandWorldSize = Vector3.zero;
 
-    Vector3 prePosition = Vector3.zero;
-
-    Vector3 correctionPosition = Vector3.zero;
-
+    // サイズを半分にするための値
+    const float HalfSize = 2.0f;
     // 手のタグ
     const string HandTag = "Hand";
 
@@ -45,14 +45,7 @@ public class PositionSynchronize : MonoBehaviour
         {
             // マウスと当たったオブジェクトの確認
             CheckMouseHitObject();
-
-            prePosition = gameObject.transform.position;
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        gameObject.transform.position = prePosition;
     }
 
     /// <summary>
@@ -99,14 +92,16 @@ public class PositionSynchronize : MonoBehaviour
         mouseScreenPosition.z = correctionHandPositionsZ;
         // マウスの座標をスクリーン座標からワールド座標に変換する
         screenToWorldMousePosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        // ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
+        //ワールド座標に変換されたマウスの座標をアタッチされているオブジェクトの座標に代入
         gameObject.transform.position = screenToWorldMousePosition;
+        // 手の軸を固定する地点の中心から幅と高さの値を出すためにサイズを半分にし、ワールド座標に変換
+        fixHandWorldSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size / HalfSize);
+        // 手の軸を固定する地点のローカル座標をワールド座標に変換
+        fixHandWorldPosition = fixHandPoint.transform.TransformPoint(fixHandPoint.transform.localPosition);
 
-        //WorldfixHandSize = fixHandPoint.transform.TransformPoint(fixHandPoint.rect.size / 2.0f);
-
-        //// 一定の位置で手の軸を固定する
-        //gameObject.transform.position = new Vector3(
-        //    Mathf.Clamp(gameObject.transform.position.x, -WorldfixHandSize.x, WorldfixHandSize.x),
-        //    Mathf.Clamp(gameObject.transform.position.y, -WorldfixHandSize.y / 3.0f, WorldfixHandSize.y));
+        // 一定の位置で手の軸を固定する
+        gameObject.transform.position = new Vector3(
+            Mathf.Clamp(gameObject.transform.position.x, -fixHandWorldSize.x, fixHandWorldSize.x),
+            Mathf.Clamp(gameObject.transform.position.y, -fixHandWorldSize.y + fixHandWorldPosition.y, fixHandWorldSize.y));
     }
 }
