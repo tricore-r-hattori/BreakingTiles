@@ -5,6 +5,19 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 /// <summary>
+/// 瓦の矩形当たり判定の種類
+/// </summary>
+public enum TileCollisionType
+{
+    ScrollControllPoint,
+    Leftmost,
+    Left,
+    Middle,
+    Right,
+    Rightmost,
+}
+
+/// <summary>
 /// スワイプ時の力を操るためのクラス
 /// </summary>
 public class HandSwipeForceController : MonoBehaviour
@@ -44,6 +57,9 @@ public class HandSwipeForceController : MonoBehaviour
     // フレームのカウント
     int frameCount = 0;
 
+    // スコアデータリスト
+    string[] HitTag = { "ScrollControllPoint" ,"LeftmostTile", "LeftTile", "MiddleTile","RightTile", "RightmostTile" };
+
     // フレームから秒に変える値
     const float FrameToSeconds = 60.0f;
 
@@ -59,7 +75,7 @@ public class HandSwipeForceController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // スクロールを開始せるためのオブジェクトと当たったら
-        if (collision.tag == "ScrollControllPoint")
+        if (collision.tag == HitTag[(int)TileCollisionType.ScrollControllPoint])
         {
             // 瓦の座標を設定
             tilePos = tileTransform.position;
