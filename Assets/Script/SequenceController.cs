@@ -50,11 +50,6 @@ public class SequenceController : MonoBehaviour
     // タイトルへ遷移するためのトリガー指定文字列
     const string titleTriggerString = "isTitleScene";
 
-
-    void Start()
-    {
-        
-    }
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
@@ -76,7 +71,6 @@ public class SequenceController : MonoBehaviour
             soundController.PlayBGM(SoundController.AudioClipType.TitleBGM);
         }
         
-
         // ゲーム中オブジェクトがアクティブだったらゲームプレイBGMを流す
         if (gamePlayObject.activeSelf)
         {
