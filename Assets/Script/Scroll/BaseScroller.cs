@@ -8,9 +8,9 @@ using UnityEngine;
 /// </summary>
 public class BaseScroller : MonoBehaviour
 {
-    // 手をスワイプした時の力
+    // 手をスワイプした時の速度
     [SerializeField]
-    HandSwipeForceController handSwipeForce = default;
+    HandSwipeSpeedController handSwipeSpeed = default;
 
     // スクロール速度Y軸
     [SerializeField]
@@ -57,8 +57,8 @@ public class BaseScroller : MonoBehaviour
         {
             // スクロール速度設定
             velocity = new Vector3(0, Time.deltaTime * scrollSpeedY);
-            // スクロール速度にスワイプ時の力を掛ける
-            velocity *= handSwipeForce.SwipeForce;
+            // スクロール速度にスワイプ時の速度を掛ける
+            velocity *= handSwipeSpeed.Speed;
 
             isProcessOnce = false;
         }
