@@ -9,6 +9,10 @@ using TMPro;
 /// </summary>
 public class BreakTileCounter : MonoBehaviour
 {
+    // 瓦の画像を変換するスクリプトのリスト
+    [SerializeField]
+    List<TileImageChanger> tileImageChanger = default;
+
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
@@ -16,10 +20,6 @@ public class BreakTileCounter : MonoBehaviour
     // 割った瓦の値を表示するテキスト(TextMeshPro)
     [SerializeField]
     TextMeshProUGUI breakTileScoreText = default;
-
-    // 瓦の画像を変換するスクリプトのリスト
-    [SerializeField]
-    List<TileImageChanger> tileImageChanger = default;
 
     // 音を操作
     [SerializeField]

@@ -32,6 +32,11 @@ public enum HitTilePowerType
 /// </summary>
 public class HandSwipeForceController : MonoBehaviour
 {
+
+    // 速度に掛ける値
+    [SerializeField]
+    List<float> multiplySpeedValueList = default;
+
     // 手
     [SerializeField]
     RectTransform handTransform = default;
@@ -47,10 +52,6 @@ public class HandSwipeForceController : MonoBehaviour
     // 瓦の座標の補正値
     [SerializeField]
     float correctionTilePositionsY = 6.6f;
-
-    // 速度に掛ける値
-    [SerializeField]
-    List<float> multiplySpeedValueList = default;
 
     // 座標を取得するタイミング(フレーム)
     [SerializeField]
