@@ -5,58 +5,29 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 /// <summary>
-/// スワイプ速度を制限させる位置の種類
-/// </summary>
-public enum LimitSpeedPointType
-{
-    Leftmost,
-    Left,
-    Right,
-    Rightmost,
-}
-
-/// <summary>
-/// スワイプ速度の種類
-/// </summary>
-public enum SwipeSpeedType
-{
-    Small,
-    Large
-}
-
-/// <summary>
-/// レクトトランスフォームの種類
-/// </summary>
-public enum RectTransformType
-{
-    HandHit,
-    TileHead,
-}
-
-/// <summary>
 /// スワイプ時の速度を操るためのクラス
 /// </summary>
 public class HandSwipeSpeedController : MonoBehaviour
 {
-    // スワイプ速度を制限させる位置
+    // 手の接地判定の座標
     [SerializeField]
-    List<RectTransform> limitSpeedPointList = default;
+    RectTransform handHitTransform = default;
 
-    // 速度に掛ける値
+    // 瓦の頭の座標
     [SerializeField]
-    List<float> multiplySpeedList = default;
-
-    // オブジェクトの座標を取得するためのレクトトランスフォーム
-    [SerializeField]
-    List<RectTransform> rectTransformList = default;
-
-    // 速度のしきい値
-    [SerializeField]
-    float speedThreshold = 50.0f;
+    RectTransform tileHeadTransform = default;
 
     // 座標を取得するタイミング(フレーム)
     [SerializeField]
     int getPositionTime = 60;
+
+    // 減数倍率
+    [SerializeField]
+    float attenuationMagnification = 2.0f;
+
+    // 速度倍率
+    [SerializeField]
+    float speedMagnification = 10.0f;
 
     // 手の座標
     Vector3 handPos = Vector3.zero;
@@ -96,7 +67,7 @@ public class HandSwipeSpeedController : MonoBehaviour
         {
             Speed = 0.0f;
             // 瓦の座標を設定
-            tilePos = rectTransformList[(int)RectTransformType.TileHead].position;
+            tilePos = tileHeadTransform.position;
 
             saveTilePosX = tilePos.x;
             // 縦の距離だけを計算するために瓦のX軸を手のX軸と同期させる
@@ -113,32 +84,10 @@ public class HandSwipeSpeedController : MonoBehaviour
             seconds = (getPositionTime / FrameToSeconds);
 
             // 速度を計算
-            Speed = (distanceY - distanceX) / seconds;
+            Speed = distanceY - (distanceX * attenuationMagnification) / seconds;
 
-            // 瓦の当たる位置によって、速度に掛ける値を変える処理
-            MultiplySwipeSpeed();
-        }
-    }
-
-    /// <summary>
-    /// 瓦の当たる位置によって、速度に掛ける値を変える処理
-    /// </summary>
-    void MultiplySwipeSpeed()
-    {
-        // 瓦の左側と右側に当たったら小さい値を速度に掛ける
-        if (rectTransformList[(int)RectTransformType.HandHit].position.x < limitSpeedPointList[(int)LimitSpeedPointType.Leftmost].position.x ||
-            rectTransformList[(int)RectTransformType.HandHit].position.x > limitSpeedPointList[(int)LimitSpeedPointType.Rightmost].position.x)
-        {
-            Speed *= multiplySpeedList[(int)SwipeSpeedType.Small];
-        }
-        // 瓦の真ん中に当たったら大きい値を速度に掛ける
-        else if (rectTransformList[(int)RectTransformType.HandHit].position.x > limitSpeedPointList[(int)LimitSpeedPointType.Left].position.x &&
-                 rectTransformList[(int)RectTransformType.HandHit].position.x < limitSpeedPointList[(int)LimitSpeedPointType.Right].position.x)
-        {
-            if (Speed >= speedThreshold)
-            {
-                Speed *= multiplySpeedList[(int)SwipeSpeedType.Large];
-            }
+            // 速度に任意の倍率を掛ける
+            Speed *= speedMagnification;
         }
     }
 
@@ -153,7 +102,7 @@ public class HandSwipeSpeedController : MonoBehaviour
         if (frameCount % getPositionTime == 0)
         {
             // 手の座標を取得
-            handPos = rectTransformList[(int)RectTransformType.HandHit].position;
+            handPos = handHitTransform.position;
 
             // フレームのカウントを初期化
             frameCount = 0;

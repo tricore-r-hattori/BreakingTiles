@@ -235,15 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bbc9fa506ff3349989de9a58df7e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitSpeedPointList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  multiplySpeedList:
-  - 0.2
-  - 10
-  rectTransformList:
-  - {fileID: 7639905077334697590}
-  - {fileID: 0}
+  handHitTransform: {fileID: 7639905077334697590}
+  tileHeadTransform: {fileID: 0}
   getPositionTime: 60
+  attenuationMagnification: 2
+  speedMagnification: 10

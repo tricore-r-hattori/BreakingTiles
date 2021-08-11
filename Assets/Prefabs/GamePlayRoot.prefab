@@ -1386,6 +1386,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646999481828040296, guid: c7657990a6fa8414f8f5b395f3cde350,
         type: 3}
+      propertyPath: tileTransform
+      value: 
+      objectReference: {fileID: 5864287959282521369}
+    - target: {fileID: 2646999481828040296, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
+      propertyPath: tileHeadTransform
+      value: 
+      objectReference: {fileID: 5864287959282521369}
+    - target: {fileID: 2646999481828040296, guid: c7657990a6fa8414f8f5b395f3cde350,
+        type: 3}
       propertyPath: rectTransformList.Array.data[1]
       value: 
       objectReference: {fileID: 5864287959282521369}
