@@ -31,17 +31,7 @@ public class HandSwipeSpeedController : MonoBehaviour
 
     // 手の座標
     Vector3 handPos = Vector3.zero;
-    // 瓦の座標
-    Vector3 tilePos = Vector3.zero;
 
-    // X軸の距離
-    float distanceX = 0.0f;
-    // Y軸の距離
-    float distanceY = 0.0f;
-    // 瓦のX座標を保存
-    float saveTilePosX = 0.0f;
-    // 秒
-    float seconds = 0.0f;
     // フレームのカウント
     int frameCount = 0;
 
@@ -65,6 +55,17 @@ public class HandSwipeSpeedController : MonoBehaviour
         // スクロールを開始せるためのオブジェクトと当たったら
         if (collision.tag == HitTag)
         {
+            // X軸の距離
+            float distanceX = 0.0f;
+            // Y軸の距離
+            float distanceY = 0.0f;
+            // 瓦のX座標を保存
+            float saveTilePosX = 0.0f;
+            // 秒
+            float seconds = 0.0f;
+            // 瓦の座標
+            Vector3 tilePos = Vector3.zero;
+
             Speed = 0.0f;
             // 瓦の座標を設定
             tilePos = tileHeadTransform.position;
