@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd78559797b54d418c5968498150b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSwipeForce: {fileID: 0}
+  handSwipeSpeed: {fileID: 0}
   scrollSpeedY: 10
   speedDeceleration: 0.99
   scrollStop: 0.01
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c5dd257b10a3a4fb4e575f09d51849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSwipeForce: {fileID: 0}
+  handSwipeSpeed: {fileID: 0}
   scrollSpeedY: 10
   speedDeceleration: 0.99
   scrollStop: 0.01

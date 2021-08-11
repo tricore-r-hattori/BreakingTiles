@@ -1080,6 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2186534938442499876}
+  - component: {fileID: 4422945419198465617}
   m_Layer: 0
   m_Name: TitleRoot
   m_TagString: Untagged
@@ -1109,6 +1110,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4422945419198465617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272195825453460292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d6f85427cdfd44ea401a99db0c6059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollControllObjectHitCheck: {fileID: 0}
+  scrollControllObject: {fileID: 0}
+  resultObject: {fileID: 0}
+  gamePlayObject: {fileID: 0}
+  tutorialObject: {fileID: 0}
+  titleObject: {fileID: 7272195825453460292}
+  sequenceAnimator: {fileID: 0}
+  soundController: {fileID: 0}
+  WaitTime: 1
 --- !u!1 &7281564243580868748
 GameObject:
   m_ObjectHideFlags: 0

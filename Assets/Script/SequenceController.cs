@@ -28,6 +28,10 @@ public class SequenceController : MonoBehaviour
     [SerializeField]
     GameObject tutorialObject = default;
 
+    // タイトルの全オブジェクトをまとめたオブジェクト
+    [SerializeField]
+    GameObject titleObject = default;
+
     // シーケンスのアニメーター
     [SerializeField]
     Animator sequenceAnimator = default;
@@ -61,10 +65,23 @@ public class SequenceController : MonoBehaviour
             StartCoroutine(WaitTitleSequence());
         }
 
+        // タイトルオブジェクトがアクティブだったらタイトルBGMを流す
+        if (titleObject.activeSelf)
+        {
+            soundController.PlayBGM(SoundController.BGMType.TitleBGM);
+        }
+        
+        // ゲーム中オブジェクトがアクティブだったらゲームプレイBGMを流す
+        if (gamePlayObject.activeSelf)
+        {
+            soundController.PlayBGM(SoundController.BGMType.GamePlayBGM);
+        }
+
         // リザルトオブジェクトがアクティブだったらリザルト遷移音を再生する処理を行う
         if (resultObject.activeSelf)
         {
-            soundController.PlaySound(SoundController.AudioClipType.ResultSequenceSE);
+            soundController.PlaySE(SoundController.SEType.ResultSequenceSE);
+            soundController.PlayBGM(SoundController.BGMType.ResultBGM);
         }
     }
 

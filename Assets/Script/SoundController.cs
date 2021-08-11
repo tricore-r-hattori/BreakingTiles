@@ -10,26 +10,54 @@ public class SoundController : MonoBehaviour
     /// <summary>
     /// 音の素材の種類
     /// </summary>
-    public enum AudioClipType
+    public enum SEType
     {
         BreakTileSE,
         ResultSequenceSE,
     }
 
-    // 音を再生する場所
-    [SerializeField]
-    AudioSource audioSource = default;
+    /// <summary>
+    /// 音の素材の種類
+    /// </summary>
+    public enum BGMType
+    {
+        TitleBGM,
+        GamePlayBGM,
+        ResultBGM,
+    }
 
-    // 音の素材
+    // 効果音を再生する場所
     [SerializeField]
-    List<AudioClip> audioClip = default;
+    AudioSource audioSourceSE = default;
+
+    // BGMを再生する場所
+    [SerializeField]
+    AudioSource audioSourceBGM = default;
+
+    // 効果音の素材
+    [SerializeField]
+    List<AudioClip> audioClipSE = default;
+
+    // BGMの素材
+    [SerializeField]
+    List<AudioClip> audioClipBGM = default;
 
     /// <summary>
-    /// 音を再生
+    /// 効果音を再生
     /// </summary>
     /// <param name="audioClipType">音の素材</param>
-    public void PlaySound(AudioClipType audioClipType)
+    public void PlaySE(SEType audioClipType)
     {
-        audioSource.PlayOneShot(audioClip[(int)audioClipType]);
+        audioSourceSE.PlayOneShot(audioClipSE[(int)audioClipType]);
+    }
+
+    /// <summary>
+    /// BGMを再生
+    /// </summary>
+    /// <param name="audioClipType">音の素材</param>
+    public void PlayBGM(BGMType audioClipType)
+    {
+        audioSourceBGM.clip = audioClipBGM[(int)audioClipType];
+        audioSourceBGM.Play();
     }
 }
