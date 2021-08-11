@@ -304,9 +304,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourceSE: {fileID: 894281416607539740}
   audioSourceBGM: {fileID: 3805719052469775859}
-  audioClip:
+  audioClipSE:
   - {fileID: 8300000, guid: b6c95f8aa2ab3ef41a3cbdbaf118ebd3, type: 3}
   - {fileID: 8300000, guid: d9159acb155932d47b6c0e026578518b, type: 3}
+  audioClipBGM:
   - {fileID: 8300000, guid: f33977c02b0e98a48b904d9c54cbed79, type: 3}
   - {fileID: 8300000, guid: 95f510283ca4cf64fb848593586be5ec, type: 3}
   - {fileID: 8300000, guid: 65d0a7c2a27ea324ab196707f4bd85a0, type: 3}

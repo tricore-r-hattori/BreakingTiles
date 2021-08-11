@@ -68,20 +68,20 @@ public class SequenceController : MonoBehaviour
         // タイトルオブジェクトがアクティブだったらタイトルBGMを流す
         if (titleObject.activeSelf)
         {
-            soundController.PlayBGM(SoundController.AudioClipType.TitleBGM);
+            soundController.PlayBGM(SoundController.AudioClipTypeBGM.TitleBGM);
         }
         
         // ゲーム中オブジェクトがアクティブだったらゲームプレイBGMを流す
         if (gamePlayObject.activeSelf)
         {
-            soundController.PlayBGM(SoundController.AudioClipType.GamePlayBGM);
+            soundController.PlayBGM(SoundController.AudioClipTypeBGM.GamePlayBGM);
         }
 
         // リザルトオブジェクトがアクティブだったらリザルト遷移音を再生する処理を行う
         if (resultObject.activeSelf)
         {
-            soundController.PlaySE(SoundController.AudioClipType.ResultSequenceSE);
-            soundController.PlayBGM(SoundController.AudioClipType.ResultBGM);
+            soundController.PlaySE(SoundController.AudioClipTypeSE.ResultSequenceSE);
+            soundController.PlayBGM(SoundController.AudioClipTypeBGM.ResultBGM);
         }
     }
 
