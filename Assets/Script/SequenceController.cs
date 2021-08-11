@@ -28,6 +28,10 @@ public class SequenceController : MonoBehaviour
     [SerializeField]
     GameObject tutorialObject = default;
 
+    // タイトルの全オブジェクトをまとめたオブジェクト
+    [SerializeField]
+    GameObject titleObject = default;
+
     // シーケンスのアニメーター
     [SerializeField]
     Animator sequenceAnimator = default;
@@ -46,6 +50,11 @@ public class SequenceController : MonoBehaviour
     // タイトルへ遷移するためのトリガー指定文字列
     const string titleTriggerString = "isTitleScene";
 
+
+    void Start()
+    {
+        
+    }
     /// <summary>
     /// アクティブ化した時に1回だけ処理を行う
     /// </summary>
@@ -61,10 +70,24 @@ public class SequenceController : MonoBehaviour
             StartCoroutine(WaitTitleSequence());
         }
 
+        // タイトルオブジェクトがアクティブだったらタイトルBGMを流す
+        if (titleObject.activeSelf)
+        {
+            soundController.PlayBGM(SoundController.AudioClipType.TitleBGM);
+        }
+        
+
+        // ゲーム中オブジェクトがアクティブだったらゲームプレイBGMを流す
+        if (gamePlayObject.activeSelf)
+        {
+            soundController.PlayBGM(SoundController.AudioClipType.GamePlayBGM);
+        }
+
         // リザルトオブジェクトがアクティブだったらリザルト遷移音を再生する処理を行う
         if (resultObject.activeSelf)
         {
-            soundController.PlaySound(SoundController.AudioClipType.ResultSequenceSE);
+            soundController.PlaySE(SoundController.AudioClipType.ResultSequenceSE);
+            soundController.PlayBGM(SoundController.AudioClipType.ResultBGM);
         }
     }
 

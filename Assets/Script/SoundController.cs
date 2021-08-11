@@ -14,22 +14,39 @@ public class SoundController : MonoBehaviour
     {
         BreakTileSE,
         ResultSequenceSE,
+        TitleBGM,
+        GamePlayBGM,
+        ResultBGM,
     }
 
-    // 音を再生する場所
+    // 効果音を再生する場所
     [SerializeField]
-    AudioSource audioSource = default;
+    AudioSource audioSourceSE = default;
+
+    // BGMを再生する場所
+    [SerializeField]
+    AudioSource audioSourceBGM = default;
 
     // 音の素材
     [SerializeField]
     List<AudioClip> audioClip = default;
 
     /// <summary>
-    /// 音を再生
+    /// 効果音を再生
     /// </summary>
     /// <param name="audioClipType">音の素材</param>
-    public void PlaySound(AudioClipType audioClipType)
+    public void PlaySE(AudioClipType audioClipType)
     {
-        audioSource.PlayOneShot(audioClip[(int)audioClipType]);
+        audioSourceSE.PlayOneShot(audioClip[(int)audioClipType]);
+    }
+
+    /// <summary>
+    /// BGMを再生
+    /// </summary>
+    /// <param name="audioClipType">音の素材</param>
+    public void PlayBGM(AudioClipType audioClipType)
+    {
+        audioSourceBGM.clip = audioClip[(int)audioClipType];
+        audioSourceBGM.Play();
     }
 }
