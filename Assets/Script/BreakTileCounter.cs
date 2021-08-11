@@ -9,6 +9,10 @@ using TMPro;
 /// </summary>
 public class BreakTileCounter : MonoBehaviour
 {
+    // 瓦の画像を変換するスクリプトのリスト
+    [SerializeField]
+    List<TileImageChanger> tileImageChanger = default;
+
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
     ScrollControllObjectHitCheck scrollControllObjectHitCheck = default;
@@ -17,16 +21,15 @@ public class BreakTileCounter : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI breakTileScoreText = default;
 
-    // 瓦の画像を変換するスクリプトのリスト
-    [SerializeField]
-    List<TileImageChanger> tileImageChanger = default;
-
     // 音を操作
     [SerializeField]
     SoundController soundController = default;
 
     // カウントする瓦の単位の文字列
-    const string breakTileCountUnitString = "枚";
+    const string BreakTileCountUnitString = "枚";
+
+    // カウントテキストの初期値文字列
+    const string ZeroSheets = "0枚";
 
     /// <summary>
     /// 割った瓦をカウント
@@ -55,6 +58,7 @@ public class BreakTileCounter : MonoBehaviour
     /// </summary>
     void ShowBreakTileScoreText()
     {
+        breakTileScoreText.text = ZeroSheets;
         breakTileScoreText.enabled = true;
     }
 
@@ -73,7 +77,7 @@ public class BreakTileCounter : MonoBehaviour
     void CountBreakTileText()
     {
          BreakTilesCount++;
-         breakTileScoreText.text = BreakTilesCount + breakTileCountUnitString;
+         breakTileScoreText.text = BreakTilesCount + BreakTileCountUnitString;
 
           // 瓦が割れる音を流す
          soundController.PlaySound(SoundController.AudioClipType.BreakTileSE);
