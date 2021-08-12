@@ -558,8 +558,8 @@ MonoBehaviour:
   - {fileID: 8053198438887095488}
   breakTileCounter: {fileID: 0}
   rareTileChangeChecker: {fileID: 0}
-  nowScoreThresholdList: 00000000960000002c010000
-  pastScoreThresholdList: 00000000dc050000b80b0000
+  nowScoreThresholdList: 00000000e8030000d0070000
+  pastScoreThresholdList: 00000000204e0000409c0000
 --- !u!1 &5059429718142488707
 GameObject:
   m_ObjectHideFlags: 0

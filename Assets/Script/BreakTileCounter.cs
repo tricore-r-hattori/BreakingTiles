@@ -5,6 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
+/// 鳴らすタイミングの種類
+/// </summary>
+public enum PlayTimingType
+{
+    Fastest,
+    Fast,
+}
+
+/// <summary>
 /// 割った瓦をカウント
 /// </summary>
 public class BreakTileCounter : MonoBehaviour
@@ -12,6 +21,14 @@ public class BreakTileCounter : MonoBehaviour
     // 瓦の画像を変換するスクリプトのリスト
     [SerializeField]
     List<TileImageChanger> tileImageChanger = default;
+
+    // 割る時の音を鳴らすタイミング
+    [SerializeField]
+    List<float> breakTileSETiming = default;
+
+    // 速度のしきい値
+    [SerializeField]
+    List<float> speedThreshold = default;
 
     // スクロールを操作するためのオブジェクトと当たったか確認する
     [SerializeField]
@@ -24,6 +41,10 @@ public class BreakTileCounter : MonoBehaviour
     // 音を操作
     [SerializeField]
     SoundController soundController = default;
+
+    // 瓦のスクロール処理
+    [SerializeField]
+    TileScroller tileScroller = default;
 
     // カウントする瓦の単位の文字列
     const string BreakTileCountUnitString = "枚";
@@ -54,15 +75,6 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// テキストを表示
-    /// </summary>
-    void ShowBreakTileScoreText()
-    {
-        breakTileScoreText.text = ZeroSheets;
-        breakTileScoreText.enabled = true;
-    }
-
-    /// <summary>
     /// 非アクティブ化した時に1回だけ処理を行う
     /// </summary>
     void OnDisable()
@@ -72,14 +84,53 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
+    /// テキストを表示
+    /// </summary>
+    void ShowBreakTileScoreText()
+    {
+        breakTileScoreText.text = ZeroSheets;
+        breakTileScoreText.enabled = true;
+    }
+
+    /// <summary>
     /// 割った瓦をカウント
     /// </summary>
     void CountBreakTileText()
     {
-         BreakTilesCount++;
-         breakTileScoreText.text = BreakTilesCount + BreakTileCountUnitString;
+        BreakTilesCount++;
+        breakTileScoreText.text = BreakTilesCount + BreakTileCountUnitString;
 
-          // 瓦が割れる音を流す
-         soundController.PlaySE(SoundController.SEType.BreakTileSE);
+        // タイミングよく割った音を再生する処理
+        TimingPlaySE();
+    }
+
+    /// <summary>
+    /// タイミングよく割った音を再生する処理
+    /// </summary>
+    void TimingPlaySE()
+    {
+        // 速度が一定以上に達したら
+        if (tileScroller.GetVelocity.y >= speedThreshold[(int)PlayTimingType.Fastest])
+        {
+            // 任意のタイミングで音を割る鳴らす
+            if (BreakTilesCount % breakTileSETiming[(int)PlayTimingType.Fastest] == 0)
+            {
+                soundController.PlaySE(SoundController.SEType.BreakTileSE);
+            }
+        }
+        // 速度が一定以上に達したら
+        else if (tileScroller.GetVelocity.y >= speedThreshold[(int)PlayTimingType.Fast])
+        {
+            // 任意のタイミングで割る音を鳴らす
+            if (BreakTilesCount % breakTileSETiming[(int)PlayTimingType.Fast] == 0)
+            {
+                soundController.PlaySE(SoundController.SEType.BreakTileSE);
+            }
+        }
+        // 速度が一定以上達していなかったら割る音を鳴らす
+        else
+        {
+            soundController.PlaySE(SoundController.SEType.BreakTileSE);
+        }
     }
 }

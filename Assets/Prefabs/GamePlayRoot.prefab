@@ -934,9 +934,16 @@ MonoBehaviour:
   - {fileID: 4378222457801113979}
   - {fileID: 1169441359166381395}
   - {fileID: 4063990111188620538}
+  breakTileSETiming:
+  - 15
+  - 5
+  speedThreshold:
+  - 40
+  - 5
   scrollControllObjectHitCheck: {fileID: 7221485531394689894}
   breakTileScoreText: {fileID: 3996638395655029090}
   soundController: {fileID: 0}
+  tileScroller: {fileID: 43065382525198517}
 --- !u!1 &6553721670528820571
 GameObject:
   m_ObjectHideFlags: 0
