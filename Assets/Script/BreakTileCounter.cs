@@ -9,7 +9,7 @@ using TMPro;
 /// </summary>
 public enum PlayTimingType
 {
-    Fastest,
+    Normal,
     Fast,
 }
 

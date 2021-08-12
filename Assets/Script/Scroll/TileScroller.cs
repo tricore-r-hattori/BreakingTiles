@@ -32,7 +32,10 @@ public class TileScroller : BaseScroller
     // スクロール時のズレを補正するための変数
     float correctionPosition = 0.0f;
 
-    public Vector3 GetVelocity { get; private set; } = Vector3.zero;
+    /// <summary>
+    /// スクロール速度
+    /// </summary>
+    public Vector3 ScrollVelocity { get; private set; } = Vector3.zero;
 
     /// <summary>
     /// 起動処理
@@ -72,7 +75,7 @@ public class TileScroller : BaseScroller
             // 上方向にスクロール
             tile.position += velocity;
 
-            GetVelocity = velocity;
+            ScrollVelocity = velocity;
 
             // 瓦がスクロール終了地点に到達したら、スクロール開始地点に戻す処理
             if (tile.position.y >= tileScrollEndPoint.position.y)
